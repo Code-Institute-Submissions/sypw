@@ -36,8 +36,65 @@
 </title>
 </head>
 <body>
-    <header class="container-fluid fixed-top"></header>
-
+<header class="container-fluid fixed-top mb-5">
+        <div id="top-nav" class="row bg-none pt-lg-2 d-md-flex">
+            <div class="col-12 col-lg-6 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="font-logo text-darkish my-0">SYPW</h2>
+                </a>
+            </div>
+            <!-- <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>  -->
+            <div class="col-12 col-lg-6 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-darkish nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">App Management</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-darkish nav-link" href="#" id="choose-trainer" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-envelope-open-text fe-lg"></i></div>
+                                <p class="my-0">Messages</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a class="text-darkish nav-link" href="#" id="see-trainings" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-snowboarding fa-lg"></i></div>
+                                <p class="my-0">Holidays</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a class="text-darkish nav-link" href="#" id="plan-meals" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-wallet fa-lg"></i></div>
+                                <p class="my-0">Payslips</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+    </header>
     {% if messages %}
     <div class="message-container"></div>
     {% endif %}
