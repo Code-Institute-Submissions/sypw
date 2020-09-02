@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-<h1 class="display-4 text-success">SYPW</h1>
+{% block page_header %}
 {% endblock %}
+
+{% block content %}
+<div class="container-fluid " id="home-page">
+        <div class="row ">
+            <div class="col-6"></div>
+            <div class="col-6 col-md-4 d-none d-md-block margin-top ">
+                <h2 class="display-4 text-uppercase">
+                   <strong>Sort your paperwork like a boss!</strong>
+                </h2>
+                <div class="my-5">
+                    <h4>
+                        <a href="" class="start-now btn btn-lg rounded-1 text-uppercase py-3">start now</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>{% endblock %}
