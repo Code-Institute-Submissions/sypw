@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+/* ----------------------------------------Colors */
+.text-darkish {
+    color: #1b1a20;
+}
+
+.bg-darkish {
+    background-color: #1b1a20;
+}
+
+.text-blueish {
+    color: #3680ad;
+}
+
+.bg-blueish {
+    background-color: #3680ad;
+}
+
+/* -------------------------------- General styling   */
+.bg-nav {
+    background-color: #3680ad;
+    opacity: 0.7;
+}
+
+.margin-top {
+    margin-top: 17%;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.font-logo {
+    font-family: 'Russo One', sans-serif;
+}
+
+
+/* -------------------------------- Home page  */
+
+#home-page {
+    background-image: url('/media/payday.jpg') ;
+    background-size: cover;
+    z-index: -1;
+    height: 100%;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.start-now {
+    background: black;
+    color: white;
+    min-width: 260px;
+    font-weight: bold;
+}
+
+.start-now:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+    min-width: 260px;
+}
+
+
+/* -------------------------------- Media Queries */
+
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
