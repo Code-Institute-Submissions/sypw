@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'holiday',
+    'payslips',
+    'comunicado',
+
+    'schedule',
+
 ]
 
 MIDDLEWARE = [
@@ -70,7 +76,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request',  #scheduler
                 'django.contrib.auth.context_processors.auth',  #allauth
                 'django.contrib.messages.context_processors.messages',
             ],

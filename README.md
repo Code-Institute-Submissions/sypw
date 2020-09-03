@@ -15,3 +15,4 @@ While making this project I was ralying on the ButiqueAdo app, that was Django p
 
 All the pictures used on this side, unless stated otherwise, come from
 www.unsplash.com, which is a great source of free-to-use photos.
+
