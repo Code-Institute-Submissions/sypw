@@ -32,6 +32,21 @@ body, html {
     margin-top: 17%;
 }
 
+.mr-left {
+    margin-left: 20%;
+}
+
+.text-background {
+    background-color: #9db4c0;
+    /* color: antiquewhite; */
+    opacity: 0.6;
+}
+
+.margin-sites {
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -73,6 +88,18 @@ body, html {
     min-width: 260px;
 }
 
+
+/* ----------------------------------Payslips */
+
+#payslips {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('/media/work_happy.jpg');
+    background-size: cover;
+    z-index: -1;
+}
 
 /* -------------------------------- Media Queries */
 

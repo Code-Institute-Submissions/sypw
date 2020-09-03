@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def payslips(request):
+    """ a view to show payslips page"""
+
+    return render(request, 'payslips/payslips.html')
