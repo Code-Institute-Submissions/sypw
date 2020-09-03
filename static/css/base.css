@@ -101,6 +101,18 @@ body, html {
     z-index: -1;
 }
 
+/* -------------------------------------Footer */
+footer {
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.background-footer {
+    background-color: #9db4c0;
+    /* color: antiquewhite; */
+    /* opacity: 0.7; */
+}
 /* -------------------------------- Media Queries */
 
 
