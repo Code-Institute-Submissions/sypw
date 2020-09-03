@@ -132,24 +132,8 @@ footer {
 }
 
 .background-footer {
-    background-color: #9db4c0;
-    /* color: antiquewhite; */
+    background-color: #5c6b73;
+    color: white;
     /* opacity: 0.7; */
 }
 /* -------------------------------- Media Queries */
-
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
