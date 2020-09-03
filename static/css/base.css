@@ -100,6 +100,29 @@ body, html {
     background-size: cover;
     z-index: -1;
 }
+/* --------------------------------------Holiday */
+
+#holiday {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('/media/holiday.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+/* ------------------------------------- Comunicado */
+
+#comunicado {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: url('/media/holiday_amigos.jpg');
+    background-size: cover;
+    z-index: -1;
+}
 
 /* -------------------------------------Footer */
 footer {

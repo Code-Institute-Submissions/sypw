@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def holiday(request):
+    """ a view to show holidays page"""
+
+    return render(request, 'holiday/holiday.html')
