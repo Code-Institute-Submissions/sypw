@@ -8,9 +8,53 @@
 <div class="container-fluid " id="comunicado">
         <div class="row ">
            <div class="col-12 margin-top">
-                <h3 class="text-center">Here you will be able to see all your messages.</h3>
+                <!-- <h3 class="text-center">Here you will be able to see all your messages.</h3>  -->
+           <!--  -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="accordion" id="message{{message.number}}">
+                        <div class="card">
+                            <div class="card-header" id="subject_{{message.subject}}">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{message.number}}}" aria-expanded="true" aria-controls="collapse{{message.number}}">
+                                Message 1 | {{message.subject}}
+                                </button>
+                                </h2>
+                            </div>
+                            <div id="collapse{{message.number}}" class="collapse show" aria-labelledby="headingOne" data-parent="#message{{message.number}}">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="accordion text-center text-background" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link text-darkish" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            You have no messages yet
+                            </button>
+                        </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapsed" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                        No, seriously, you don't have to check it twice. <br>
+                        No messages at all.
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
            </div>
 
-        </div>
     </div>
+</div>
+
+<script>
+    $('.collapse').collapse()
+</script>
     {% endblock %}
