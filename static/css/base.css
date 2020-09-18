@@ -22,6 +22,7 @@ body, html {
     background-color: #3680ad;
 }
 
+
 /* -------------------------------- General styling   */
 .bg-nav {
     background-color: #e0fbfc;
@@ -111,6 +112,18 @@ body, html {
     background-image: url('/media/holiday.jpg');
     background-size: cover;
     z-index: -1;
+}
+
+#Internal {
+    font-family: 'Russo One', sans-serif;
+}
+
+#Internal a {
+    text-decoration: none;
+}
+
+.my-border {
+    border: 2px solid black;
 }
 
 /* ------------------------------------- Comunicado */

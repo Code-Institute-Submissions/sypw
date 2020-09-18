@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    <section class="container-fluid" id="Internal">
+    <h2 class="sr-only">Internal nav-bar</h2>
+    <div class="row navbar-dark bg-dark">
+        <div class="col-6 my-border">
+            <a href="{% url 'holiday' %}">
+                <h4 class="text-center text-white">Book New Holiday</h4>
+            </a>
+        </div>
+        <div class="col-6 my-border">
+            <a href="{% url 'see_holiday' %}">
+                <h4 class="text-center text-darkish">Check Your Holidays</h4>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid " id="holiday">
+        <div class="row ">
+           <div class="col-12 margin-top">
+            
+
+       
+                <h3 class="text-center">Here will be a calendar where you can see your planned holidays!</h3>
+           </div>
+        </div>
+        </div>
+    {% endblock %}
