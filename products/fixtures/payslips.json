@@ -1,0 +1,16 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "name": "A. Smith",
+            "pay_number": 1,
+            "ni": "AA112233A/A",
+            "tax_code": 1256,
+            "gross_pay": 500,
+            "deductions": 100,
+            "net_pay": 400,
+            "week": 12
+        }
+    }
+]
