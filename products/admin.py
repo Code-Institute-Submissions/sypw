@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Product, Payslip
 
-# Register your models here.
+
+admin.site.register(Product)
+admin.site.register(Payslip)
