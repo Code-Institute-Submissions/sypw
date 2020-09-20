@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'holiday',
     'payslips',
     'comunicado',
+    'checkout',
 
     'schedule',
 
