@@ -33,6 +33,12 @@ body a {
     text-decoration: none;
 }
 
+.text-background {
+    background-color: #9db4c0;
+    /* color: antiquewhite; */
+    opacity: 0.6;
+}
+
 /* -------------------------------- Back to top button   */
 /* The idea for BTT button comes from our Butique-ado project */
 
@@ -62,12 +68,6 @@ body a {
 
 .mr-left {
     margin-left: 20%;
-}
-
-.text-background {
-    background-color: #9db4c0;
-    /* color: antiquewhite; */
-    opacity: 0.6;
 }
 
 .margin-sites {

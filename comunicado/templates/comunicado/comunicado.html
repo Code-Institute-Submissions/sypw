@@ -7,12 +7,12 @@
 {% block content %}
 <div class="container-fluid " id="comunicado">
         <div class="row ">
-           <div class="col-12 margin-top">
+           <div class="col-10 margin-top mx-auto">
                 <!-- <h3 class="text-center">Here you will be able to see all your messages.</h3>  -->
            <!--  -->
             {% if messages %}
                 {% for message in messages %}
-                    <div class="accordion" id="message{{message.number}}">
+                    <div class="accordion my-1" id="message{{message.number}}">
                         <div class="card">
                             <div class="card-header" id="subject_{{message.subject}}">
                                 <h2 class="mb-0">
@@ -65,10 +65,10 @@
     <script type="text/javascript">
     	$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
-		})
+		});
 	</script>
     <script>
-    $('.collapse').collapse()
-</script>
+        $('.collapse').collapse();
+    </script>
 {% endblock %}
 
