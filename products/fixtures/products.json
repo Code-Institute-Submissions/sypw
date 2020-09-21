@@ -5,7 +5,7 @@
         "product_id": 1,
         "fields": {
             "name": "One month subscription",
-            "description": "This is a subscription for one month, you don't need to pay again for next 30 days, to have an access to our service",
+            "description": "This is a subscription for one month, it allows your team to access all our services for next 30 days.",
             "price": 30,
             "additional_info": ""            
         }
@@ -28,9 +28,9 @@
         "product_id": 3,
         "fields": {
             "name": "One year subscription",
-            "description": "This is a subscription for 12 months, you don't need to pay for next year, to keep using our service",
-            "price": 220,
-            "additional_info": ""
+            "description": "This is a subscription for 12 months, you don't need to pay for next year, to keep using our service.",
+            "price": 200,
+            "additional_info": "This is the most popular option between our clients."
         }
     }
 
