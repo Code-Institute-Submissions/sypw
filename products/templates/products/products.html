@@ -10,11 +10,13 @@
         <div class="row mt-5">
             {% for product in products %}
                 <div class="col-12 col-md-4 mt-2">
-                <a href="{% url 'view_bag' %}">
+                
                     <div class="card h-100 text-darkish bg-blueish">
-                        <div class="card-body">
+                        <div class="card-body ">
+                        <a class="dec-none text-darkish" href="{% url 'view_bag' %}">
                             <i class="fas fa-wallet fa-lg"></i> <br>
                             <p class="mb-0 font-logo">{{ product.name }}</p>
+                        </a>
                         </div>
                         {% if product.additional_info %}
                             <div class="row">
@@ -33,10 +35,19 @@
                                 </div>
                             </div>
                         </div>
+                    
+                
+                <form class="form" action="" method="POST">
+                {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <input type="submit" class="btn start-now rounded-0 border-0 text-uppercase mt-5" value="Add to Bag">
+                        </div>
                     </div>
-                </a>
-                </div>
-               
+                </form>
+           </div>
+           </div>
+
             {% endfor %}
             
         </div>

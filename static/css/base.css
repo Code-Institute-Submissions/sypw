@@ -29,6 +29,10 @@ body a {
     opacity: 0.7;
 }
 
+.dec-none {
+    text-decoration: none;
+}
+
 /* -------------------------------- Back to top button   */
 /* The idea for BTT button comes from our Butique-ado project */
 
@@ -98,6 +102,7 @@ body a {
 .main-logo-link {
     width: fit-content;
 }
+
 
 .start-now {
     background: black;
