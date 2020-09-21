@@ -5,6 +5,9 @@ body, html {
     height: 100%;
     font-family: 'Poppins', sans-serif;
 }
+body a {
+    text-decoration: none;
+}
 /* ----------------------------------------Colors */
 .text-darkish {
     color: #1b1a20;
@@ -21,6 +24,8 @@ body, html {
 .bg-blueish {
     background-color: #3680ad;
 }
+
+
 
 
 /* -------------------------------- General styling   */
@@ -151,4 +156,27 @@ footer {
     color: white;
     /* opacity: 0.7; */
 }
+
+/* -------------------------------- Products */
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+#pay_me {
+    background-image: url('/media/this_far.jpg');
+    background-size: cover;
+}
+
+.min_height {
+    min-height: 600px;
+}
+
+
+
 /* -------------------------------- Media Queries */
