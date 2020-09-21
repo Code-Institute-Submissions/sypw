@@ -2,26 +2,30 @@
     {
         "pk": 1,
         "model": "products.product",
+        "product_id": 1,
         "fields": {
             "name": "One month subscription",
             "description": "This is a subscription for one month, you don't need to pay again for next 30 days, to have an access to our service",
             "price": 30,
-            "additional_info": ""
+            "additional_info": ""            
         }
     },
     {
         "pk": 2,
         "model": "products.product",
+        "product_id": 2,
         "fields": {
             "name": "Six months subscription",
             "description": "This is a subscription for six months, you will need to pay again in 180 days, to keep using our service",
             "price": 120,
             "additional_info": ""
+            
         }
     },
     {
         "pk": 3,
         "model": "products.product",
+        "product_id": 3,
         "fields": {
             "name": "One year subscription",
             "description": "This is a subscription for 12 months, you don't need to pay for next year, to keep using our service",
