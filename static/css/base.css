@@ -25,7 +25,25 @@ body a {
     background-color: #3680ad;
 }
 
+.opacity {
+    opacity: 0.7;
+}
 
+/* -------------------------------- Back to top button   */
+/* The idea for BTT button comes from our Butique-ado project */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.btt-link {
+    cursor: pointer;
+}
 
 
 /* -------------------------------- General styling   */
