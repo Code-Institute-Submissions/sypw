@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'comunicado',
     'checkout',
     'products',
+    'bag',
 
     'schedule',
 
