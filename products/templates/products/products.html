@@ -43,13 +43,13 @@
                         </div>
                     
                 
-                <form class="form" action="{% url 'add_to_bag' product.id }" method="POST">
+                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
                     <div class="form-row">
                         <div class="col-12">
                             <input type="submit" class="btn start-now rounded-0 border-0 text-uppercase mt-5" value="Choose this one">
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{  request.path  }}">
+                        <input type="hidden" name="redirect_url" value="submit">
                     </div>
                 </form>
            </div>

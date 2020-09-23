@@ -110,16 +110,16 @@
                         <h5 class="text-center">Our social media</h5>
                         <div class="row text-center">
                         <div class="col-3">
-                            <a class="social" href="https://www.facebook.com/stan.kaczorkiewicz"><i class="fab fa-facebook-square fa-lg"></i></a>
+                            <a class="social" href="https://www.facebook.com/stan.kaczorkiewicz" target="_blank"><i class="fab fa-facebook-square fa-lg"></i></a>
                         </div>
                         <div class="col-3 text-darkish">
-                            <a class="social" href="https://www.linkedin.com/in/stan-kaczorkiewicz-94a146195/"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a class="social" href="https://www.linkedin.com/in/stan-kaczorkiewicz-94a146195/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
                         </div>
                         <div class="col-3 my-auto dec-none text-darkish">
-                            <a class="social" href="https://www.instagram.com/navigare_necesse_est_i_huj/"><i class="fab fa-instagram-square fa-lg"></i></a>
+                            <a class="social" href="https://www.instagram.com/navigare_necesse_est_i_huj/" target="_blank"><i class="fab fa-instagram-square fa-lg"></i></a>
                         </div>
                         <div class="col-3 my-auto dec-none text-darkish">
-                            <a class="social" href=""><i class="fab fa-instagram-square fa-lg"></i></a>
+                            <a onclick="notMine" class="social" href="https://youtu.be/GGU1P6lBW6Q" target="_blank"><i class="fab fa-youtube-square fa-lg"></i></a>
                         </div>
                     </div>
                 </div>
@@ -129,6 +129,10 @@
         {% endblock %}
 
         {% block postloadjs %}
+        <script>
+            notMine():
+                return alert("This is not my Youtube Channel, but it's my favourite composer.")
+        </script>
         {% endblock %}
         
     </body>
