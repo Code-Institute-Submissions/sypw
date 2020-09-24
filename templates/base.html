@@ -130,8 +130,10 @@
 
         {% block postloadjs %}
         <script>
-            notMine():
-                return alert("This is not my Youtube Channel, but it's my favourite composer.")
+            notMine({
+                alert("This is not my Youtube Channel, but it's my favourite composer.")
+            });
+                
         </script>
         {% endblock %}
         

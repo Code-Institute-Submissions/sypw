@@ -11,6 +11,11 @@ def view_bag(request):
 def add_to_bag(request, item_id):
 
     quantity = 1
-    # redirect_url = request.POST.get('redirect_url')
+    redirect_url = 'view_bag'
+    bag = request.session.get('bag', {})
+    bag[item_id] = quantity
 
-    return redirect(reverse('view_bag'))
+    request.session['bag'] = bag
+    # print(request.session['bag'])
+
+    return redirect(redirect_url)

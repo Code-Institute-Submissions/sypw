@@ -192,6 +192,10 @@ footer {
     font-size: 200%;
 }
 
+.social:hover {
+    color: #1b1a20;
+    font-size: 200%;
+}
 /* -------------------------------- Products */
 
 .overlay {
