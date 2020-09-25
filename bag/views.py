@@ -9,8 +9,8 @@ def view_bag(request):
 
 def add_to_bag(request, item_id):
 
-    bag = {}
-    quantity = int(request.POST.get('quantity', 1))
+    # bag = {}
+    quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag')
 
     bag[item_id] = quantity
