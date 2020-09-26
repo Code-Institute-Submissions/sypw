@@ -102,7 +102,7 @@ body a {
     background-image: url('/media/payday.jpg') ;
     background-size: cover;
     z-index: -1;
-    height: 150%;
+    height: 140%;
     width: 100%;
 }
 
@@ -164,7 +164,7 @@ body a {
 /* ------------------------------------- Comunicado */
 
 #comunicado {
-    height: 150%;
+    height: 130%;
     width: 100%;
     top: 0;
     left: 0;
