@@ -221,5 +221,12 @@ footer {
 /* -------------------------------- bag and checkout */
 
 .me-card {
+    
     width: 65%;
+}
+
+.card-picture {
+    max-height: 700px;
+    max-width: 100%;
+    object-fit: cover;
 }
