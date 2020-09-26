@@ -15,9 +15,15 @@
         <div class="row">
             <div class="col">
                 {% if bag_items %}
-                    <div class="table-responsive rounded">
-                    {{ bag_items }}
-                    </div>
+                    <div class="card" style="width: 24rem; object-position: center;">
+                        <img src="/media/pay_good.jpg" class="card-img-top" alt="To all making a good choice we salut you">
+                        <div class="card-body">
+                            <h5 class="card-title">Good choice!</h5>
+                            <div class="text-center">{{ item.name }}</div>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Pay now</a>
+                        </div>
+</div>
                 {% else %}
                     <p class="lead text-white mx-auto">Your bag is empty.</p>
                     <a href="{% url 'products' %}" class="btn start-now rounded-0 btn-lg">
