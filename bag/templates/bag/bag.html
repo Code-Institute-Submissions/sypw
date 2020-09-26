@@ -13,17 +13,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-12 text-center">
                 {% if bag_items %}
-                    <div class="card" style="width: 24rem; object-position: center;">
+                    {% for item in bag_items %}
+                    <div class="card me-card mx-auto my-5">
                         <img src="/media/pay_good.jpg" class="card-img-top" alt="To all making a good choice we salut you">
-                        <div class="card-body">
-                            <h5 class="card-title">Good choice!</h5>
-                            <div class="text-center">{{ item.name }}</div>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="card-body bg-text">
+                            <h5 class="card-title"><strong> Good choice!</strong></h5>
+                            <h6 class="text-center">{{ item.product.name }}</h6>
+                            <p class="card-text">£ {{ item.product.price }} </p>
                             <a href="#" class="btn btn-primary">Pay now</a>
                         </div>
-</div>
+                    </div>
+                    {% endfor %}
                 {% else %}
                     <p class="lead text-white mx-auto">Your bag is empty.</p>
                     <a href="{% url 'products' %}" class="btn start-now rounded-0 btn-lg">
