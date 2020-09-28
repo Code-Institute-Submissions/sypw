@@ -254,3 +254,12 @@ footer {
     background-image: url('/media/good_message.jpg');
     background-size: cover;
 }
+
+#LetThemSmile {
+    /* background-image: url('/media/why_started.jpg'); */
+    margin-top: 10%;
+    object-fit: cover;
+    max-height: 500px;
+    width:100%;
+    opacity: none;
+}

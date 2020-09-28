@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  #scheduler
                 'django.contrib.auth.context_processors.auth',  #allauth
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
                 'bag.context.bag_contents',
             ],
             'builtins': [
