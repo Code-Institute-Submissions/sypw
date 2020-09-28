@@ -9,6 +9,7 @@ body a {
     text-decoration: none;
 }
 /* ----------------------------------------Colors */
+
 .text-darkish {
     color: #1b1a20;
 }
@@ -37,6 +38,10 @@ body a {
     background-color: #9db4c0;
     /* color: antiquewhite; */
     opacity: 0.6;
+}
+
+.bg-easy {
+    background-color: #e0fbfc;
 }
 
 
@@ -229,4 +234,23 @@ footer {
     max-height: 700px;
     max-width: 100%;
     object-fit: cover;
+}
+
+.pay-now {
+    background:  #3680ad;
+    color: black;
+    min-width: 260px;
+    font-weight: bold;
+}
+
+.pay-now:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+    min-width: 260px;
+}
+
+#all_good {
+    background-image: url('/media/good_message.jpg');
+    background-size: cover;
 }

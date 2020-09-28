@@ -1,26 +1,78 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block page_header %}
-    <div class="overlay" id="pay_me"></div>
+<div class="overlay" id="all_good"></div>
 {% endblock %}
-
 {% block content %}
-    <div class="container-fluid min_height">
-        <div class="row">
-            <div class="col text-center">
-                <h4 class="font-logo text-white">Checkout</h4>
+<div class="container-fluid min_height">
+   <div class="row">
+      <div class="col text-center">
+         <h4 class="font-logo text-white">Checkout</h4>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-12 col-lg-8 mx-auto text-white text-center">
+         <p class="text-center text-white">Please fill out the form below to complete your order</p>
+         <form action="{% url 'checkout' %}" id="payment-form" method="POST">
+            {% csrf_token %}
+            <fieldset class="rounded px-3 mb-5">
+               <legend class="fieldset-label small px-2 w-auto">Your Details</legend>
+               {{ order_form.full_name | as_crispy_field }}
+               {{ order_form.email | as_crispy_field }}
+            </fieldset>
+            <fieldset class="rounded px-3 mb-5">
+               <legend class="fieldset-label small px-2 w-auto">Details for VAT recipt</legend>
+               {{ order_form.phone_number | as_crispy_field }}
+               {{ order_form.country | as_crispy_field }}
+               {{ order_form.postcode | as_crispy_field }}
+               {{ order_form.town_or_city | as_crispy_field }}
+               {{ order_form.street_address1 | as_crispy_field }}
+               {{ order_form.street_address2 | as_crispy_field }}
+               {{ order_form.county | as_crispy_field }}
+               <div class="form-check form-check-inline float-right bg-nav text-darkish mr-0">
+                  {% if user.is_authenticated %}
+                  <label class="form-check-label" for="id-save-info text-darkish">Save this information to my profile</label>
+                  <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                  {% else %}
+                  <label class="form-check-label" for="id-save-info">
+                  <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                  <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                  </label>
+                  {% endif %}
+               </div>
+            </fieldset>
+            <fieldset class="px-3">
+               <legend class="fieldset-label small px-2 w-auto">Payment</legend>
+               <!-- A Stripe card element will go here -->
+               <div class="mb-3" id="card-element"></div>
+               <!-- Used to display form errors -->
+               <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+            </fieldset>
+            <div class="submit-button text-center mt-5 mb-2 bg-easy">
+               <a href="{% url 'products' %}" class="btn start-now rounded-0">
+                  <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+               <span class="font-weight-bold">Change your choice</span>
+               </a>
+               <button id="submit-button" class="btn pay-now rounded-0">
+                <span class="font-weight-bold">Complete Order</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+               </button>
+               <p class="small text-danger my-0">
+                  <span class="icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                  </span>
+                  <span>Your card will be charged <strong>£{{ total|floatformat:2 }}</strong></span>
+               </p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-lg-8 my-auto text-center">
-                <p class="text-center text-white">Please fill out the form below to complete your order</p>
-            </div>
-        </div>
-        
-    </div>
+         </form>
+      </div>
+   </div>
+</div>
 {% endblock %}
