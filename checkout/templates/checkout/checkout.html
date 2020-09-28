@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="overlay" id="pay_me"></div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid min_height">
+        <div class="row">
+            <div class="col text-center">
+                <h4 class="font-logo text-white">Checkout</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 my-auto text-center">
+                <p class="text-center">Please fill out the form below to complete your order</p>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}

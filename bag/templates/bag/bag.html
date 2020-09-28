@@ -22,7 +22,7 @@
                             <h5 class="card-title"><strong> Good choice!</strong></h5>
                             <h6 class="text-center">{{ item.product.name }}</h6>
                             <p class="card-text">£ {{ item.product.price }} </p>
-                            <a href="#" class="btn start-now border-1">Pay now</a>
+                            <a href="{% url 'checkout' %}" class="btn start-now border-1">Pay now</a>
                         </div>
                     </div>
                     {% endfor %}
