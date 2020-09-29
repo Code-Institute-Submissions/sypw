@@ -30,7 +30,7 @@ class Order(models.Model):
         Update total each time a line item is added. This functionality may be useful when you will expand your website
         """
 
-        self.order_total
+        self.total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
