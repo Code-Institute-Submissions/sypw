@@ -5,6 +5,7 @@ from django.conf import settings
 
 from products.models import Product
 
+
 class Order(models.Model):
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -23,6 +24,14 @@ class Order(models.Model):
     def _generate_order_number(self):
         """Create unique order id """
         return uuid.uuid4().hex.upper()
+
+    def update_total(self):
+        """
+        Update total each time a line item is added. This functionality may be useful when you will expand your website
+        """
+
+        self.order_total
+        self.save()
 
     def save(self, *args, **kwargs):
         """ This one is to override original save method, in order to set the order number if it has not been set already"""

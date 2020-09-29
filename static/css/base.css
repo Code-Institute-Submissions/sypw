@@ -119,7 +119,7 @@ body a {
 .start-now {
     background: black;
     color: white;
-    min-width: 260px;
+    /* min-width: 260px; */
     font-weight: bold;
 }
 
@@ -127,7 +127,6 @@ body a {
     background: white;
     color: black;
     font-weight: bold;
-    min-width: 260px;
 }
 
 
@@ -239,7 +238,7 @@ footer {
 .pay-now {
     background:  #3680ad;
     color: black;
-    min-width: 260px;
+    /* min-width: 260px; */
     font-weight: bold;
 }
 
@@ -247,7 +246,6 @@ footer {
     background: white;
     color: black;
     font-weight: bold;
-    min-width: 260px;
 }
 
 #all_good {
@@ -262,4 +260,23 @@ footer {
     max-height: 500px;
     width:100%;
     opacity: none;
+}
+
+#change-it {
+    background:  #3680ad;
+    color: black;
+    /* min-width: 60px; */
+    font-weight: bold;
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    z-index: 2;
+    opacity: 0.55;
+}
+
+#change-it:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+    min-width: 60px;
 }
