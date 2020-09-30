@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
 
-    #Other apps
+    # Other apps
     'schedule',
     'crispy_forms',
 
@@ -83,8 +83,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  #scheduler
-                'django.contrib.auth.context_processors.auth',  #allauth
+                'django.template.context_processors.request',  # scheduler
+                'django.contrib.auth.context_processors.auth',  # allauth
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'bag.context.bag_contents',

@@ -20,6 +20,7 @@ class Order(models.Model):
     country = models.CharField(max_length=40, null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_order_number(self):
         """Create unique order id """
@@ -27,10 +28,10 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update total each time a line item is added. This functionality may be useful when you will expand your website
+        Update total each time a line item is added. This functionality may be useful when I will expand my website
         """
-
-        self.total = self.order_total
+        self.order_total = self.lineitem('lineitem_total')
+        self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
