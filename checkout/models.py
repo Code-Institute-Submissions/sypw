@@ -1,5 +1,6 @@
 import uuid
 
+from django.db.models import Sum
 from django.db import models
 from django.conf import settings
 
@@ -30,7 +31,8 @@ class Order(models.Model):
         """
         Update total each time a line item is added. This functionality may be useful when I will expand my website
         """
-        self.order_total = self.lineitem('lineitem_total')
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+
         self.grand_total = self.order_total
         self.save()
 
