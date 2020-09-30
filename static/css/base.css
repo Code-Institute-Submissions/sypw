@@ -236,6 +236,9 @@ footer {
     min-height: 400px;
 }
 
+.min-width {
+    min-width: 60px;
+}
 
 
 /* -------------------------------- bag and checkout */
@@ -292,4 +295,12 @@ footer {
     color: black;
     font-weight: bold;
     /* min-width: 60px; */
+}
+
+
+/* ------------------------------------- Allauth bits */
+
+#login {
+    background-image: url('/media/pay_pay.jpg');
+    background-size: cover;
 }

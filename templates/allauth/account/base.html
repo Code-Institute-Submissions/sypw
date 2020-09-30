@@ -1,1 +1,16 @@
 {% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid min_height">
+        <div class="overlay" id="login"></div>
+        <div class="row">
+            <div class="col-7 my-5 mx-auto">
+                <div class="allauth-form-inner-content ">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="min_height"></div>
+{% endblock %}
