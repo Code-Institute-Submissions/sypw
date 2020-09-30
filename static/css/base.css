@@ -47,7 +47,6 @@ body a {
 
 
 /* -------------------------------- Back to top button   */
-/* The idea for BTT button comes from our Butique-ado project */
 
 .btt-button {
     height: 42px;
@@ -82,10 +81,6 @@ body a {
     margin-left: 20%;
 }
 
-.margin-sites {
-    margin-right: 20%;
-    margin-left: 20%;
-}
 
 /* from Bulma */
 .icon {
@@ -102,6 +97,9 @@ body a {
 
 
 /* -------------------------------- Home page  */
+.break {
+    word-break: break-all;
+}
 
 #home-page {
     background-image: url('/media/payday.jpg') ;
