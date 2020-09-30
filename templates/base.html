@@ -48,26 +48,34 @@
                                 <p class="my-0">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu bg-dark text-blueish border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <a href="" class="dropdown-item">App Management</a>
+                            <a href="" class="text-blueish dropdown-item">App Management</a>
                             {% endif %}
-                            <a href="" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            <a href="" class="text-blueish dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item text-blueish">Logout</a>
                             {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item text-blueish">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item text-blueish">Login</a>
                             {% endif %}
                         </div>
                     </li>
-                    <li class="list-inline-item ">
-                        <a class="text-darkish nav-link" href="{% url 'holiday' %}" id="see-trainings" aria-haspopup="true" aria-expanded="false">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-darkish nav-link" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-snowboarding fa-lg"></i></div>
-                                <p class="my-0">Holidays</p>
+                        <div><i class="fas fa-snowboarding fa-lg"></i></div>
+                            <p class="my-0">My Holidays</p>
                             </div>
                         </a>
+                        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="text-darkish dropdown-item" href="{% url 'holiday' %}" aria-haspopup="true" aria-expanded="false">
+                                <p class="text-blueish my-0">Holiday</p>
+                        </a>
+                            
+                        {% block holinav %}
+                        {% endblock %}
+                            </div>
                     </li>
                     <li class="list-inline-item ">
                         <a class="text-darkish nav-link" href="{% url 'payslips'%}"  aria-haspopup="true" aria-expanded="false">

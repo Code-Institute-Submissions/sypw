@@ -9,13 +9,23 @@
 <div class="container-fluid ">
         <div class="row my-5">
             <div class="col-7 "></div>
-            <div class="h-100 col-10  col-md-4 d-block rounded text-center my-5 mx-auto bg-nav ">
-                <h2 class="display-4 text-uppercase ">
+            <div class="h-100  d-md-none col-10 rounded text-center my-1 mx-auto bg-nav my-border">
+                <h2 class="text-uppercase ">
                    <strong>Sort your papers like a pro!</strong>
                 </h2>
                 <div class="my-5">
                     <h4>
-                        <a href="{% url 'products' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center py-3">start now</a>
+                        <a href="{% url 'products' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="h-100 d-none d-md-block col-md-4 rounded text-center my-5 mx-auto bg-nav my-border">
+                <h2 class="display-4 text-uppercase ">
+                   <strong>Sort your paperwork like a pro!</strong>
+                </h2>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
                     </h4>
                 </div>
             </div>

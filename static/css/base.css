@@ -27,18 +27,18 @@ body a {
 }
 
 .opacity {
-    opacity: 0.7;
+    opacity: 0.95;
 }
 
 .dec-none {
     text-decoration: none;
 }
 
-.text-background {
+/* .text-background {
     background-color: #9db4c0;
     /* color: antiquewhite; */
-    opacity: 0.6;
-}
+    /* opacity: 0.6; */
+/* } */ 
 
 .bg-easy {
     background-color: #e0fbfc;
@@ -75,7 +75,7 @@ body a {
 }
 
 .margin-top {
-    margin-top: 17%;
+    margin-top: 15%;
 }
 
 .mr-left {
@@ -117,7 +117,6 @@ body a {
 .start-now {
     background: black;
     color: white;
-    /* min-width: 260px; */
     font-weight: bold;
 }
 
