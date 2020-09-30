@@ -61,6 +61,24 @@ body a {
     cursor: pointer;
 }
 
+/* -------------------------------- Toasts from bootstrap  */
+
+
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    z-index: 4;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 
 /* -------------------------------- General styling   */
 
@@ -222,8 +240,7 @@ footer {
 /* -------------------------------- bag and checkout */
 
 .me-card {
-    
-    width: 65%;
+    width: 70%;
 }
 
 .card-picture {
@@ -235,7 +252,6 @@ footer {
 .pay-now {
     background:  #3680ad;
     color: black;
-    /* min-width: 260px; */
     font-weight: bold;
 }
 
@@ -262,11 +278,10 @@ footer {
 #change-it {
     background:  #3680ad;
     color: black;
-    /* min-width: 60px; */
     font-weight: bold;
     position: fixed;
     right: 10px;
-    top: 100px;
+    top: 190px;
     z-index: 2;
     opacity: 0.55;
 }
@@ -275,5 +290,5 @@ footer {
     background: white;
     color: black;
     font-weight: bold;
-    min-width: 60px;
+    /* min-width: 60px; */
 }

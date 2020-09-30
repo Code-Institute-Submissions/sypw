@@ -7,14 +7,12 @@
 
 {% block content %}
     <div class="container-fluid min_height">
+        <a href="{% url 'products' %}" class="btn" id="change-it">
+            <span class="text-center">Change <br> my choice</span>
+        </a>
         <div class="row">
             <div class="col mb-0">
                 <h4 class="font-logo text-center mt-4 text-white">Shopping Bag</h4>
-                <!-- <div class="text-right mx-auto mb-0"> -->
-                    <a href="{% url 'products' %}" class="btn" id="change-it">
-                        <span class="text-center">Change <br> my choice</span>
-                    </a>
-                <!-- </div> -->
             </div>
         </div>
         <div class="row">
@@ -27,7 +25,10 @@
                             <h5 class="card-title"><strong> Good choice!</strong></h5>
                             <h6 class="text-center">{{ item.product.name }}</h6>
                             <p class="card-text">£ {{ item.product.price }} </p>
-                            <a href="{% url 'checkout' %}" class="btn w-auto start-now border-1"><h4 class="mx-5"><strong>Pay now</strong> </h4></a>
+                            <a href="{% url 'checkout' %}" class="btn w-auto start-now border-1">
+                            <h4 class="mx-2 d-md-none"><strong>Pay now</strong> </h4>
+                            <h4 class="mx-5 d-none d-md-block"><strong>Pay now</strong> </h4>
+                            </a>
                         </div>
                     </div>
                     {% endfor %}
