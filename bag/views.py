@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from products.models import Product
@@ -13,7 +13,7 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """add specific item to the bag"""
 
-    product = Product.objects.get(pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('', {})
