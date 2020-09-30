@@ -64,6 +64,10 @@ body a {
 
 /* -------------------------------- General styling   */
 
+/* .justify {
+    text-align: justify;
+} */
+
 .text-lg {
     font-size: 200%;
 }
@@ -97,9 +101,7 @@ body a {
 
 
 /* -------------------------------- Home page  */
-.break {
-    word-break: break-all;
-}
+
 
 #home-page {
     background-image: url('/media/payday.jpg') ;
@@ -212,7 +214,7 @@ footer {
 }
 
 .min_height {
-    min-height: 600px;
+    min-height: 400px;
 }
 
 

@@ -6,16 +6,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid min_height text-center">
-        <div class="row">
+    <div class="container-fluid min_height text-center ">
+        <div class="row ">
             <!-- <div class="col-12 col-md-3"></div> -->
             <div class="col-12 col-md-6 mx-auto mt-3">
                 <h4 class="text-center font-logo text-white">Choose your subscription</h4>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row my-5">
             {% for product in products %}
-                <div class="col-12 col-md-4 mt-2">
+                <div class="col-12 col-md-3 mx-auto my-4">
                 
                     <div class="card h-100 text-darkish bg-blueish opacity">
                         <div class="card-body ">
@@ -49,7 +49,7 @@
                         <div class="col-12">
                             <input class="d-none form-control qty_input" type="number" name="quantity" value="1" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
 
-                            <input type="submit" class="btn start-now rounded border-0 text-uppercase mt-5" value="Choose this one">
+                            <input type="submit" class="btn start-now rounded border-0 text-uppercase my-4 py-2 px-4" value="Choose this one">
                         </div>
                     </div>
                 </form>
@@ -59,6 +59,8 @@
             {% endfor %}
             
         </div>
+        <!-- <div class="d-none d-xl-block min_height">
+            </div> -->
     </div>
 
 {% endblock %}
