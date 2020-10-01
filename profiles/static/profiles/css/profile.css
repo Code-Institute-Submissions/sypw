@@ -1,3 +1,13 @@
 #my-profile {
     background-image: url('/media/we_like_you.jpg');
     background-size: cover;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color:  #1b1a20;
+}
+
+#id_default_country option:first-child {
+    color: grey;
+}

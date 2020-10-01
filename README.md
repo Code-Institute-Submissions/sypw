@@ -9,9 +9,15 @@ but it looks like there is a need for more, so why not to make one.
 
 My main assumption is to make it as simple as it's possible, in order to work.
 
+
+# UX
+
+I want this app to be ineractive, intuitive, responsive and user-friendly.
+
+
 # Credit
 
-While making this project I was ralying on the ButiqueAdo app, that was Django project of the Code Institute, that I accomplished few weeks ago.
+While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
 
 All the pictures used on this side, unless stated otherwise, come from
 www.unsplash.com, which is a great source of free-to-use photos.

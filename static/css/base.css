@@ -304,3 +304,36 @@ footer {
     background-image: url('/media/pay_pay.jpg');
     background-size: cover;
 }
+
+.allauth-form-inner-content {
+    margin-top: 2rem;
+    color: #1b1a20;
+}
+
+.allauth-form-inner-content button {
+    background: black;
+    color: white;
+    font-weight: bold;
+    min-width: 120px;
+    margin-top: 1rem;
+}
+
+.allauth-form-inner-content button:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+/* .allauth-form-inner-content input {
+    background: black;
+    color: white;
+    font-weight: bold;
+    min-width: 120px;
+    margin-top: 1rem;
+}
+
+.allauth-form-inner-content input:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+} */
