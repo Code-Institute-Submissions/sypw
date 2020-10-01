@@ -1,3 +1,6 @@
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
@@ -103,9 +106,28 @@ def checkout(request):
     return render(request, template, context)
 
 
+def send_confirmation_email(self, order):
+    """Sent the user confirmation email"""
+    client_email = order.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'order': order})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [client_email]
+    )
+
+
 def checkout_success(request, order_number):
     """Handle all successful checkouts"""
 
+    self.request = request
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -135,6 +157,8 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmaton email has been send to {order.email}. \
         If you can not see it, please check your spam folder. ')
 
+    self.send_confirmation_email(order)
+
     if 'bag' in request.session:
         del request.session['bag']
 
@@ -144,3 +168,4 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+

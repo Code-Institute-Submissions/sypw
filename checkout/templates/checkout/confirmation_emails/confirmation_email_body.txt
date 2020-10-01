@@ -1,0 +1,19 @@
+Hello {{ order.full_name }}
+
+We are sending this email as a confirmation of your order at SYPW.
+Your order information:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.order_date }}
+
+Order Total: {{ order.order_total }}
+
+On our file your phone number appears as: {{ order.phone_number }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order.
+
+Kindest regards,
+
+SYPW Team
