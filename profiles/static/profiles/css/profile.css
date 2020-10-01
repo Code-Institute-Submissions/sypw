@@ -1,3 +1,8 @@
+.order-history {
+    max-height: 400px;
+    overflow-y: auto; 
+}
+
 #my-profile {
     background-image: url('/media/we_like_you.jpg');
     background-size: cover;
