@@ -1,5 +1,11 @@
 from django.http import HttpResponse
 
+from .models import Order, OrderLineItem
+from products.models import Product
+
+import json
+import time
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -25,42 +31,57 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
-        grand_total = round(intent.data.charges[0].amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         for field, value in billing_details.address.items():
             if value == "":
                 billing_details.address[field] = None
 
         order_exist = False
-        try:
-            order = Order.objects.get(
-                full_name__iexact=billing_details.name,
-                email__iexact=billing_details.email,
-                phone_number__iexact=billing_details.phone,
-                postcode__iexact=billing_details.postcode,
-                street_address1__iexact=billing_details.line1,
-                street_address2__iexact=billing_details.line2,
-                town_or_city__iexact=billing_details.city,
-                county__iexact=billing_details.state,
-                country__iexact=billing_details.country,
-                grand_total=grand_total
-            )
-            order_exist = True
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                    full_name__iexact=billing_details.name,
+                    email__iexact=billing_details.email,
+                    phone_number__iexact=billing_details.phone,
+                    street_address1__iexact=billing_details.address.line1,
+                    street_address2__iexact=billing_details.address.line2,
+                    town_or_city__iexact=billing_details.address.city,
+                    postcode__iexact=billing_details.address.postal_code,
+                    county__iexact=billing_details.address.state,
+                    country__iexact=billing_details.address.country,
+                    grand_total=grand_total,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
+                order_exist = True
+                break
+                # return HttpResponse(
+                #     content=f'Webhook received: {event["type"]}',
+                #     status=200)
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exist:
             return HttpResponse(
-                content=f'Webhook received: {event["type"]}',
+                content=f'Webhook received: {event["type"]} | Success! Order already in database!',
                 status=200)
-        except Order.DoesNotExist:
+        else:
+            order = None
             try:
                 order = Order.objects.create(
                     full_name=billing_details.name,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
-                    postcode=billing_details.postcode,
                     street_address1=billing_details.line1,
                     street_address2=billing_details.line2,
                     town_or_city=billing_details.city,
+                    postcode=billing_details.postal_code,
                     county=billing_details.state,
                     country=billing_details.country,
+                    original_bag=bag,
+                    stripe_pid=pid,
                 )
                 for item_id, item_data in json.loads(bag).items():
                     product = Product.objects.get(id=item_id)
@@ -74,11 +95,9 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                     return HttpResponse(
-                        content=f'Webhook received: {event["type"]} | ERROR {e}',
-                        status=500)
-
+                        content=f'Webhook received: {event["type"]} | ERROR {e}',status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | Success! Order already in database!',
+            content=f'Webhook received: {event["type"]} | Success! Order created in webhook!',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
