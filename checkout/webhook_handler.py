@@ -19,6 +19,8 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.succeeded webhook from Stripe
         """
+        intent = event.data.object
+        print(intent)
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
@@ -31,19 +33,5 @@ class StripeWH_Handler:
             content=f'Webhook received: {event["type"]}',
             status=200)
 
-    def send_confirmation_email(self, order):
-        """Sent the user confirmation email"""
-        client_email = order.email
-        subject = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_subject.txt',
-            {'order': order})
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_body.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [client_email]
-        )
+
