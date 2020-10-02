@@ -14,6 +14,9 @@ from pathlib import Path
 
 
 import os
+if os.path.exists("env.py"):
+    import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -182,3 +185,4 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 DEFAULT_FROM_EMAIL = 'sypw_team@gmail.com'
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
