@@ -4,9 +4,10 @@ We are sending this email as a confirmation of your order at SYPW.
 Your order information:
 
 Order Number: {{ order.order_number }}
-Order Date: {{ order.order_date }}
+Order Date: {{ order.date }}
 
-Order Total: {{ order.order_total }}
+Order Total: £{{ order.grand_total }}
+
 
 On our file your phone number appears as: {{ order.phone_number }}.
 

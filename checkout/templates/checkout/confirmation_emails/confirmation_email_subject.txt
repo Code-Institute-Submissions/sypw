@@ -1,1 +1,1 @@
-SYPW Confirmation for Order Number {{ order.order.number }}
+SYPW Confirmation for Order Number {{ order.order_number }}
