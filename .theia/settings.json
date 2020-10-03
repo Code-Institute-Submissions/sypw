@@ -18,5 +18,5 @@
    },
 "emmet.extensionsPath": ".theia",
 "editor.autoSave": "off",
-"python.pythonPath": "/home/gitpod/.pyenv/shims/python"
+"python.pythonPath": "/bin/python3"
 }
