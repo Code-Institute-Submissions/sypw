@@ -17,18 +17,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 col-xl-5 mx-auto">
             <p class="col-8 d-lg-none my-auto mx-auto text-center bg-nav rounded border">Default Profile Information</p>
             <h4 class="d-none d-lg-block my-auto col-8 mx-auto text-center bg-nav rounded border">Default Profile Information</h4>
-            <form class="my-3" action="{% url 'profile'%}" method="POST" id="profile-update-form"> 
+            <form class="my-3 text-center" action="{% url 'profile'%}" method="POST" id="profile-update-form"> 
             {% csrf_token %}
             {{ form|crispy}}
-            <button class="btn my-5 start-now rounded float-right">
+            <button class="btn my-5 start-now rounded">
             Update Information
             </button>
             </form>
         </div>
-        <div class="col-12 col-md-6 ">
+        <div class="col-12 col-md-6 col-xl-5 mx-auto">
             <p class="col-8 d-lg-none my-auto mx-auto text-center bg-nav rounded border">Order History</p>
             <h4 class="d-none d-lg-block my-auto col-8 mx-auto text-center bg-nav rounded border">Order History</h4>
             <div class="order-history my-3 table-responsive rounded bg-nav">

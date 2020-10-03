@@ -233,7 +233,7 @@ footer {
 }
 
 .min_height {
-    min-height: 400px;
+    min-height: 440px;
 }
 
 .min-width {
@@ -271,10 +271,9 @@ footer {
 }
 
 #LetThemSmile {
-    /* background-image: url('/media/why_started.jpg'); */
     margin-top: 10%;
     object-fit: cover;
-    max-height: 500px;
+    max-height: 570px;
     width:100%;
     opacity: none;
 }
@@ -323,17 +322,3 @@ footer {
     color: black;
     font-weight: bold;
 }
-
-/* .allauth-form-inner-content input {
-    background: black;
-    color: white;
-    font-weight: bold;
-    min-width: 120px;
-    margin-top: 1rem;
-}
-
-.allauth-form-inner-content input:hover {
-    background: white;
-    color: black;
-    font-weight: bold;
-} */

@@ -11,6 +11,10 @@
   transition: box-shadow 150ms ease;
 }
 
+.order-confirmation-wrapper {
+    overflow-wrap: break-word;
+}
+
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
