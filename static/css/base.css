@@ -95,6 +95,10 @@ body a {
 	margin-left: 20%;
 }
 
+.font-logo {
+	font-family: 'Russo One', sans-serif;
+}
+
 
 /* from Bulma */
 
@@ -104,10 +108,6 @@ body a {
 	justify-content: center;
 	height: 1.5rem;
 	width: 1.5rem;
-}
-
-.font-logo {
-	font-family: 'Russo One', sans-serif;
 }
 
 
@@ -238,7 +238,11 @@ footer {
 
 
 /* -------------------------------- bag and checkout */
+#good-man {
+    background-image: url('/media/pay_good.jpg');
+    background-size: cover;
 
+}
 .me-card {
 	width: 70%;
 }
