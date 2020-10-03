@@ -1,0 +1,1 @@
+web: gunicorn sypw.wsgi:application
