@@ -2,47 +2,59 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="overlay" id="pay_me"></div>
+    
+<div class="overlay" id="pay_me"></div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid min_height">
-        <a href="{% url 'products' %}" class="btn" id="change-it">
-            <span class="text-center">Change <br> my choice</span>
-        </a>
-        <div class="row">
-            <div class="col mb-0">
-                <h4 class="font-logo text-center mt-4 text-white">Shopping Bag</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
+    
+<div class="container-fluid min_height">
+	<a href="{% url 'products' %}" class="btn" id="change-it">
+		<span class="text-center">Change 
+			<br> my choice
+			</span>
+		</a>
+		<div class="row">
+			<div class="col mb-0">
+				<h4 class="font-logo text-center mt-4 text-white">Shopping Bag</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 text-center">
                 {% if bag_items %}
                     {% for item in bag_items %}
-                    <div class="card me-card mx-auto my-5">
-                        <img src="/media/pay_good.jpg" class="card-img-top card-picture" alt="To all making a good choice we salut you">
-                        <div class="card-body bg-blueish">
-                            <h5 class="card-title"><strong> Good choice!</strong></h5>
-                            <h6 class="text-center">{{ item.product.name }}</h6>
-                            <p class="card-text">£ {{ item.product.price }} </p>
-                            <a href="{% url 'checkout' %}" class="btn w-auto start-now border-1">
-                            <h4 class="mx-2 d-md-none"><strong>Pay now</strong> </h4>
-                            <h4 class="mx-5 d-none d-md-block"><strong>Pay now</strong> </h4>
-                            </a>
-                        </div>
-                    </div>
+                    
+				<div class="card me-card mx-auto my-5">
+					<img src="/media/pay_good.jpg" class="card-img-top card-picture" alt="To all making a good choice we salut you">
+						<div class="card-body bg-blueish">
+							<h5 class="card-title">
+								<strong> Good choice!</strong>
+							</h5>
+							<h6 class="text-center">{{ item.product.name }}</h6>
+							<p class="card-text">£ {{ item.product.price }} </p>
+							<a href="{% url 'checkout' %}" class="btn w-auto start-now border-1">
+								<h4 class="mx-2 d-md-none">
+									<strong>Pay now</strong>
+								</h4>
+								<h4 class="mx-5 d-none d-md-block">
+									<strong>Pay now</strong>
+								</h4>
+							</a>
+						</div>
+					</div>
                     {% endfor %}
                 {% else %}
-                    <p class="lead text-white mx-auto">Your bag is empty.</p>
-                    <a href="{% url 'products' %}" class="btn start-now rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
-                    </a>
+                    
+					<p class="lead text-white mx-auto">Your bag is empty.</p>
+					<a href="{% url 'products' %}" class="btn start-now rounded-0 btn-lg">
+						<span class="icon">
+							<i class="fas fa-chevron-left"></i>
+						</span>
+						<span class="text-uppercase">Keep Shopping</span>
+					</a>
                 {% endif %}
-            </div>
-        </div>
-        
-    </div>
+            
+				</div>
+			</div>
+		</div>
 {% endblock %}

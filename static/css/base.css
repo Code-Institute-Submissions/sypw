@@ -1,324 +1,319 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body,
+html {
+	height: 100%;
+	font-family: 'Poppins', sans-serif;
+}
 
-body, html {
-    height: 100%;
-    font-family: 'Poppins', sans-serif;
-}
 body a {
-    text-decoration: none;
+	text-decoration: none;
 }
+
+
 /* ----------------------------------------Colors */
 
 .text-darkish {
-    color: #1b1a20;
+	color: #1b1a20;
 }
 
 .bg-darkish {
-    background-color: #1b1a20;
+	background-color: #1b1a20;
 }
 
 .text-blueish {
-    color: #3680ad;
+	color: #3680ad;
 }
 
 .bg-blueish {
-    background-color: #3680ad;
+	background-color: #3680ad;
 }
 
 .opacity {
-    opacity: 0.95;
+	opacity: 0.95;
 }
 
 .dec-none {
-    text-decoration: none;
+	text-decoration: none;
 }
-
-/* .text-background {
-    background-color: #9db4c0;
-    /* color: antiquewhite; */
-    /* opacity: 0.6; */
-/* } */ 
 
 .bg-easy {
-    background-color: #e0fbfc;
+	background-color: #e0fbfc;
 }
-
 
 
 /* -------------------------------- Back to top button   */
 
 .btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 5;
+	height: 42px;
+	width: 42px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 5;
 }
 
 .btt-link {
-    cursor: pointer;
+	cursor: pointer;
 }
+
 
 /* -------------------------------- Toasts from bootstrap  */
 
-
 .message-container {
-    position: fixed;
-    top: 80px;
-    right: 15px;
-    z-index: 4;
+	position: fixed;
+	top: 80px;
+	right: 15px;
+	z-index: 4;
 }
 
 .custom-toast {
-    overflow: visible;
+	overflow: visible;
 }
 
 .toast-capper {
-    height: 4px;
+	height: 4px;
 }
-
 
 
 /* -------------------------------- General styling   */
 
-/* .justify {
-    text-align: justify;
-} */
-
 .text-lg {
-    font-size: 200%;
+	font-size: 200%;
 }
 
 .bg-nav {
-    background-color: #e0fbfc;
-    opacity: 0.7;
+	background-color: #e0fbfc;
+	opacity: 0.7;
 }
 
 .margin-top {
-    margin-top: 15%;
+	margin-top: 15%;
 }
 
 .mr-left {
-    margin-left: 20%;
+	margin-left: 20%;
 }
 
 
 /* from Bulma */
+
 .icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+	align-items: center;
+	display: inline-flex;
+	justify-content: center;
+	height: 1.5rem;
+	width: 1.5rem;
 }
 
 .font-logo {
-    font-family: 'Russo One', sans-serif;
+	font-family: 'Russo One', sans-serif;
 }
 
 
 /* -------------------------------- Home page  */
 
-
 #home-page {
-    background-image: url('/media/payday.jpg') ;
-    background-size: cover;
-    height: 130% !important;
+	background-image: url('/media/payday.jpg');
+	background-size: cover;
+	height: 130% !important;
 }
 
 .main-logo-link {
-    width: fit-content;
+	width: fit-content;
 }
 
-
 .start-now {
-    background: black;
-    color: white;
-    font-weight: bold;
+	background: black;
+	color: white;
+	font-weight: bold;
 }
 
 .start-now:hover {
-    background: white;
-    color: black;
-    font-weight: bold;
+	background: white;
+	color: black;
+	font-weight: bold;
 }
 
 
 /* ----------------------------------Payslips */
 
 #payslips {
-    height: 150%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url('/media/work_happy.jpg');
-    background-size: cover;
-    z-index: -1;
+	height: 150%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-image: url('/media/work_happy.jpg');
+	background-size: cover;
+	z-index: -1;
 }
+
+
 /* --------------------------------------Holiday */
 
 #holiday {
-    height: 150%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url('/media/holiday.jpg');
-    background-size: cover;
-    z-index: -1;
+	height: 150%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-image: url('/media/holiday.jpg');
+	background-size: cover;
+	z-index: -1;
 }
 
 #Internal {
-    font-family: 'Russo One', sans-serif;
+	font-family: 'Russo One', sans-serif;
 }
 
 #Internal a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .my-border {
-    border: 2px solid black;
+	border: 2px solid black;
 }
+
 
 /* ------------------------------------- Comunicado */
 
 #comunicado {
-    height: 130%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-image: url('/media/holiday_amigos.jpg');
-    background-size: cover;
-    z-index: -1;
+	height: 130%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-image: url('/media/holiday_amigos.jpg');
+	background-size: cover;
+	z-index: -1;
 }
 
+
 /* -------------------------------------Footer */
+
 footer {
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    font-size: 80%;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	font-size: 80%;
 }
 
 .background-footer {
-    background-color: #5c6b73;
-    color: white;
-    /* opacity: 0.7; */
+	background-color: #5c6b73;
+	color: white;
 }
 
 .social {
-    color: white;
-    font-size: 200%;
+	color: white;
+	font-size: 200%;
 }
 
 .social:hover {
-    color: #1b1a20;
-    font-size: 200%;
+	color: #1b1a20;
+	font-size: 200%;
 }
+
+
 /* -------------------------------- Products */
 
 .overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: -1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: -1;
 }
 
 #pay_me {
-    background-image: url('/media/this_far.jpg');
-    background-size: cover;
+	background-image: url('/media/this_far.jpg');
+	background-size: cover;
 }
 
 .min_height {
-    min-height: 440px;
+	min-height: 440px;
 }
 
 .min-width {
-    min-width: 60px;
+	min-width: 60px;
 }
 
 
 /* -------------------------------- bag and checkout */
 
 .me-card {
-    width: 70%;
+	width: 70%;
 }
 
 .card-picture {
-    max-height: 700px;
-    max-width: 100%;
-    object-fit: cover;
+	max-height: 700px;
+	max-width: 100%;
+	object-fit: cover;
 }
 
 .pay-now {
-    background:  #3680ad;
-    color: black;
-    font-weight: bold;
+	background: #3680ad;
+	color: black;
+	font-weight: bold;
 }
 
 .pay-now:hover {
-    background: white;
-    color: black;
-    font-weight: bold;
+	background: white;
+	color: black;
+	font-weight: bold;
 }
 
 #all_good {
-    background-image: url('/media/good_message.jpg');
-    background-size: cover;
+	background-image: url('/media/good_message.jpg');
+	background-size: cover;
 }
 
 #LetThemSmile {
-    margin-top: 10%;
-    object-fit: cover;
-    max-height: 570px;
-    width:100%;
-    opacity: none;
+	margin-top: 10%;
+	object-fit: cover;
+	max-height: 570px;
+	width: 100%;
+	opacity: none;
 }
 
 #change-it {
-    background:  #3680ad;
-    color: black;
-    font-weight: bold;
-    position: fixed;
-    right: 10px;
-    top: 190px;
-    z-index: 2;
-    opacity: 0.55;
+	background: #3680ad;
+	color: black;
+	font-weight: bold;
+	position: fixed;
+	right: 10px;
+	top: 190px;
+	z-index: 2;
+	opacity: 0.55;
 }
 
 #change-it:hover {
-    background: white;
-    color: black;
-    font-weight: bold;
-    /* min-width: 60px; */
+	background: white;
+	color: black;
+	font-weight: bold;
 }
 
 
 /* ------------------------------------- Allauth bits */
 
 #login {
-    background-image: url('/media/pay_pay.jpg');
-    background-size: cover;
+	background-image: url('/media/pay_pay.jpg');
+	background-size: cover;
 }
 
 .allauth-form-inner-content {
-    margin-top: 2rem;
-    color: #1b1a20;
+	margin-top: 2rem;
+	color: #1b1a20;
 }
 
 .allauth-form-inner-content button {
-    background: black;
-    color: white;
-    font-weight: bold;
-    min-width: 120px;
-    margin-top: 1rem;
+	background: black;
+	color: white;
+	font-weight: bold;
+	min-width: 120px;
+	margin-top: 1rem;
 }
 
 .allauth-form-inner-content button:hover {
-    background: white;
-    color: black;
-    font-weight: bold;
+	background: white;
+	color: black;
+	font-weight: bold;
 }

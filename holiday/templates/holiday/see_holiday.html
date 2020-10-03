@@ -2,41 +2,27 @@
 {% load static %}
 
 {% block page_header %}
-    <!-- <section class="container-fluid" id="Internal">
-    <h2 class="sr-only">Internal nav-bar</h2>
-    <div class="row navbar-dark bg-dark">
-        <div class="col-12 col-md-6 my-border">
-            <a href="{% url 'holiday' %}">
-                <h4 class="text-center text-white">Book New Holiday</h4>
-            </a>
-        </div>
-        <div class="col-12 col-md-6 my-border">
-            <a href="{% url 'see_holiday' %}">
-                <h4 class="text-center text-darkish">Check Your Holidays</h4>
-            </a>
-        </div>
-    </div>
-
-</section> -->
+    
 
 {% endblock %}
 
 {% block holinav %}
-          <a class="dropdown-item text-blueish" href="{% url 'holiday' %}">Book Holiday</a>
-          <a class="dropdown-item text-blueish" href="{% url 'see_holiday' %}">See holiday</a>
-          <!-- <div class="dropdown-divider"></div> -->
-          <!-- <a class="dropdown-item d-none disabled" href="#">Something else here</a> -->
+          
+<a class="dropdown-item text-blueish" href="{% url 'holiday' %}">Book Holiday</a>
+<a class="dropdown-item text-blueish" href="{% url 'see_holiday' %}">See holiday</a>
+          
 {% endblock %}
 
 {% block content %}
+
 <div class="container-fluid " id="holiday">
-        <div class="row text-center">
-            <div class="col-5 mx-auto ">
-                <h4 class="font-logo my-4 text-uppercase">Check Holiday</h4>
-            </div>
-           <div class="col-10 mx-auto margin-top">
-                <h3 class="my-border bg-nav">Here we will place a calendar where you can see your planned holidays!</h3>
-           </div>
-        </div>
-        </div>
+	<div class="row text-center">
+		<div class="col-5 mx-auto ">
+			<h4 class="font-logo my-4 text-uppercase">Check Holiday</h4>
+		</div>
+		<div class="col-10 mx-auto margin-top">
+			<h3 class="my-border bg-nav">Here we will place a calendar where you can see your planned holidays!</h3>
+		</div>
+	</div>
+</div>
     {% endblock %}

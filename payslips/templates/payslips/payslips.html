@@ -5,49 +5,53 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="container-fluid " id="payslips">
-        <div class="row ">
-            <div class="col-12 text-center text-uppercase text-white">
-                <h4 class="font-logo my-4">Payslips</h4>
-            </div>
+	<div class="row ">
+		<div class="col-12 text-center text-uppercase text-white">
+			<h4 class="font-logo my-4">Payslips</h4>
+		</div>
             {% if not payslips %}
-            <div class="col-8 text-center margin-top mx-auto bg-nav">
-                <h2>You don't have any payslips yet!</h2>
-                <p class="text-muted">Please contact your manager if you think it's wrong.</p>
-            </div>
+            
+		<div class="col-8 text-center margin-top mx-auto bg-nav">
+			<h2>You don't have any payslips yet!</h2>
+			<p class="text-muted">Please contact your manager if you think it's wrong.</p>
+		</div>
             {% else %}
                 {% for payslip in payslips %}
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                
+		<div class="accordion" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             Payslip for week 'week_number'
                             </button>
-                        </h2>
-                        </div>
-
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
+					</h2>
+				</div>
+				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+					<div class="card-body">
                             Here is your payslip
                         </div>
-                        </div>
-                    </div>
-                </div>
+				</div>
+			</div>
+		</div>
                 {% endfor %}
             {% endif %}
 
-        </div>
-    </div>
-    <div class="btt-button shadow-sm rounded border border-black">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
-        </a>	
-    </div>
+        
+	</div>
+</div>
+<div class="btt-button shadow-sm rounded border border-black">
+	<a class="btt-link d-flex h-100">
+		<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
+	</a>
+</div>
     {% endblock %}
 
 {% block postloadjs %}
-    <script type="text/javascript">
+    
+<script type="text/javascript">
     	$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		})

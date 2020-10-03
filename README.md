@@ -15,6 +15,8 @@ My main assumption is to make it as simple as it's possible, in order to work.
 I want this app to be ineractive, intuitive, responsive and user-friendly.
 
 
+To beautify my code I used: https://codebeautify.org/
+
 # Credit
 
 While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
