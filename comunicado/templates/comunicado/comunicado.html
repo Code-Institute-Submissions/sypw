@@ -17,68 +17,34 @@
 		<div class="col-5 mx-auto text-center text-uppercase ">
 			<h4 class="font-logo my-4 bg-nav">Messages</h4>
 		</div>
-		<div class="col-10 my-auto mx-auto">
+		<div class="col-10  my-auto mx-auto">
 
-            <h2 class="jumbotron bg-nav text-center my-auto">
-                Currently active subjects: {{count}}
+            <h2 class="jumbotron col-lg-8 bg-nav text-center mx-auto my-auto">
+                Currently active topics: {{count}}
                 <form method="POST" action="{% url 'addInForum' %}">
                     {% csrf_token %}
                 <button class="btn start-now mx-2">Add more</button>
                 </form>
             </h2>
-            <div class="col-10 margin-top mx-auto min_height">
-            
-            
-            <!-- {%for forum in forums %}
-            
-                <div class="card box container-fluid bg-nav">
-                    <br>
-                    <div class="card-title">
-                        <a class="text-darkish text-center" href="{% url 'addInDiscussion' %} "><h4>{{forum.topic}}</h4></a> 
-                        <div class="card-body container-fluid">
-                                <p>{{forum.description}}</p>
-                            <hr>
-                            <p class="text-muted col-3"><small> By: {{forum.name}} </small></p><small class="col-3">
-                            email- {{forum.email}} </small>
-                            <hr>     
-                            <h5>Views from other users:</h5>
-                            {%for discuss in discussions%}
-                                {%for objs in discuss%}  
-                                    {% if objs.forum == forum %}
-                                        {{ objs.discuss }}
-                                        <br>
-                                    {% endif %}
-                                {%endfor%}
-                            {%endfor%}
-                            <form method="POST" action="{% url 'addInDiscussion' %}">
-                                {% csrf_token %}
-                            <button class="btn start-now mx-2">Add more</button>
-                            </form>
-                        </div>
-                </div>
-            </div>
-            <br>
-            
-            {%endfor%} -->
-        <!-- </div> -->
-            
+            <div class="col-10 margin-top mx-auto min_height my-5">
+
             {% for forum in forums %}
 
-			 <div class="accordion text-center bg-nav" id="accordionEmpty"> 
+			 <div class="accordion text-center bg-nav my-2" id="accordion{{count}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0">
-							<button class="btn btn-link text-darkish" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<button class="btn btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{count}}" aria-expanded="true" aria-controls="forum{{count}}">
                             {{ forum.topic }}
                             </button>
 						</h2>
 					</div>
-					<div id="collapseOne" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordionEmpty">
+					<div id="forum{{count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{count}}">
 						<div class="card-body">
                         {{forum.description}} 
                         <h5 class="text-center">Views from other users:</h5>
-                            {%for discuss in discussions%}
-                                {%for objs in discuss%}  
+                            {% for discuss in discussions%}
+                                {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
                                     <div class="row">
                                     <div class="col-8">
@@ -88,8 +54,10 @@
                                         {{ objs.nick }}
                                     </div>
                                     </div>
+                                    <hr>
                                     {% endif %}
                                 {%endfor%}
+                                
                             {%endfor%}
                             <hr>
 
@@ -125,7 +93,10 @@
 		});
 	</script>
 	<script>
-        $(this).collapse();
+        $(document).ready(function() {
+            $('select').material_select();
+            $(".button-collapse").sideNav();  
+            });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 {% endblock %}
