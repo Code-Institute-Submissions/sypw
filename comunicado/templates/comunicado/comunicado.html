@@ -30,19 +30,24 @@
 
             {% for forum in forums %}
 
-			 <div class="accordion text-center bg-nav my-2" id="accordion{{count}}"> 
+			 <div class="accordion  bg-nav my-2" id="accordion{{forum.count}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
-						<h2 class="mb-0">
-							<button class="btn btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{count}}" aria-expanded="true" aria-controls="forum{{count}}">
+						<h2 class="mb-0 text-center">
+							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{forum.count}}" aria-expanded="false" aria-controls="forum{{forum.count}}">
                             {{ forum.topic }}
+
                             </button>
-						</h2>
+                            </h2>
+                            <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
+                            Email- {{forum.email}} </small>
+                            </div>
+						
 					</div>
-					<div id="forum{{count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{count}}">
-						<div class="card-body">
-                        {{forum.description}} 
-                        <h5 class="text-center">Views from other users:</h5>
+					<div id="forum{{forum.count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{forum.count}}">
+						<div class="card-body text-center">
+                        {{forum.description}} <hr>
+                        <h5 class="text-left text-black">Views from other users:</h5> <hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
@@ -60,15 +65,12 @@
                                 
                             {%endfor%}
                             <hr>
-
-                        <div class="text-muted "><small> By: {{forum.name}}. &emsp;
-                            Email- {{forum.email}} </small>
+                        
                             <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                             <button class="btn start-now mx-2">Add more</button>
                             </form>
                             
-                        </div>
 							</div>
 						</div>
 					</div>
@@ -93,10 +95,9 @@
 		});
 	</script>
 	<script>
-        $(document).ready(function() {
-            $('select').material_select();
-            $(".button-collapse").sideNav();  
-            });
+        $('#accordion').collapse({
+            toggle: false
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 {% endblock %}

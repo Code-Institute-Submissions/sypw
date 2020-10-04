@@ -17,6 +17,6 @@
       "**/.theia": true,
    },
 "emmet.extensionsPath": ".theia",
-"editor.autoSave": "off",
+"editor.autoSave": "on",
 "python.pythonPath": "/bin/python3"
 }
