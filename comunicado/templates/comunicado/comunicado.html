@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block page_header %}
 <div class="overlay" id="comunicado"></div>
-
 {% endblock %}
 
 {% block content %}
@@ -25,7 +29,7 @@
             <div class="col-10 margin-top mx-auto min_height">
             
             
-            {%for forum in forums %}
+            <!-- {%for forum in forums %}
             
                 <div class="card box container-fluid bg-nav">
                     <br>
@@ -55,52 +59,58 @@
             </div>
             <br>
             
-            {%endfor%}
-        </div>
-            <!-- {% if messages %}
-                {% for message in messages %}
-                    
-			<div class="accordion my-1" id="message{{message.number}}">
-				<div class="card">
-					<div class="card-header" id="subject_{{message.subject}}">
-						<h2 class="mb-0">
-							<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{message.number}}}" aria-expanded="true" aria-controls="collapse{{message.number}}">
-                                Message 1 | {{message.subject}}
-                                </button>
-						</h2>
-					</div>
-					<div id="collapse{{message.number}}" class="collapse show" aria-labelledby="headingOne" data-parent="#message{{message.number}}">
-						<div class="card-body"></div>
-					</div>
-				</div>
-			</div>
-                {% endfor %}
-            {% else %}
-                
-			<div class="accordion text-center text-background" id="accordionEmpty">
+            {%endfor%} -->
+        <!-- </div> -->
+            
+            {% for forum in forums %}
+
+			 <div class="accordion text-center bg-nav" id="accordionEmpty"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0">
 							<button class="btn btn-link text-darkish" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            You have no messages yet
+                            {{ forum.topic }}
                             </button>
 						</h2>
 					</div>
-					<div id="collapseOne" class="collapsed" aria-labelledby="headingOne" data-parent="#accordionEmpty">
+					<div id="collapseOne" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordionEmpty">
 						<div class="card-body">
-                        No, seriously, you don't have to check it twice. 
-							<br>
-                        No messages at all.
-                        
+                        {{forum.description}} 
+                        <h5 class="text-center">Views from other users:</h5>
+                            {%for discuss in discussions%}
+                                {%for objs in discuss%}  
+                                    {% if objs.forum == forum %}
+                                    <div class="row">
+                                    <div class="col-8">
+                                        {{ objs.discuss }}
+                                    </div>
+                                    <div class="col-4">
+                                        {{ objs.nick }}
+                                    </div>
+                                    </div>
+                                    {% endif %}
+                                {%endfor%}
+                            {%endfor%}
+                            <hr>
+
+                        <div class="text-muted "><small> By: {{forum.name}}. &emsp;
+                            Email- {{forum.email}} </small>
+                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                                {% csrf_token %}
+                            <button class="btn start-now mx-2">Add more</button>
+                            </form>
+                            {% if user==superuser %}
+                            {% endif %}
+                        </div>
 							</div>
 						</div>
 					</div>
 				</div>
-            {% endif %}
-            --></div>
+            {% endfor %}
+                </div>
 			</div>
 		</div>
-	<!-- </div> -->
+	</div>
 	<div class="btt-button shadow-sm rounded border border-black">
 		<a class="btt-link d-flex h-100">
 			<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
@@ -116,7 +126,7 @@
 		});
 	</script>
 	<script>
-        $('.collapse').collapse();
+        $(this).collapse();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 {% endblock %}

@@ -8,10 +8,10 @@
 
     <div class="container-fluid " id="comunicado">
         <div class="row ">
-            <div class="col-5 mx-auto text-center text-uppercase ">
+            <div class="col-2 col-md-7 mx-auto text-center text-uppercase ">
                 <h4 class="font-logo my-4 bg-nav">Start new Topic</h4>
             </div>
-            <div class="col-10 margin-top mx-auto">
+            <div class="col-10 col-md-8 col-lg-7 text-center my-5 mx-auto">
                 <form action="{% url 'addInForum' %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
