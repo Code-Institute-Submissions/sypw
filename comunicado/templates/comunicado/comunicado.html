@@ -2,18 +2,64 @@
 {% load static %}
 
 {% block page_header %}
+<div class="overlay" id="comunicado"></div>
+
 {% endblock %}
 
 {% block content %}
 
-<div class="container-fluid " id="comunicado">
+<div class="container-fluid ">
 	<div class="row ">
 		<div class="col-5 mx-auto text-center text-uppercase ">
 			<h4 class="font-logo my-4 bg-nav">Messages</h4>
 		</div>
 		<div class="col-10 margin-top mx-auto">
 
-            {% if messages %}
+            <h2 class="jumbotron bg-nav">
+                Currently active forums: {{count}}
+                <form method="POST" action="{% url 'addInForum' %}">
+                    {% csrf_token %}
+                <button class="btn start-now mx-2">Add more</button>
+                </form>
+            </h2>
+            <div class="col-10 margin-top mx-auto min_height">
+                <div class="card ">
+            
+            
+            {%for forum in forums %}
+            
+                <div class="card box container-fluid bg-nav">
+                    <br>
+                    <div class="card-title">
+                        <a class="text-darkish text-center" href="{% url 'addInDiscussion' %} "><h4>{{forum.topic}}</h4></a> 
+                        <div class="card-body container-fluid">
+                                <p>{{forum.description}}</p>
+                            <hr>
+                            <p class="text-muted"><small> By: {{forum.name}} </small></p><small>
+                            email- {{forum.email}} </small>
+                            <hr>     
+                            <h5>Views from other users:</h5>
+                            {%for discuss in discussions%}
+                                {%for objs in discuss%}  
+                                    {% if objs.forum == forum %}
+                                        {{ user.name }}
+                                        {{ objs.discuss }}
+                                        <br>
+                                    {% endif %}
+                                {%endfor%}
+                            {%endfor%}
+                            <form method="POST" action="{% url 'addInDiscussion' %}">
+                                {% csrf_token %}
+                            <button class="btn start-now mx-2">Add more</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+            <br>
+            
+            {%endfor%}
+        </div>
+            <!-- {% if messages %}
                 {% for message in messages %}
                     
 			<div class="accordion my-1" id="message{{message.number}}">
@@ -53,7 +99,7 @@
 					</div>
 				</div>
             {% endif %}
-           
+            --></div>
 			</div>
 		</div>
 	</div>
@@ -74,5 +120,5 @@
 	<script>
         $('.collapse').collapse();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 {% endblock %}
-

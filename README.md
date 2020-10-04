@@ -1,4 +1,4 @@
-# SYPW
+# Sort Your Paperwork (SYPW)
 ## Milestone Project 4 by Stan Kaczorkiewicz
 
 The main idea behind this project is the conversation I once had with my
@@ -15,12 +15,12 @@ My main assumption is to make it as simple as it's possible, in order to work.
 I want this app to be ineractive, intuitive, responsive and user-friendly.
 
 
-To beautify my code I used: https://codebeautify.org/
+To beautify my code I used [that program](https://codebeautify.org/)
 
 # Credit
 
 While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
 
-All the pictures used on this side, unless stated otherwise, come from
-www.unsplash.com, which is a great source of free-to-use photos.
+All the pictures used on this side, unless stated otherwise, come from [here](www.unsplash.com), which is a great source of free-to-use photos.
 
+The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/)

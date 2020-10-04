@@ -78,6 +78,14 @@ body a {
 
 /* -------------------------------- General styling   */
 
+.min_height {
+	min-height: 440px;
+}
+
+.min-width {
+	min-width: 60px;
+}
+
 .text-lg {
 	font-size: 200%;
 }
@@ -228,13 +236,6 @@ footer {
 	background-size: cover;
 }
 
-.min_height {
-	min-height: 440px;
-}
-
-.min-width {
-	min-width: 60px;
-}
 
 
 /* -------------------------------- bag and checkout */
