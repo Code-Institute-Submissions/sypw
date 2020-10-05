@@ -102,9 +102,9 @@ def deleteInForum(request, forum_id):
     return redirect(reverse('comunicado'))
 
 
-def deleteInDiscussion(request, forum_id):
+def deleteInDiscussion(request, discussion_id):
     """ Delete whole forum"""
-    discussion = get_object_or_404(forum, pk=forum_id)
+    discussion = get_object_or_404(Discussion, pk=discussion_id)
     discussion.delete()
-    messages.success(request, "Forum deleted successfuly!")
+    messages.success(request, "Answer deleted successfuly!")
     return redirect(reverse('comunicado'))
