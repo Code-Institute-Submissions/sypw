@@ -52,11 +52,14 @@
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
                                     <div class="row">
-                                    <div class="col-8">
+                                    <div class="col-6">
                                         {{ objs.discuss }}
                                     </div>
                                     <div class="col-4">
                                         {{ objs.nick }}
+                                    </div>
+                                    <div class="col-2">
+                                    <a href="{% url 'editInDiscussion' forum.id %}" class="start-now btn rounded">Edit</a>
                                     </div>
                                     </div>
                                     <hr>
@@ -69,8 +72,8 @@
                             <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                             <button class="btn start-now mx-2">Add more</button>
+                            <a href="{% url 'editInForum' forum.id %}" class="start-now btn rounded">Edit Forum</a>
                             </form>
-                            
 							</div>
 						</div>
 					</div>
