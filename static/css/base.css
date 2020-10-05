@@ -237,16 +237,16 @@ footer {
 }
 
 
-
 /* -------------------------------- bag and checkout */
+
 #good-man {
     background-image: url('/media/pay_good.jpg');
     background-size: contain;
     min-height: 400px;
     max-height: 100%;
     width: 100%;
-
 }
+
 .me-card {
 	width: 70%;
 }

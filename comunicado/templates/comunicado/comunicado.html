@@ -47,7 +47,7 @@
 					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
 						<div class="card-body text-center">
                         {{forum.description}} <hr>
-                        <h5 class="text-left text-black">Views from other users:</h5> <hr>
+                        <h5 class="text-left text-black">Messages from other users:</h5> <hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
