@@ -15,7 +15,7 @@
 <div class="container-fluid ">
 	<div class="row ">
 		<div class="col-5 mx-auto text-center text-uppercase ">
-			<h4 class="font-logo my-4 bg-nav">Messages</h4>
+			<h4 class="font-logo my-4 bg-nav">Company Forum</h4>
 		</div>
 		<div class="col-10  my-auto mx-auto">
 
@@ -23,14 +23,14 @@
                 Currently active topics: {{count}}
                 <form method="POST" action="{% url 'addInForum' %}">
                     {% csrf_token %}
-                <button class="btn start-now mx-2">Add more</button>
+                <button class="btn start-now mx-2">Add new topic</button>
                 </form>
             </h2>
             <div class="col-10 margin-top mx-auto min_height my-5">
 
             {% for forum in forums %}
                 {% if request.user.is_superuser %}
-			 <div class="accordion  bg-nav my-2" id="accordion-{{forloop.counter}}"> 
+			 <div class="accordion  bg-easy my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0 text-center">
@@ -71,9 +71,9 @@
                         
                             <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
-                            <button class="btn start-now mx-2">Add more</button>
+                            <button class="btn start-now mx-2">Add your opinion</button>
                            
-                            <a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Forum</a>
+                            <a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
                             </form>
 							</div>
 						</div>
@@ -97,7 +97,7 @@
 					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
 						<div class="card-body text-center">
                         {{forum.description}} <hr>
-                        <h5 class="text-left text-black">Views from other users:</h5> <hr>
+                        <h5 class="text-left text-black">Messages from other users:</h5> <hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
@@ -118,7 +118,7 @@
                         
                             <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
-                            <button class="btn start-now mx-2">Add more</button>
+                            <button class="btn start-now mx-2">Add your message</button>
                             </form>
 							</div>
 						</div>
