@@ -30,11 +30,11 @@
 
             {% for forum in forums %}
                 {% if request.user.is_superuser %}
-			 <div class="accordion  bg-nav my-2" id="accordion{{forum.count}}"> 
+			 <div class="accordion  bg-nav my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0 text-center">
-							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{forum.count}}" aria-expanded="false" aria-controls="forum{{forum.count}}">
+							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
                             {{ forum.topic }}
 
                             </button>
@@ -44,7 +44,7 @@
                             </div>
 						
 					</div>
-					<div id="forum{{forum.count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{forum.count}}">
+					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
 						<div class="card-body text-center">
                         {{forum.description}} <hr>
                         <h5 class="text-left text-black">Views from other users:</h5> <hr>
@@ -80,11 +80,11 @@
 					</div>
 				</div>
                 {% else %}
-                <div class="accordion  bg-nav my-2" id="accordion{{forum.count}}"> 
+                <div class="accordion  bg-nav my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0 text-center">
-							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{forum.count}}" aria-expanded="false" aria-controls="forum{{forum.count}}">
+							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
                             {{ forum.topic }}
 
                             </button>
@@ -94,7 +94,7 @@
                             </div>
 						
 					</div>
-					<div id="forum{{forum.count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{forum.count}}">
+					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
 						<div class="card-body text-center">
                         {{forum.description}} <hr>
                         <h5 class="text-left text-black">Views from other users:</h5> <hr>
@@ -145,7 +145,7 @@
 		});
 	</script>
 	<script>
-        $('#accordion').collapse({
+        $('#accordion{{forloop.counter}}').collapse({
             toggle: false
         });
     </script>

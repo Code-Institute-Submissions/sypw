@@ -15,7 +15,6 @@
                 <form action="{% url 'editInForum' forum.id %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <!-- <input type="submit" class="btn start-now" value="submit"> -->
                     <div class="text-right">
                         <a href="{% url 'comunicado'%}" class="start-now btn rounded">Cancel</a>
                         <button class="btn start-now" type="submit">Update Forum</button>
@@ -39,8 +38,5 @@
 			window.scrollTo(0,0)
 		});
 	</script>
-	<script>
-        $('.collapse').collapse();
-    </script>
 {% endblock %}
 

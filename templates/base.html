@@ -58,8 +58,7 @@
 												<div class="dropdown-menu bg-dark text-blueish border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                            <!-- This option has been left for future version of the app, where user with class 'manager' will be able to create new cluster, adding and removing holidays, adding payslips etc. -->
-													<a href="" class="text-blueish dropdown-item">App Management</a>
+													<a href="{% url 'profile' %}" class="text-blueish dropdown-item">App Management</a>
                             {% endif %}
                             
 													<a href="{% url 'profile' %}" class="text-blueish dropdown-item">My Profile</a>
