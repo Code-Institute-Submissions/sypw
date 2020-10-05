@@ -6,7 +6,7 @@
             "name": "One month subscription",
             "description": "This is a subscription for one month, it allows your team to access all our services for next 30 days.",
             "price": 30,
-            "additional_info": ""            
+            "additional_info": "Good option if you just want to try!"
         }
     },
     {
@@ -16,7 +16,7 @@
             "name": "Six months subscription",
             "description": "This is a subscription for six months, you will need to pay again in 180 days, to keep using our service",
             "price": 120,
-            "additional_info": ""
+            "additional_info": "Popular in companies with less than 20 employees"
             
         }
     },
