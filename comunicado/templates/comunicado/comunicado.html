@@ -30,7 +30,7 @@
 
             {% for forum in forums %}
                 {% if request.user.is_superuser %}
-			 <div class="accordion  bg-easy my-2" id="accordion-{{forloop.counter}}"> 
+			 <div class="accordion bg-easy my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0 text-center">
@@ -44,7 +44,7 @@
                             </div>
 						
 					</div>
-					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
+					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
 						<div class="card-body text-center">
                         {{forum.description}} <hr>
                         <h5 class="text-left text-black">Views from other users:</h5> <hr>
