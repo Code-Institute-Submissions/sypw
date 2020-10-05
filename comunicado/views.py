@@ -49,25 +49,25 @@ def addInDiscussion(request):
     return render(request, 'comunicado/addInDiscussion.html', context)
 
 
-def editInForum(request, forum_id):
-    "Edit the Forum"
-    Forum = get_object_or_404(forum, pk=forum_id)
-    form = CreateInForum(instance=forum)
-    messages.info(request, f'You are editing {forum.topic}')
-    # topic = forum.topic
-    # description = forum.description
+# def editInForum(request, forum_id):
+#     "Edit the Forum"
+#     Forum = get_object_or_404(forum, pk=forum_id)
+#     form = CreateInForum(instance=forum)
+#     messages.info(request, f'You are editing {forum.topic}')
+#     # topic = forum.topic
+#     # description = forum.description
 
-    template = 'comunicado/editInForum.html'
-    context = {
-        'form': form,
-        # {
-        #     'topic': topic,
-        #     'description': description,
-        # },
-        'forum': Forum,
-    }
+#     template = 'comunicado/editInForum.html'
+#     context = {
+#         'form': form,
+#         # {
+#         #     'topic': topic,
+#         #     'description': description,
+#         # },
+#         'forum': Forum,
+#     }
 
-    return render(request, template, context)
+#     return render(request, template, context)
 
 
 def editInDiscussion(request, discussion_id):
@@ -92,3 +92,19 @@ def editInDiscussion(request, discussion_id):
     }
 
     return render(request, template, context)
+
+
+def deleteInForum(request, forum_id):
+    """ Delete whole forum"""
+    Forum = get_object_or_404(forum, pk=forum_id)
+    Forum.delete()
+    messages.success(request, "Forum deleted successfuly!")
+    return redirect(reverse('comunicado'))
+
+
+def deleteInDiscussion(request, forum_id):
+    """ Delete whole forum"""
+    discussion = get_object_or_404(forum, pk=forum_id)
+    discussion.delete()
+    messages.success(request, "Forum deleted successfuly!")
+    return redirect(reverse('comunicado'))

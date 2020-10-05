@@ -29,7 +29,7 @@
             <div class="col-10 margin-top mx-auto min_height my-5">
 
             {% for forum in forums %}
-
+                {% if request.user.is_superuser %}
 			 <div class="accordion  bg-nav my-2" id="accordion{{forum.count}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
@@ -55,11 +55,58 @@
                                     <div class="col-6">
                                         {{ objs.discuss }}
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         {{ objs.nick }}
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                     <a href="{% url 'editInDiscussion' forum.id %}" class="start-now btn rounded">Edit</a>
+                                    <a href="{% url 'deleteInDiscussion' forum.id %}" class="btn btn-danger rounded">Delete</a>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                {%endfor%}
+                            {%endfor%}
+                            <hr>
+                        
+                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                                {% csrf_token %}
+                            <button class="btn start-now mx-2">Add more</button>
+                           
+                            <a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Forum</a>
+                            </form>
+							</div>
+						</div>
+					</div>
+				</div>
+                {% else %}
+                <div class="accordion  bg-nav my-2" id="accordion{{forum.count}}"> 
+				<div class="card">
+					<div class="card-header" id="headingOne">
+						<h2 class="mb-0 text-center">
+							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum{{forum.count}}" aria-expanded="false" aria-controls="forum{{forum.count}}">
+                            {{ forum.topic }}
+
+                            </button>
+                            </h2>
+                            <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
+                            Email- {{forum.email}} </small>
+                            </div>
+						
+					</div>
+					<div id="forum{{forum.count}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion{{forum.count}}">
+						<div class="card-body text-center">
+                        {{forum.description}} <hr>
+                        <h5 class="text-left text-black">Views from other users:</h5> <hr>
+                            {% for discuss in discussions%}
+                                {% for objs in discuss%}  
+                                    {% if objs.forum == forum %}
+                                    <div class="row">
+                                    <div class="col-8">
+                                        {{ objs.discuss }}
+                                    </div>
+                                    <div class="col-4">
+                                        {{ objs.nick }}
                                     </div>
                                     </div>
                                     <hr>
@@ -72,12 +119,12 @@
                             <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                             <button class="btn start-now mx-2">Add more</button>
-                            <a href="{% url 'editInForum' forum.id %}" class="start-now btn rounded">Edit Forum</a>
                             </form>
 							</div>
 						</div>
 					</div>
 				</div>
+                {% endif %}
             {% endfor %}
                 </div>
 			</div>
