@@ -54,10 +54,16 @@ def editInForum(request, forum_id):
     Forum = get_object_or_404(forum, pk=forum_id)
     form = CreateInForum(instance=forum)
     messages.info(request, f'You are editing {forum.topic}')
+    # topic = forum.topic
+    # description = forum.description
 
     template = 'comunicado/editInForum.html'
     context = {
         'form': form,
+        # {
+        #     'topic': topic,
+        #     'description': description,
+        # },
         'forum': Forum,
     }
 
@@ -67,8 +73,17 @@ def editInForum(request, forum_id):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-    form = CreateInDiscussion(instance=discussion)
-    messages.info(request, f'you can now edit {Discussion.nick} opinion')
+    if request.method == 'POST':
+        form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
+        if form.is_valid:
+            form.save()
+            messages.success(request, "Great, you fixed that!")
+            return redirect(reverse('comunicado'))
+        else:
+            messages.error(request, "Failed to update that. Please ensure the form is valid.")
+    else:
+        form = CreateInDiscussion(instance=discussion)
+        messages.info(request, f'you can now edit {Discussion.nick} opinion')
 
     template = 'comunicado/editInDiscussion.html'
     context = {
