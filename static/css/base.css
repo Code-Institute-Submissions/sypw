@@ -83,6 +83,10 @@ body a {
 
 /* -------------------------------- General styling   */
 
+.no-padding {
+    padding: 0 !important;
+}
+
 .min_height {
 	min-height: 440px;
 }
@@ -120,6 +124,18 @@ body a {
 
 
 /* -------------------------------- Home page  */
+
+#one-place {
+    background-image: url('/media/phone_and_laptop.jpg');
+	background-size: cover;
+    min-height: 400px;
+}
+
+#accounting {
+    background-image: url('/media/accounting.jpg');
+	background-size: cover;
+    min-height: 400px;
+}
 
 #home-page {
 	background-image: url('/media/payday.jpg');
@@ -232,7 +248,7 @@ footer {
 }
 
 #pay_me {
-	background-image: url('/media/this_far.jpg');
+	background-image: url('/media/group.jpg');
 	background-size: cover;
 }
 
