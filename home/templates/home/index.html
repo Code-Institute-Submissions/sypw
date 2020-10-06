@@ -2,15 +2,15 @@
 {% load static %}
 
 {% block page_header %}
-    
-<!-- <div class="overlay" ></div> -->
 {% endblock %}
 
 {% block content %}
-
+    {% if request.user.is_authenticated %}
+    {% else %}
+    {% endif %}
 <div class="container-fluid" >
 	<div class="row my-auto bg-blueish min_height no-padding ">
-            <div class="d-none d-md-inline-block col-md-6" id="accounting">
+            <div class="order-last order-md-first d-inline-block col-md-6" id="accounting">
             </div>
             <!-- <div class="col-12 col-md-6">
             <div class="card" style="width: 18rem;">
@@ -38,11 +38,15 @@
                 <p>In SYPW you can sent payslips to your team, contact all of them at once and sort every holiday querry.</p>
                 <p>And all of it in one place, without even leaving your desk!</p>
         </div>
-        <div class="d-none d-md-inline-block col-6 " id="one-place">
+        <div class="order-last col-12 col-md-6" id="one-place">
         </div>
         </div>
         <div class="row min_height" id="home-page">
-
+        <div class="col-10 bg-nav">
+        <a href="" class="three_levels"></a>
+        <a href="" class="three_levels"></a>
+        <a href="" class="three_levels"></a>
+        </div>
 		<div class="h-100 my-5 d-md-none col-10 rounded text-center mx-auto bg-nav my-border">
 			<h2 class="text-uppercase pt-4 ">
 				<strong>Sort your paperwork like a pro!</strong>
@@ -53,7 +57,7 @@
 				</h4>
 			</div>
 		</div>
-		<div class="h-100 d-none d-md-block col-md-6 col-lg-4 rounded text-center my-5 ml-2 bg-nav my-border">
+		<div class="h-100 d-none d-md-block col-md-6 rounded text-center my-5 mx-auto bg-nav my-border">
 			<h2 class="display-4 text-uppercase pt-4 ">
 				<strong>Sort your paperwork like a pro!</strong>
 			</h2>
