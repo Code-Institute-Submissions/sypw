@@ -171,7 +171,7 @@ body a {
     background-image: url('/media/happy_guy.jpg');
 	background-size: cover;
     /* background-repeat: no-repeat; */
-    /* border: solid 2px black; */
+    border: solid 2px black;
     min-height: 440px;
 }
 
@@ -292,12 +292,16 @@ footer {
 	background: #3680ad;
 	color: black;
 	font-weight: bold;
+    /* min-width: 150px; */
+
 }
 
 .pay-now:hover {
 	background: white;
 	color: black;
 	font-weight: bold;
+    /* min-width: 150px; */
+
 }
 
 #all_good {
