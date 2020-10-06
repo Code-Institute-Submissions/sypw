@@ -160,6 +160,12 @@ body a {
 }
 
 
+.features i {
+    font-size: 300%;
+    color: #62a3cc
+}
+
+
 /* ----------------------------------Payslips */
 
 #payslips {
