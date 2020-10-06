@@ -140,7 +140,7 @@ body a {
 #home-page {
 	background-image: url('/media/payday.jpg');
 	background-size: cover;
-	height: 130% !important;
+	/* height: 130% !important; */
 }
 
 .main-logo-link {
@@ -165,6 +165,15 @@ body a {
     color: #62a3cc
 }
 
+#my-opinion {
+    /* margin-top: -62px; */
+    /* padding-top: -520px; */
+    background-image: url('/media/happy_guy.jpg');
+	background-size: cover;
+    /* background-repeat: no-repeat; */
+    /* border: solid 2px black; */
+    min-height: 440px;
+}
 
 /* ----------------------------------Payslips */
 
