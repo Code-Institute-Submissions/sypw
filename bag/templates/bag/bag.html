@@ -3,13 +3,13 @@
 
 {% block page_header %}
     
-<div class="overlay" id="pay_me"></div>
+<!-- <div class="overlay" id="pay_me"></div> -->
 {% endblock %}
 
 {% block content %}
     
-<div class="container-fluid min_height">
-	<a href="{% url 'products' %}" class="btn" id="change-it">
+<div class="container-fluid min_height" id="pay_me">
+	<a href="{% url 'products' %}" class="btn my-border" id="change-it">
 		<span class="text-center">Change 
 			<br> my choice
 			</span>
@@ -19,13 +19,13 @@
 				<h4 class="font-logo text-center mt-4 text-darkish">Shopping Bag</h4>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row ">
 			<div class="col-12 text-center">
                 {% if bag_items %}
                     {% for item in bag_items %}
                     
-				<div class="card me-card mx-auto my-5">
-					<div class="card-img-top card-picture d-block" id="good-man" alt="To all making a good choice we salut you"></div>
+				<div class="card me-card mx-auto my-border rounded my-5">
+					<div class="d-none d-md-block card-img-top card-picture" id="good-man" alt="To all making a good choice we salut you"></div>
 						<div class="card-body bg-blueish">
 							<h5 class="card-title">
 								<strong> Good choice!</strong>
@@ -53,8 +53,8 @@
 						<span class="text-uppercase">Keep Shopping</span>
 					</a>
                 {% endif %}
-            
 				</div>
+                <div class=" d-none d-lg-block col-12 min_height"></div>
 			</div>
 		</div>
 {% endblock %}
