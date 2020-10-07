@@ -92,6 +92,10 @@ body a {
     padding: 0 !important;
 }
 
+.small_height {
+    min-height: 150px;
+}
+
 .min_height {
 	min-height: 440px;
 }
@@ -143,7 +147,7 @@ body a {
 }
 
 #home-page {
-	background-image: url('/media/payday.jpg');
+	background: url('/media/payday.jpg') center center no-repeat;
 	background-size: cover;
 	/* height: 130% !important; */
 }
@@ -174,29 +178,23 @@ body a {
 }
 
 #my-opinion {
-    background-image: url('/media/happy_guy.jpg');
+    background: url('/media/happy_guy.jpg') center center no-repeat;
 	background-size: cover;
     border: solid 2px black;
     min-height: 440px;
 }
 
 #other-opinion {
-    /* margin-top: -62px; */
-    padding-top: -520px;
     background-image: url('/media/happy_customer.jpg');
 	background-size: cover;
-    /* background-repeat: no-repeat; */
     border: solid 2px black;
     min-height: 400px;
-    max-height: 500rem;
 }
 
 #future {
-    background-image: url('/media/path.jpg');
+    background: url('/media/path.jpg')center center no-repeat;
 	background-size: cover;
-    /* border: solid 2px black; */
     min-height: 800px;
-    /* max-height: 500rem; */
 }
 
 /* ----------------------------------Payslips */
