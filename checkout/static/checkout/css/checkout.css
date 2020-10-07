@@ -69,3 +69,8 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+#dark {
+	background-image: url('/media/dark.jpg');
+	background-size: cover;
+}
