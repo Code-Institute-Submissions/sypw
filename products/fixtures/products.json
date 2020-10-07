@@ -4,7 +4,7 @@
         "model": "products.product",
         "fields": {
             "name": "One month subscription",
-            "description": "This is a subscription for one month, it allows your team to access all our services for next 30 days.",
+            "description": "This is a subscription for one month. It provides your team with full access to all features for 30 days.",
             "price": 30,
             "additional_info": "Good option if you just want to try!"
         }
@@ -14,9 +14,9 @@
         "model": "products.product",
         "fields": {
             "name": "Six months subscription",
-            "description": "This is a subscription for six months, you will need to pay again in 180 days, to keep using our service",
-            "price": 120,
-            "additional_info": "Popular in companies with less than 20 employees"
+            "description": "This is a subscription for six months. Your team can use all our features for 180 days. It's also cheaper than paying monthly.",
+            "price": 150,
+            "additional_info": "Popular in companies with less than 20 employees."
             
         }
     },
@@ -25,8 +25,8 @@
         "model": "products.product",
         "fields": {
             "name": "One year subscription",
-            "description": "This is a subscription for 12 months, you don't need to pay for next year, to keep using our service.",
-            "price": 200,
+            "description": "This is a subscription for 12 months. Your team can use all features on our website, and you are saving £120 comparing to monthly payment offer.",
+            "price": 240,
             "additional_info": "This is the most popular option between our clients."
         }
     }
