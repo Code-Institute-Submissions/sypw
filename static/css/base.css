@@ -159,6 +159,9 @@ body a {
 	font-weight: bold;
 }
 
+#future a {
+    font-size: 300%;
+}
 
 .features i {
     font-size: 300%;
@@ -166,13 +169,29 @@ body a {
 }
 
 #my-opinion {
-    /* margin-top: -62px; */
-    /* padding-top: -520px; */
     background-image: url('/media/happy_guy.jpg');
+	background-size: cover;
+    border: solid 2px black;
+    min-height: 440px;
+}
+
+#other-opinion {
+    /* margin-top: -62px; */
+    padding-top: -520px;
+    background-image: url('/media/happy_customer.jpg');
 	background-size: cover;
     /* background-repeat: no-repeat; */
     border: solid 2px black;
-    min-height: 440px;
+    min-height: 400px;
+    max-height: 500rem;
+}
+
+#future {
+    background-image: url('/media/path.jpg');
+	background-size: cover;
+    /* border: solid 2px black; */
+    min-height: 800px;
+    /* max-height: 500rem; */
 }
 
 /* ----------------------------------Payslips */
