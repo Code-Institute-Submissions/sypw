@@ -6,8 +6,67 @@
 
 {% block content %}
     {% if request.user.is_authenticated %}
+    <div class="container-fluid ">
+        <div class="row bg-blueish min_height no-padding">
+            <div class="col-12 col-md-6 mx-auto my-5">
+			    <h2 class="text-center font-logo text-darkish">Welcome back {{ user }}</h2>
+		    </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="{% url 'profile' %}" class="text-lg text-darkish my-4">
+                                <i class="fas fa-user fa-lg"></i>
+                                <h3>See your profile</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="{% url 'decide' %}" class="text-lg text-darkish my-4">
+                                <i class="far fa-calendar-plus"></i>
+                                <h3>Renew your subscription</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="{% url 'comunicado' %}" class="text-lg text-darkish my-4">
+                                <i class="fas fa-envelope-open-text fa-lg"></i>
+                                <h3>Contact your team</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="{% url 'payslips' %}" class="text-lg text-darkish my-4">
+                                <i class="fas fa-wallet fa-lg"></i>
+                                <h3>Access your payslips</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="{% url 'payslips' %}" class="text-lg text-darkish my-4">
+                                <i class="fas fa-snowboarding fa-lg"></i>
+                                <h3>See your holiday or book the new one</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                        <div class="my-5 text-lg ">
+                            <a href="https://www.youtube.com/watch?v=hDXWK3W477w" target="_blank" class="text-lg text-darkish my-4">
+                                <i class="fas fa-music"></i>
+                                <h3>Find some good music</h3>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
     {% else %}
-    {% endif %}
 <div class="container-fluid" >
 	<div class="row my-auto bg-blueish min_height no-padding ">
             <div class="order-last order-md-first d-inline-block col-md-6" id="accounting">
@@ -33,18 +92,24 @@
         <div class="row text-center" id="home-page">
         <div class="col-12 bg-white min_height font-logo">
             <div class="row p-5 my-5">
-            <div class="col-10 col-md-4 features mx-auto text-center">
-                <i class="fas fa-snowboarding my-4 fa-lg"></i>
-                <h3 class="text-darkish">Sort out your team's holiday</h3>
-            </div>
-            <div class="col-10 col-md-4 features mx-auto">
-                <i class="fas fa-wallet my-4 fa-lg"></i>
-                <h3 class="text-darkish">Acces your payslips <br> online</h3>
-            </div>
-            <div class="col-10 col-md-4 mx-auto features">
-                <i class="fas fa-envelope-open-text my-4 fa-lg"></i>
-                <h3 class="text-darkish">Contact your whole team via our forum</h3>
-            </div>
+                <div class="col-10 col-md-4 features mx-auto text-center">
+                    <a href="{% url 'decide' %}">
+                    <i class="fas fa-snowboarding my-4 fa-lg"></i>
+                    <h3 class="text-darkish">Sort out your team's holiday</h3>
+                    </a>
+                </div>
+                <div class="col-10 col-md-4 features mx-auto">
+                    <a href="{% url 'decide' %}">
+                        <i class="fas fa-wallet my-4 fa-lg"></i>
+                        <h3 class="text-darkish">Acces your payslips <br> online</h3>
+                    </a>
+                </div>
+                <div class="col-10 col-md-4 mx-auto features">
+                    <a href="{% url 'decide' %}">
+                        <i class="fas fa-envelope-open-text my-4 fa-lg"></i>
+                        <h3 class="text-darkish">Contact your whole team via our forum</h3>
+                    </a>
+                </div>
             </div>
         </div>
 		<div class="h-100 my-5 d-md-none col-10 rounded  mx-auto bg-nav my-border">
@@ -126,5 +191,6 @@
         </div>
     </div>
 </div>
+{% endif %}
 
 {% endblock %}
