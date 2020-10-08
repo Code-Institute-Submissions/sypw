@@ -18,7 +18,7 @@ class forum(models.Model):
 
 # child model
 class Discussion(models.Model):
-    forum = models.ForeignKey(forum, blank=True, on_delete=models.CASCADE)
+    forum = models.ForeignKey(forum, blank=False, on_delete=models.CASCADE)
     discuss = models.TextField(max_length=1200)
     nick = models.CharField(max_length=200, default=User)
 

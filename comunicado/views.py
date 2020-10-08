@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import forum, Discussion
 from django.contrib import messages
-from .forms import *
+from .forms import CreateInDiscussion, CreateInForum
 
 
 @login_required
@@ -35,7 +35,7 @@ def addInForum(request):
 
 
 def addInDiscussion(request):
-    form = CreateInDiscussion()
+    form = CreateInDiscussion(initial={'forum': forum.id})
     nick = Discussion.nick
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST)
@@ -43,6 +43,7 @@ def addInDiscussion(request):
             form.save()
             return redirect('comunicado')
     context = {
+        'forum': forum,
         'form': form,
         'nick': nick
     }

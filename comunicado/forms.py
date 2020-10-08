@@ -34,4 +34,13 @@ class CreateInForum(ModelForm):
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        fields = ('forum', 'discuss', 'nick',)
+        forum = forum.id
+        fields = ['forum', 'discuss', 'nick', ]
+
+
+# class EditInDiscussion(ModelForm):
+#     class Meta:
+#         model = Discussion
+        # def __init__(self, *args, **kwargs):
+        #     self.fields['nick'].widget.attrs['autofocus'] = True
+
