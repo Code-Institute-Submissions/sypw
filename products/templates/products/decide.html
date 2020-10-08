@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+    
+<!-- <div class="overlay" id="pay_me"></div> -->
+{% endblock %}
+
+{% block content %}
+    
+<div class="container-fluid min_height text-center" id="pay_me">
+	<div class="row ">
+		<div class="col-12 col-md-6 mx-auto my-5">
+			<h3 class="text-center font-logo text-darkish">How big is your team, excluding you?</h3>
+		</div>
+	</div>
+	<div class="row min_height ">
+        <div class="col-12 col-md-4 col-lg-3 my-3 mx-auto text-white bg-blueish">
+            <div class="my-5 text-lg">
+            <a href="{% url 'products' %}" class="text-lg text-darkish my-4">
+                <i class="fas fa-user-tie fa-lg"></i>
+            </a>
+            </div>
+            <a class="dec-none text-lg text-white" href="{% url 'products' %}"><p class="mt-5"> Up to five people</p></a>
+            
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 my-3 mx-auto  bg-blueish">
+            <div class="my-5 text-lg">
+            <a href="{% url 'products' %}" class="text-lg text-darkish ">
+            <i class="fas fa-user-friends fa-lg"></i>
+            </a>
+            </div>
+            <a class="text-lg text-white" href="{% url 'products' %}"><p class="mt-5">Between 5 to 20 people</p></a>
+            
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 my-3 mx-auto  bg-blueish">
+            <div class="my-5 text-lg">
+            <a href="{% url 'products' %}" class="text-lg text-center text-darkish mb-5">
+            <i class="fas fa-users fa-lg"></i>
+            </a>
+            </div>
+            <a class="text-lg text-white" href="{% url 'products' %}"><p class="mt-5">More than 20 people</p></a>
+            
+        </div>
+
+    </div>
+                <div class="d-none d-md-block d-lg-none small_height"></div>
+				<div class="d-none d-lg-block min_height"></div>
+			</div>
+{% endblock %}
