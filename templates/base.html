@@ -58,7 +58,7 @@
 												<div class="dropdown-menu bg-dark text-blueish border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-									<a href="{% url 'profile' %}" class="text-blueish dropdown-item">App Management</a>
+									<a href="{% url 'home' %}" class="text-blueish dropdown-item">App Management</a>
                                 {% endif %}
                             
 								<a href="{% url 'profile' %}" class="text-blueish dropdown-item">My Profile</a>

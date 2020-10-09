@@ -17,7 +17,6 @@ import dj_database_url
 import os
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,6 +139,10 @@ else:
         }
     }
 
+# Uncomment this in order to migrate to heroku 
+# DATABASES = {
+#     'default': dj_database_url.parse('here put your database from heroku')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
