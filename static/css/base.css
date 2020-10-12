@@ -146,6 +146,7 @@ body a {
     min-height: 400px;
 }
 
+
 #home-page {
 	background: url('/media/payday.jpg') center center no-repeat;
 	background-size: cover;
@@ -195,6 +196,11 @@ body a {
     background: url('/media/path.jpg')center center no-repeat;
 	background-size: cover;
     min-height: 800px;
+}
+
+#homepage {
+    background: url('/media/group.jpg') center center no-repeat;
+	background-size: cover;
 }
 
 /* ----------------------------------Payslips */

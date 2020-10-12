@@ -5,15 +5,21 @@
 {% endblock %}
 
 {% block content %}
+    <div class="btt-button shadow-sm rounded border border-black">
+		<a class="btt-link d-flex h-100">
+			<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
+		</a>
+	</div>
     {% if request.user.is_authenticated %}
+    
     <div class="container-fluid">
-        <div class="row bg-blueish min_height no-padding">
-            <div class="col-12 col-md-6 mx-auto my-5">
+        <div class="row min_height no-padding" id="homepage">
+            <div class="col-12 col-sm-10 col-md-6 mx-auto my-5">
 			    <h2 class="text-center font-logo text-darkish">Welcome back {{ user }}</h2>
 		    </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="{% url 'profile' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-user fa-lg"></i>
@@ -21,7 +27,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="{% url 'decide' %}" class="text-lg text-darkish my-4">
                                 <i class="far fa-calendar-plus"></i>
@@ -29,7 +35,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="{% url 'comunicado' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-envelope-open-text fa-lg"></i>
@@ -37,7 +43,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="{% url 'payslips' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-wallet fa-lg"></i>
@@ -45,7 +51,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="{% url 'payslips' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-snowboarding fa-lg"></i>
@@ -53,7 +59,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-md-5 mx-auto text-center my-5 bg-easy rounded my-border">
+                    <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
                         <div class="my-5 text-lg ">
                             <a href="https://www.youtube.com/watch?v=hDXWK3W477w" target="_blank" class="text-lg text-darkish my-4">
                                 <i class="fas fa-music"></i>
@@ -183,10 +189,10 @@
     <div class="row">
         <div class="col-12" id="future">
             <div class="col-4 d-none d-lg-flex text-center font-logo mt-5 ml-auto">
-            <a href="{% url 'products' %}" class="text-darkish">Start your bright future today! </a>
+            <a href="{% url 'decide' %}" class="text-darkish">Start your bright future today! </a>
             </div>
             <div class="col-4 d-lg-none text-center font-logo mt-5 mx-auto">
-            <a href="{% url 'products' %}" class="text-link">Start your bright future today! </a>
+            <a href="{% url 'decide' %}" class="text-link">Start your bright future today! </a>
             </div>
         </div>
     </div>
