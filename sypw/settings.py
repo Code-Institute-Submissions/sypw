@@ -139,7 +139,7 @@ else:
         }
     }
 
-# Uncomment this in order to migrate to heroku 
+# Uncomment this in order to migrate to heroku
 # DATABASES = {
 #     'default': dj_database_url.parse('here put your database from heroku')
 # }

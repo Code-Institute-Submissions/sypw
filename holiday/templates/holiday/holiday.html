@@ -56,24 +56,35 @@
 					</div>
 				</div>
 				<div class="btn text-center">
-					<button type="submit">Submit dates</button>
+					<button id="submit_dates" type="submit">Submit dates</button>
 				</div>
 			</div>
-			<script type="text/javascript">
-                $(function () {
-                    $('#datetimepicker7').datetimepicker();
-                    $('#datetimepicker8').datetimepicker({
-                        useCurrent: false
-                    });
-                    $("#datetimepicker7").on("change.datetimepicker", function (e) {
-                        $('#datetimepicker8').datetimepicker('minDate', e.date);
-                    });
-                    $("#datetimepicker8").on("change.datetimepicker", function (e) {
-                        $('#datetimepicker7').datetimepicker('maxDate', e.date);
-                    });
-                });
-            </script>
+			
+
 		</div>
 	</div>
 </div>
+    {% endblock %}
+
+    {% block postloadjs %}
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker7').datetimepicker();
+            $('#datetimepicker8').datetimepicker({
+                useCurrent: false
+            });
+            $("#datetimepicker7").on("change.datetimepicker", function (e) {
+                $('#datetimepicker8').datetimepicker('minDate', e.date);
+            });
+            $("#datetimepicker8").on("change.datetimepicker", function (e) {
+                $('#datetimepicker7').datetimepicker('maxDate', e.date);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $('#submit_dates').click(function(e) {
+            alert('Your request will be sent to your manager');
+		})
+            
+    </script>
     {% endblock %}

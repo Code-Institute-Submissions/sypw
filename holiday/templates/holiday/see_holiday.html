@@ -4,7 +4,7 @@
 {% block page_header %}
     <script src="{% static 'holiday/scripts/holiday.js' %}"></script>
     <link rel="stylesheet" media="print" href="{% static 'holiday/css/holiday.css' %}">
-    <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+
 {% endblock %}
 
 {% block holinav %}
@@ -16,20 +16,38 @@
 
 {% block content %}
 
-<div class="container-fluid " id="holiday">
+<div class="container-fluid d-block" id="holiday">
 	<div class="row text-center">
 		<div class="col-5 mx-auto ">
 			<h4 class="font-logo my-4 text-uppercase">Check Holiday</h4>
 		</div>
-		<div class="col-10 mx-auto margin-top">
+		<div class="col-10 mx-auto my-5">
 			<h3 class="my-border bg-nav">Here we will place a calendar where you can see your planned holidays!</h3>
 		</div>
         
 	</div>
     <div class="row " id="cal-body">
-        <div class="col-12 col-sm-10 col-md-8">
-            <!-- <div data-provide="calendar"></div> -->
-            
+        <div class="col-12 col-sm-10 my-auto py-5 mx-auto col-md-8 bg-easy">
+            <table id="calendar" >
+                <div class="data">
+                    <input type="text" id="year" placeholder="Enter Four Digit Year"/>
+                    <input type="text" id="month" placeholder="Enter Numeric Month"/>
+            <!-- <input type="reset" id="reset" class="start-now" value="Clear Calendar"/> -->
+                    <input type="submit" id="create" class="start-now" value="Show Calendar"/>
+                </div>
+                    <thead>
+                        <tr>
+                            <th id="dayOfWeek">Sunday</th>
+                            <th id="dayOfWeek">Monday</th>
+                            <th id="dayOfWeek">Tuesday</th>
+                            <th id="dayOfWeek">Wednesday</th>
+                            <th id="dayOfWeek">Thursday</th>
+                            <th id="dayOfWeek">Friday</th>
+                            <th id="dayOfWeek">Saturday</th>
+                        </tr>
+                    </thead>
+                <tbody id="cal"></tbody>
+            </table>
         </div>
     </div>
 </div>

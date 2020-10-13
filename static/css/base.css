@@ -219,13 +219,11 @@ body a {
 /* --------------------------------------Holiday */
 
 #holiday {
-	height: 150%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	background-image: url('/media/holiday.jpg');
+	/* background-image: url('/media/.jpg');
+	background-size: cover; */
+    background: url('/media/holiday.jpg')center center no-repeat;
 	background-size: cover;
-	z-index: -1;
+    min-height: 800px;
 }
 
 #Internal {
