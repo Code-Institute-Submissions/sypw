@@ -2,16 +2,17 @@
 {% load static %}
 
 {% block page_header %}
-    
-
+    <script src="{% static 'holiday/scripts/holiday.js' %}"></script>
+    <link rel="stylesheet" media="print" href="{% static 'holiday/css/holiday.css' %}">
+    <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
 {% endblock %}
 
 {% block holinav %}
-          
 <a class="dropdown-item text-blueish" href="{% url 'holiday' %}">Book Holiday</a>
 <a class="dropdown-item text-blueish" href="{% url 'see_holiday' %}">See holiday</a>
-          
 {% endblock %}
+
+
 
 {% block content %}
 
@@ -23,6 +24,14 @@
 		<div class="col-10 mx-auto margin-top">
 			<h3 class="my-border bg-nav">Here we will place a calendar where you can see your planned holidays!</h3>
 		</div>
+        
 	</div>
+    <div class="row " id="cal-body">
+        <div class="col-12 col-sm-10 col-md-8">
+            <!-- <div data-provide="calendar"></div> -->
+            
+        </div>
+    </div>
 </div>
     {% endblock %}
+

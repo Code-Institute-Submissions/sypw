@@ -24,3 +24,7 @@ While making this project I was inspired by the ButiqueAdo app, which is Django 
 All the pictures used on this side, unless stated otherwise, come from [here](www.unsplash.com), which is a great source of free-to-use photos.
 
 The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/)
+
+<!-- Calendar as for 13/10/2020 comes from [this](https://codepen.io/hind-jai/full/GaxmYP) free library of bootstrap projects and has been found [here](https://colorlib.com/wp/bootstrap-calendars/) -->
+
+As the previous one turns out to be not working, I'm going to try [this](https://year-calendar.github.io/js-year-calendar/examples) and I'm writing this to remember the link later on
