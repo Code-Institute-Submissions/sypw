@@ -14,9 +14,7 @@ class Order(models.Model):
 
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                null=True, blank=False, related_name='orders')
-    company_name = models.CharField(max_length=50, null=False, blank=False, editable=True, related_name='company')
-    is_manager = models.BooleanField(default=True)
+                                null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
