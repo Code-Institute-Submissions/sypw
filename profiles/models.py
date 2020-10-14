@@ -13,15 +13,6 @@ class Company(models.Model):
     def __str__(self):
         return self.company_name
 
-@receiver(post_save, sender=User)
-def create_or_update_company(sender, instance, created, **kwargs):
-    """ Create or update Company profile, just like the name describes"""
-
-    if created:
-        Company.objects.create(user=instance)
-    # Existing users: just save the profile
-    instance.company.save()
-
 
 class UserProfile(models.Model):
     """
