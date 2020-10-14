@@ -7,6 +7,8 @@ from django_countries.fields import CountryField
 
 
 class Company(models.Model):
+    # I left 'company_' in front of 'name' to make it easier to differ from
+    # user's "full_name". The other one is left to keep consistency in names
     company_name = models.CharField(max_length=50, null=False)
     company_team = models.FloatField()
 
@@ -41,4 +43,3 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
-

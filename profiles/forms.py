@@ -21,12 +21,7 @@ class CompanyProfileForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
         self.fields[field].widget.attrs['class'] = 'border rounded profile-form-input'
-        
-        if field == "company_name":
-            self.fields[field].label = True
-        else:
-            self.fields[field].label = False
-
+        self.fields[field].label = False
 
 
 class UserProfileForm(forms.ModelForm):
