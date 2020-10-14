@@ -20,15 +20,27 @@ def see_holiday(request):
 
         # send an email function
         send_mail(
-            message_name,
-            message_phone,
-            message_email,
-            message,
-            start_date,
-            end_date,
-            ["stan.kazovsky@yahoo.com"]
+            'message_name', [
+                'message_phone',
+                'message',
+                'start_date',
+                'end_date',
+            ],
+            'message_email',
+            ["stan.kazovsky@yahoo.com"],
+            fail_silently=True,
         )
 
-        return render(request, 'holiday/see_holiday.html', {})
+        context = {
+            'message_name': message_name,
+            'message_phone': message_phone,
+            'message_email': message_email,
+            'start_date': start_date,
+            'end_date': end_date,
+            'message': message,
+        }
+
+        return render(request, 'holiday/see_holiday.html', context)
+
     else:
         return render(request, 'holiday/see_holiday.html')

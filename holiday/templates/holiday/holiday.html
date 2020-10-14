@@ -3,10 +3,10 @@
 
 {% block page_header %}
 
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" /> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
 
 {% endblock %}
@@ -24,14 +24,15 @@
 		<div class="col-5 mx-auto ">
 			<h4 class="font-logo my-4 text-uppercase">Book Holiday</h4>
 		</div>
-		<div class="col-12 col-lg-8 mt-5 mb-0 mx-auto opacity">
-			<h4 class=" bg-nav my-border">Choose your desirable dates and book your next holiday:</h4>
-		</div>
+		
 	</div>
 	<div class="row text-center">
-		<div class="col-12 col-md-8 col-lg-7 px-3 mx-auto my-5">
+    <div class="col-12 col-lg-8 mt-5 mb-0 mx-auto">
+			<h4 class=" bg-nav my-border">Choose your desirable dates and book your next holiday:</h4>
+		</div>
+		<div class="col-12 col-md-8 col-lg-7 px-3 mx-auto my-2">
 			<!-- Appointment Form  -->
-            <div class="appointment-form bg-easy my-5 mx-5">
+            <div class="appointment-form bg-nav my-5 mx-5">
                 <form class="my-5 mx-3" action="{% url 'see_holiday' %}" method="post">
                 {% csrf_token %}
                     <div class="row">
@@ -45,7 +46,7 @@
                             <input type="text" name="your-phone" class="form-control my-border rounded my-2 " placeholder="Your Phone" required>
                             </div>
                         </div>
-                        <div class="col-10 mx-auto">
+                        <div class="col-12 mx-auto">
                             <div class="mb-30">
                             <input type="email" name="your-email" class="form-control my-border rounded my-2 mx-auto" placeholder="Your Email" required>
                             </div>
@@ -60,7 +61,31 @@
                             <input type="text" name="end-date" class="form-control my-border rounded my-2 mx-auto" placeholder="Last day of your holiday" required>
                             </div>
                         </div>
-                        <div class="col-10 mx-auto">
+                        <!-- <div class="col-12 col-md-10">
+					<div class="form-group">
+						<div class="input-group date" id="datetimepicker7" data-target-input="nearest">
+							<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker7"/>
+							<div class="input-group-append" data-target="#datetimepicker7" data-toggle="datetimepicker">
+								<div class="input-group-text">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class=" col-12 col-md-10">
+					<div class="form-group">
+						<div class="input-group date" id="datetimepicker8" data-target-input="nearest">
+							<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker8"/>
+							<div class="input-group-append" data-target="#datetimepicker8" data-toggle="datetimepicker">
+								<div class="input-group-text">
+									<i class="fa fa-calendar"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+                        <div class="col-12 mx-auto">
                             <div class="mb-30">
                             <input type="text" name="message" class="form-control my-border rounded my-2 mx-auto" placeholder="Any message?">
                             </div>
@@ -80,7 +105,7 @@
     {% endblock %}
 
     {% block postloadjs %}
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         $(function () {
             $('#datetimepicker7').datetimepicker();
             $('#datetimepicker8').datetimepicker({
@@ -97,7 +122,7 @@
     <script type="text/javascript">
         $('#submit_dates').click(function(e) {
             alert('Your request will be sent to your manager');
-		}) -->
+		}) 
             
-    <!-- </script> -->
+    </script>
     {% endblock %}
