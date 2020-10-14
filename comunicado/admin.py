@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Discussion, forum
+from .models import Discussion, Forum
 
 
-admin.site.register(forum)
+admin.site.register(Forum)
 admin.site.register(Discussion)

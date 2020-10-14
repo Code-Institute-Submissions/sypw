@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import forum, Discussion
+from .models import Forum, Discussion
 from django.contrib import messages
 from .forms import CreateInDiscussion, CreateInForum
 
@@ -8,7 +8,7 @@ from .forms import CreateInDiscussion, CreateInForum
 @login_required
 def comunicado(request):
     """ a view to show messages page"""
-    forums = forum.objects.all()
+    forums = Forum.objects.all()
     count = forums.count()
     discussions = []
     for i in forums:
@@ -35,7 +35,7 @@ def addInForum(request):
 
 
 def addInDiscussion(request):
-    form = CreateInDiscussion(initial={'forum': forum.id})
+    form = CreateInDiscussion(initial={'forum': Forum.id})
     nick = Discussion.nick
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST)
@@ -43,7 +43,7 @@ def addInDiscussion(request):
             form.save()
             return redirect('comunicado')
     context = {
-        'forum': forum,
+        'forum': Forum,
         'form': form,
         'nick': nick
     }
@@ -97,8 +97,8 @@ def editInDiscussion(request, discussion_id):
 
 def deleteInForum(request, forum_id):
     """ Delete whole forum"""
-    Forum = get_object_or_404(forum, pk=forum_id)
-    Forum.delete()
+    forum = get_object_or_404(Forum, pk=forum_id)
+    forum.delete()
     messages.success(request, "Forum deleted successfuly!")
     return redirect(reverse('comunicado'))
 

@@ -1,10 +1,10 @@
 from django.forms import ModelForm
-from .models import forum, Discussion
+from .models import Forum, Discussion
 
 
 class CreateInForum(ModelForm):
     class Meta:
-        model = forum
+        model = Forum
         fields = ('name', 'email', 'topic', 'description')
 
     def __init__(self, *args, **kwargs):
@@ -34,7 +34,7 @@ class CreateInForum(ModelForm):
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        forum = forum.id
+        forum = Forum.id
         fields = ['forum', 'discuss', 'nick', ]
 
 

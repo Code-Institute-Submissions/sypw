@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 
 # parent model
-class forum(models.Model):
+class Forum(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False, default=UserProfile)
     email = models.CharField(max_length=200, null=True, default=Order)
     topic = models.CharField(max_length=300, null=False)
@@ -18,7 +18,7 @@ class forum(models.Model):
 
 # child model
 class Discussion(models.Model):
-    forum = models.ForeignKey(forum, blank=False, on_delete=models.CASCADE)
+    forum = models.ForeignKey(Forum, blank=False, on_delete=models.CASCADE)
     discuss = models.TextField(max_length=1200)
     nick = models.CharField(max_length=200, default=User)
 
