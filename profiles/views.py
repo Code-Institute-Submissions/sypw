@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, CompanyProfileForm
 
 from checkout.models import Order
 
@@ -19,11 +19,13 @@ def profile(request):
             messages.success(request, 'Your profile has been updated')
 
     form = UserProfileForm(instance=profile)
+    company_form = CompanyProfileForm(instance=profile)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
+        'company_form': company_form,
         'orders': orders,
     }
 

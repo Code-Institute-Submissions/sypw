@@ -6,11 +6,20 @@ from django.dispatch import receiver
 from django_countries.fields import CountryField
 
 
+class Company(models.Model):
+    company_name = models.CharField(max_length=50, null=False)
+    company_team = models.FloatField()
+
+    def __str__(self):
+        return self.company_name
+
+
 class UserProfile(models.Model):
     """
     User profile to store basic information about user
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
     default_full_name = models.CharField(max_length=50, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
@@ -32,3 +41,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
+
+
+
+# default_company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)

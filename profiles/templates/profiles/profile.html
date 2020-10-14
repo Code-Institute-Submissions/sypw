@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block extra_css %}
-
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
@@ -25,7 +24,8 @@
 				<h4 class="d-none d-lg-block my-auto col-8 mx-auto text-center bg-nav rounded border">Default Profile Information</h4>
 				<form class="my-3 text-center" action="{% url 'profile'%}" method="POST" id="profile-update-form"> 
             {% csrf_token %}
-            {{ form|crispy}}
+            {{ form|crispy }}
+            {{ company_form|crispy }}
             
 					<button class="btn my-5 start-now rounded">
             Update Information
