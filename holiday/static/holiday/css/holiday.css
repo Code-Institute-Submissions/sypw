@@ -1,11 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Cuprum);
 
+#holiday {
+    background: blue !important;
+}
+
 #cal-body{
 	background:hsla(210, 75%, 5%, 1);
 	font-family: 'Cuprum', sans-serif;
 	width:100%;
-
 }
+
 section{
 	width:100%;
 	margin:auto;

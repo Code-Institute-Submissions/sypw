@@ -36,26 +36,26 @@
         {% endblock %}
 
         
-								<title>Simplify your paperwork {% block extra_title %}{% endblock %}</title>
-							</head>
-							<body>
-								<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-									<a class="navbar-brand font-logo main-logo-link" href="{% url 'home' %}">SYPW</a>
-									<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-										<span class="navbar-toggler-icon"></span>
-									</button>
-									<div class="collapse justify-content-end navbar-collapse" id="navbarNav">
-										<ul class="navbar-nav ">
-											<li class="list-inline-item dropdown">
-												<a class="text-darkish nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<div class="text-center">
-														<div>
-															<i class="fas fa-user fa-lg"></i>
-														</div>
-														<p class="my-0">My Account</p>
-													</div>
-												</a>
-												<div class="dropdown-menu bg-dark text-blueish border-0" aria-labelledby="user-options">
+		<title>Simplify your paperwork {% block extra_title %}{% endblock %}</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand font-logo main-logo-link" href="{% url 'home' %}">SYPW</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse justify-content-end navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ">
+						<li class="list-inline-item dropdown">
+							<a class="text-darkish nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    	<div class="text-center">
+									<div>
+										<i class="fas fa-user fa-lg"></i>
+									</div>
+									<p class="my-0">My Account</p>
+								</div>
+							</a>
+							<div class="dropdown-menu bg-dark text-blueish border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
 									<a href="{% url 'home' %}" class="text-blueish dropdown-item">App Management</a>
@@ -65,43 +65,55 @@
 								<a href="{% url 'account_logout' %}" class="dropdown-item text-blueish">Logout</a>
                             {% else %}
                             
-													<a href="{% url 'account_signup' %}" class="dropdown-item text-blueish">Register</a>
-													<a href="{% url 'account_login' %}" class="dropdown-item text-blueish">Login</a>
+								<a href="{% url 'account_signup' %}" class="dropdown-item text-blueish">Register</a>
+								<a href="{% url 'account_login' %}" class="dropdown-item text-blueish">Login</a>
                             {% endif %}
                         
-												</div>
-											</li>
-											<li class="list-inline-item dropdown">
-												<a class="text-darkish nav-link" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<div class="text-center">
-														<div>
-															<i class="fas fa-snowboarding fa-lg"></i>
-														</div>
-														<p class="my-0">My Holiday</p>
-													</div>
-												</a>
-												<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-													<a class="text-darkish dropdown-item" href="{% url 'holiday' %}" aria-haspopup="true" aria-expanded="false">
-														<p class="text-blueish my-0">Holiday</p>
-													</a>
-                            
-                        {% block holinav %}
-                        {% endblock %}
-                            
-												</div>
-											</li>
-											<li class="list-inline-item ">
-												<a class="text-darkish nav-link" href="{% url 'payslips'%}"  aria-haspopup="true" aria-expanded="false">
-													<div class="text-center">
-														<div>
-															<i class="fas fa-wallet fa-lg"></i>
-														</div>
-														<p class="my-0">Payslips</p>
-													</div>
-												</a>
-											</li>
-											<li class="list-inline-item">
-												<a class="text-darkish nav-link" href="{% url 'comunicado' %}" id="choose-trainer" aria-haspopup="true" aria-expanded="false">
+							</div>
+						</li>
+                        {% if request.user.is_superuser %}
+							<li class="list-inline-item dropdown">
+								<a class="text-darkish nav-link" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<div class="text-center">
+										<div>
+											<i class="fas fa-snowboarding fa-lg"></i>
+										</div>
+								    	<p class="my-0">My Holiday</p>
+									</div>
+								</a>
+								<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+									<a class="text-darkish dropdown-item" href="{% url 'holiday' %}" aria-haspopup="true" aria-expanded="false">
+										<p class="text-blueish my-0">Holiday</p>
+									</a>
+                                {% block holinav %}
+                                {% endblock %}
+                                </div>
+                        
+                        {% else %}
+                            <li class="list-inline-item ">
+								<a class="text-darkish nav-link" href="{% url 'holiday'%}"  aria-haspopup="true" aria-expanded="false">
+									<div class="text-center">
+								    	<div>
+											<i class="fas fa-snowboarding fa-lg"></i>
+										</div>
+										<p class="my-0">Holiday</p>
+									</div>
+								</a>
+							</li>
+                        {% endif %}
+						</li>
+						<li class="list-inline-item ">
+							<a class="text-darkish nav-link" href="{% url 'payslips'%}"  aria-haspopup="true" aria-expanded="false">
+								<div class="text-center">
+									<div>
+										<i class="fas fa-wallet fa-lg"></i>
+									</div>
+									<p class="my-0">Payslips</p>
+								</div>
+							</a>
+						</li>
+						<li class="list-inline-item">
+							<a class="text-darkish nav-link" href="{% url 'comunicado' %}" aria-haspopup="true" aria-expanded="false">
 													<div class="text-center">
 														<div>
 															<i class="fas fa-envelope-open-text fa-lg"></i>
@@ -140,57 +152,57 @@
         
         {% block footer %}
         
-								<footer class="footer-transparent">
-									<div class="container-fluid background-footer text-darkish">
-										<div class="row">
-											<div class="col-12 col-md-6">
-												<h5 class="text-center">About us</h5>
-												<p class="my-auto">Many companies struggle with sorting their paperwork on time, due to the number of employees. Our goal is to solve that problem for good. Now you can sort your holiday, check payslips or contact your manager easier, all in one place.</p>
-											</div>
-											<div class="col-12 col-md-6 ">
-												<div class="col-11 col-md-8 col-xl-6 mx-auto">
-													<h5 class="text-center">Our social media</h5>
-													<div class="row text-center">
-														<div class="col-3">
-															<a class="social" href="https://www.facebook.com/stan.kaczorkiewicz" target="_blank">
-																<i class="fab fa-facebook-square fa-lg"></i>
-															</a>
-														</div>
-														<div class="col-3 text-darkish">
-															<a class="social" href="https://www.linkedin.com/in/stan-kaczorkiewicz-94a146195/" target="_blank">
-																<i class="fab fa-linkedin fa-lg"></i>
-															</a>
-														</div>
-														<div class="col-3 my-auto dec-none text-darkish">
-															<a class="social" href="https://www.instagram.com/navigare_necesse_est_i_huj/" target="_blank">
-																<i class="fab fa-instagram-square fa-lg"></i>
-															</a>
-														</div>
-														<div class="col-3 my-auto dec-none text-darkish">
-															<a onclick="return notMine(this)" class="social" href="https://youtu.be/GGU1P6lBW6Q" target="_blank">
-																<i class="fab fa-youtube-square fa-lg"></i>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</footer>
+	<footer class="footer-transparent">
+		<div class="container-fluid background-footer text-darkish">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<h5 class="text-center">About us</h5>
+						<p class="my-auto">Many companies struggle with sorting their paperwork on time, due to the number of employees. Our goal is to solve that problem for good. Now you can sort your holiday, check payslips or contact your manager easier, all in one place.</p>
+				</div>
+				<div class="col-12 col-md-6 ">
+					<div class="col-11 col-md-8 col-xl-6 mx-auto">
+						<h5 class="text-center">Our social media</h5>
+							<div class="row text-center">
+								<div class="col-3">
+									<a class="social" href="https://www.facebook.com/stan.kaczorkiewicz" target="_blank">
+										<i class="fab fa-facebook-square fa-lg"></i>
+									</a>
+								</div>
+								<div class="col-3 text-darkish">
+									<a class="social" href="https://www.linkedin.com/in/stan-kaczorkiewicz-94a146195/" target="_blank">
+										<i class="fab fa-linkedin fa-lg"></i>
+    								</a>
+								</div>
+								<div class="col-3 my-auto dec-none text-darkish">
+									<a class="social" href="https://www.instagram.com/navigare_necesse_est_i_huj/" target="_blank">
+	    								<i class="fab fa-instagram-square fa-lg"></i>
+									</a>
+								</div>
+                                <div class="col-3 my-auto dec-none text-darkish">
+									<a onclick="return notMine(this)" class="social" href="https://youtu.be/GGU1P6lBW6Q" target="_blank">
+										<i class="fab fa-youtube-square fa-lg"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</footer>
         {% endblock %}
 
         {% block postloadjs %}
         <script src="{% static 'scripts/base.js' %}"></script>
         
-								<!-- <script>
+		<script>
             function notMine(){
                 alert("This is not my Youtube Channel, but it's my favourite composer.")};
         </script>
 								<script type="text/javascript">
                 $('.toast').toast('show');
-            </script> -->
+            </script>
         {% endblock %}
         
     
-							</body>
-						</html>
+	</body>
+</html>

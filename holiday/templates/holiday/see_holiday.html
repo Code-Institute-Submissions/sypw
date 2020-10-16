@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+    {% block extra_css %}
+        <link rel="stylesheet" media="print" href="{% static '/holiday/css/holiday.css' %}">
+    {% endblock %}
 {% block page_header %}
     <script src="{% static 'holiday/scripts/holiday.js' %}"></script>
-    <link rel="stylesheet" media="print" href="{% static 'holiday/css/holiday.css' %}">
+    
 
 {% endblock %}
 
@@ -19,31 +22,33 @@
 <div class="container-fluid d-block" id="holiday">
 	<div class="row text-center">
 		<div class="col-5 mx-auto ">
-			<h4 class="font-logo my-4 text-uppercase">Check Holiday</h4>
+			<h4 class="font-logo my-4 text-uppercase">Message Sent</h4>
 		</div>
 		<div class="col-10 mx-auto my-5">
-			<h3 class="my-border bg-nav">Here we will place a calendar where you can see your planned holidays!</h3>
+			<h3 class="my-border bg-nav">Your manager recived your request and will contact you soon.</h3>
 		</div>
         
 	</div>
     <div class="row " id="cal-body">
-        <div class="col-12 col-sm-10 my-auto py-5 mx-auto col-md-8 bg-easy">
-            <table id="calendar" >
-                <div class="data">
+        <div class="col-12 col-sm-10 my-auto pt-3 pb-5 mx-auto col-md-7 bg-easy">
+            <div class="col-8 mx-auto text-center">
+                        <h4 class="font-logo mb-3 text-uppercase">Check the Calendar</h4>
+                    </div>
+            <table id="calendar" class="mx-auto text-center">
+                <div class="data mx-auto mb-3 text-center">
                     <input type="text" id="year" placeholder="Enter Four Digit Year"/>
                     <input type="text" id="month" placeholder="Enter Numeric Month"/>
-            <!-- <input type="reset" id="reset" class="start-now" value="Clear Calendar"/> -->
                     <input type="submit" id="create" class="start-now" value="Show Calendar"/>
                 </div>
                     <thead>
                         <tr>
-                            <th id="dayOfWeek">Sunday</th>
-                            <th id="dayOfWeek">Monday</th>
-                            <th id="dayOfWeek">Tuesday</th>
-                            <th id="dayOfWeek">Wednesday</th>
-                            <th id="dayOfWeek">Thursday</th>
-                            <th id="dayOfWeek">Friday</th>
-                            <th id="dayOfWeek">Saturday</th>
+                            <th id="dayOfWeek"> Sunday</th>
+                            <th id="dayOfWeek"> Monday</th>
+                            <th id="dayOfWeek"> Tuesday</th>
+                            <th id="dayOfWeek"> Wednesday</th>
+                            <th id="dayOfWeek"> Thursday</th>
+                            <th id="dayOfWeek"> Friday</th>
+                            <th id="dayOfWeek"> Saturday</th>
                         </tr>
                     </thead>
                 <tbody id="cal"></tbody>

@@ -33,21 +33,21 @@ function Calendar(id, year, month) {
   var d = new Date(year, mon)
   
   //start table drawing
-  var table = ['<table><tr>']
+  var table = ['<table> <tr>']
 
   // (2) get start day of month and fill first row 
   //  0  1  2  3  4  5  6
   for (var i=0; i<d.getDay(); i++) {
-    table.push('<td></td>')
+    table.push('<td> </td>')
   }
   
   // main body (3) //fill in rest of rows based on month
   while(d.getMonth() == mon) {
-    table.push('<td>'+d.getDate()+'</td>')
+    table.push('<td> '+d.getDate()+' </td>')
 	
  // (4)if 7 days in the week to be filled- create rows. 
     if (d.getDay() % 7 == 6) {   
-      table.push('</tr><tr>')
+      table.push('</tr> <tr>')
     }
 	
  //set date: add 1 because counter starts at 0, but our days start at 1..
@@ -57,10 +57,10 @@ function Calendar(id, year, month) {
   
   // (5) if less than 7 days, blank spaces
   for (var i=d.getDay(); i<7; i++) {
-    table.push('<td></td>')
+    table.push('<td> </td>')
   }
   // table closure
-  table.push('</tr></table>')
+  table.push('</tr> </table>')
   
   //join all rows created above to create complete table and draw.
   elem.innerHTML = table.join('\n')
