@@ -5,8 +5,9 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('company_name', 'full_name', 'email', 'phone_number', 'street_address1',
-                'street_address2', 'town_or_city', 'postcode', 'county', 'country', )
+        fields = ('company_name', 'full_name', 'email', 'phone_number',
+                'street_address1','street_address2', 'town_or_city',
+                'postcode', 'county', 'country', 'is_manager', )
 
     def __init__(self, *args, **kwargs):
         """
@@ -24,6 +25,7 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'postcode': 'Postal Code',
             'county': 'County or State',
+            'is_manager': 'Are you a manager?'
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True

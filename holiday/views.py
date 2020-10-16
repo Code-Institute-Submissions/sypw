@@ -22,7 +22,7 @@ def see_holiday(request):
         ])
         # end_date = request.POST['end-date']
         message = request.POST['message']
-        content = " Phone: " + message_phone + "  " + message + " in dates: " + dates
+        content = " Phone: " + message_phone +  "  Message:  " + message +  " In dates: " + dates
 
         context = {
             'message_name': message_name,
