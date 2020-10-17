@@ -1,26 +1,24 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %} 
 
-{% block page_header %}
-{% endblock %}
+{% block page_header %} {% endblock %}
 
 {% block content %}
-    <div class="btt-button shadow-sm rounded border border-black">
-		<a class="btt-link d-flex h-100">
-			<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
-		</a>
-	</div>
+<div class="btt-button shadow-sm rounded border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
+    </a>
+</div>
     {% if request.user.is_authenticated %}
-    
     <div class="container-fluid">
         <div class="row min_height no-padding" id="homepage">
             <div class="col-12 col-sm-10 col-md-6 mx-auto my-5">
-			    <h2 class="text-center font-logo text-darkish">Welcome back {{ user }}</h2>
-		    </div>
+                <h2 class="text-center font-logo text-darkish">Welcome back 
+                {{ user }}</h2>
+            </div>
             <div class="col-12">
                 <div class="row">
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="{% url 'profile' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-user fa-lg"></i>
                                 <h3>See your profile</h3>
@@ -28,7 +26,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="{% url 'decide' %}" class="text-lg text-darkish my-4">
                                 <i class="far fa-calendar-plus"></i>
                                 <h3>Renew your subscription</h3>
@@ -36,7 +34,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="{% url 'comunicado' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-envelope-open-text fa-lg"></i>
                                 <h3>Contact your team</h3>
@@ -44,7 +42,7 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="{% url 'payslips' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-wallet fa-lg"></i>
                                 <h3>Access your payslips</h3>
@@ -52,33 +50,31 @@
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="{% url 'holiday' %}" class="text-lg text-darkish my-4">
                                 <i class="fas fa-snowboarding fa-lg"></i>
-                                <h3>See your holiday or book the new one</h3>
+                                <h3>Book a holiday</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-10 col-md-5 mx-auto text-center my-5 bg-nav rounded my-border">
-                        <div class="my-5 text-lg ">
+                        <div class="my-5 text-lg">
                             <a href="https://www.youtube.com/watch?v=hDXWK3W477w" target="_blank" class="text-lg text-darkish my-4">
                                 <i class="fas fa-music"></i>
                                 <h3>Find some good music</h3>
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
     {% else %}
-<div class="container-fluid" >
-	<div class="row my-auto bg-blueish min_height no-padding ">
-            <div class="order-last order-md-first d-inline-block col-md-6" id="accounting">
-            </div>
+    <div class="container-fluid">
+        <div class="row my-auto bg-blueish min_height no-padding">
+            <div class="order-last order-md-first d-inline-block col-md-6" id="accounting"></div>
             <div class="col-12 col-md-5 h-100 bg-blueish order-md-last my-auto mx-auto text-white text-center">
-                <h3 class=" font-logo my-3">Being a manager?</h3>
+                <h3 class="font-logo my-3">Being a manager?</h3>
                 <p class="text-large">We know that emploee's paperwork can be a nightmare!</p>
                 <p>Every week tons of payslips to be send.</p>
                 <p>Every day someone wants book, cancel, change or check their holiday</p>
@@ -86,117 +82,127 @@
             </div>
         </div>
         <div class="row my-auto bg-easy min_height no-padding">
-        <div class=" col-12 col-md-6 h-100 my-auto mx-auto text-center">
-            <h3 class=" font-logo my-3">But you can enjoy your job!</h3>
+            <div class="col-12 col-md-6 h-100 my-auto mx-auto text-center">
+                <h3 class="font-logo my-3">But you can enjoy your job!</h3>
                 <p class="text-large">We provide tools to sort it out quickly and effectively.</p>
                 <p>In SYPW you can sent payslips to your team, contact all of them at once and sort every holiday querry.</p>
                 <p class="mb-5">And all of it in one place, without even leaving your desk!</p>
-        </div>
-        <div class="order-last col-12 col-md-6" id="one-place">
-        </div>
+            </div>
+            <div class="order-last col-12 col-md-6" id="one-place"></div>
         </div>
         <div class="row text-center" id="home-page">
-        <div class="col-12 bg-white min_height font-logo">
-            <div class="row p-5 my-5">
-                <div class="col-10 col-md-4 features mx-auto text-center">
-                    <a href="{% url 'decide' %}">
-                    <i class="fas fa-snowboarding my-4 fa-lg"></i>
-                    <h3 class="text-darkish">Sort out your team's holiday</h3>
-                    </a>
+            <div class="col-12 bg-white min_height font-logo">
+                <div class="row p-5 my-5">
+                    <div class="col-10 col-md-4 features mx-auto text-center">
+                        <a href="{% url 'decide' %}">
+                            <i class="fas fa-snowboarding my-4 fa-lg"></i>
+                            <h3 class="text-darkish">Sort out your team's holiday</h3>
+                        </a>
+                    </div>
+                    <div class="col-10 col-md-4 features mx-auto">
+                        <a href="{% url 'decide' %}">
+                            <i class="fas fa-wallet my-4 fa-lg"></i>
+                            <h3 class="text-darkish">
+                                Acces your payslips <br />
+                                online
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="col-10 col-md-4 mx-auto features">
+                        <a href="{% url 'decide' %}">
+                            <i class="fas fa-envelope-open-text my-4 fa-lg"></i>
+                            <h3 class="text-darkish">Contact your whole team via our forum</h3>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-10 col-md-4 features mx-auto">
-                    <a href="{% url 'decide' %}">
-                        <i class="fas fa-wallet my-4 fa-lg"></i>
-                        <h3 class="text-darkish">Acces your payslips <br> online</h3>
-                    </a>
+            </div>
+            <div class="h-100 my-5 d-md-none col-10 rounded mx-auto bg-nav my-border">
+                <h2 class="text-uppercase pt-4">
+                    <strong>Sort your paperwork like a pro!</strong>
+                </h2>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'decide' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
+                    </h4>
                 </div>
-                <div class="col-10 col-md-4 mx-auto features">
-                    <a href="{% url 'decide' %}">
-                        <i class="fas fa-envelope-open-text my-4 fa-lg"></i>
-                        <h3 class="text-darkish">Contact your whole team via our forum</h3>
-                    </a>
+            </div>
+            <div class="h-100 d-none d-md-block col-md-5 rounded text-center my-5 py-5 mx-auto bg-nav my-border">
+                <h2 class="display-4 text-uppercase pt-4">
+                    <strong>Sort your paperwork like a pro!</strong>
+                </h2>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'decide' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
+                    </h4>
                 </div>
             </div>
         </div>
-		<div class="h-100 my-5 d-md-none col-10 rounded  mx-auto bg-nav my-border">
-			<h2 class="text-uppercase pt-4 ">
-				<strong>Sort your paperwork like a pro!</strong>
-			</h2>
-			<div class="my-5">
-				<h4>
-					<a href="{% url 'decide' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
-				</h4>
-			</div>
-		</div>
-		<div class="h-100 d-none d-md-block col-md-5 rounded text-center my-5 py-5 mx-auto bg-nav my-border">
-			<h2 class="display-4 text-uppercase pt-4 ">
-				<strong>Sort your paperwork like a pro!</strong>
-			</h2>
-			<div class="my-5">
-				<h4>
-					<a href="{% url 'decide' %}" class="start-now btn btn-lg rounded-1 text-uppercase text-center px-5 py-3">start now</a>
-				</h4>
-			</div>
-		</div>
-	</div>
-	<div class="row min_height bg-blueish pb-5">
-			<div class="col-12 text-center">
-				<h4 class=" font-logo my-3 my-lg-5 text-white">Don't only take our words for it!</h4>
-                <h5 class=" font-logo my-3 my-lg-5 text-white">Our customers said:</h5>
-			</div>
-        <div class="col-12 col-md-5 mx-auto bg-easy rounded mt-0 mb-4" id="my-opinion"></div>
-        <div class="col-12 col-md-6  h-100 mt-auto pb-5 mx-auto">
-            <div class="card bg-easy col-10 col-lg-9 col-xl-8 float-left">
-                <div class="card-header">
-                   <strong> John Smith </strong>
+        <div class="row min_height bg-blueish pb-5">
+            <div class="col-12 text-center">
+                <h4 class="font-logo my-3 my-lg-5 text-white">Don't only take our words for it!</h4>
+                <h5 class="font-logo my-3 my-lg-5 text-white">Our customers said:</h5>
+            </div>
+            <div class="col-12 col-md-5 mx-auto bg-easy rounded mt-0 mb-4" id="my-opinion"></div>
+            <div class="col-12 col-md-6 h-100 mt-auto pb-5 mx-auto">
+                <div class="card bg-easy col-10 col-lg-9 col-xl-8 float-left">
+                    <div class="card-header">
+                        <strong> John Smith </strong>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>
+                                With SYPW within few minutes I can do the job that used to take me hours. <br />
+                                My life is much easier since I use it at work.
+                            </p>
+                            <footer class="blockquote-footer"><cite title="Source Title">Manager at SyncJam</cite></footer>
+                        </blockquote>
+                    </div>
                 </div>
-                <div class="card-body ">
-                    <blockquote class="blockquote  mb-0">
-                    <p>With SYPW within few minutes I can do the job that used to take me hours. <br> My life is much easier since I use it at work.</p>
-                    <footer class="blockquote-footer"> <cite title="Source Title">Manager at SyncJam</cite></footer>
-                    </blockquote>
+            </div>
+            <div class="col-12 order-last d-md-none h-100 mt-auto pb-5">
+                <div class="card bg-easy col-10 mx-auto">
+                    <div class="card-header">
+                        <strong> Adam Woodhouse</strong>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>
+                                SYPW helped me to deal with most-hated part of my work. <br />
+                                Now I've got more time to do what I love.
+                            </p>
+                            <footer class="blockquote-footer"><cite title="Source Title">Founder of Ciridae Startup</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-md-inline col-12 col-md-6 mt-auto pb-5 mr-0">
+                <div class="card bg-easy float-right col-12 col-lg-10 col-xl-8">
+                    <div class="card-header">
+                        <strong> Adam Woodhouse</strong>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>
+                                SYPW helped me to deal with most-hated part of my work. <br />
+                                Now I've got more time to do what I love.
+                            </p>
+                            <footer class="blockquote-footer"><cite title="Source Title">Founder of Ciridae Startup</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-5 mx-auto bg-easy float-left rounded mt-0 mb-4" id="other-opinion"></div>
+        </div>
+        <div class="row">
+            <div class="col-12" id="future">
+                <div class="col-4 d-none d-lg-flex text-center font-logo mt-5 ml-auto">
+                    <a href="{% url 'decide' %}" class="text-darkish">Start your bright future today! </a>
+                </div>
+                <div class="col-4 d-lg-none text-center font-logo mt-5 mx-auto">
+                    <a href="{% url 'decide' %}" class="text-link">Start your bright future today! </a>
                 </div>
             </div>
         </div>
-        <div class="col-12 order-last d-md-none h-100 mt-auto pb-5">
-            <div class="card bg-easy col-10 mx-auto">
-                <div class="card-header">
-                   <strong> Adam Woodhouse</strong>
-                </div>
-                <div class="card-body ">
-                    <blockquote class="blockquote  mb-0">
-                    <p>SYPW helped me to deal with most-hated part of my work. <br> Now I've got more time to do what I love.</p>
-                    <footer class="blockquote-footer"> <cite title="Source Title">Founder of Ciridae Startup</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-        <div class="d-none d-md-inline col-12 col-md-6 mt-auto pb-5 mr-0">
-            <div class="card bg-easy float-right col-12 col-lg-10 col-xl-8">
-                <div class="card-header">
-                   <strong> Adam Woodhouse</strong>
-                </div>
-                <div class="card-body ">
-                    <blockquote class="blockquote  mb-0">
-                    <p>SYPW helped me to deal with most-hated part of my work. <br> Now I've got more time to do what I love.</p>
-                    <footer class="blockquote-footer"> <cite title="Source Title">Founder of Ciridae Startup</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-5 mx-auto bg-easy float-left rounded mt-0 mb-4" id="other-opinion"></div>
     </div>
-    <div class="row">
-        <div class="col-12" id="future">
-            <div class="col-4 d-none d-lg-flex text-center font-logo mt-5 ml-auto">
-            <a href="{% url 'decide' %}" class="text-darkish">Start your bright future today! </a>
-            </div>
-            <div class="col-4 d-lg-none text-center font-logo mt-5 mx-auto">
-            <a href="{% url 'decide' %}" class="text-link">Start your bright future today! </a>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
-
+    {% endif %} 
 {% endblock %}

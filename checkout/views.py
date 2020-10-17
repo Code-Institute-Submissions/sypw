@@ -7,7 +7,7 @@ from .forms import OrderForm
 from .models import OrderLineItem, Order
 from products.models import Product
 from profiles.forms import UserProfileForm
-from profiles.models import UserProfile
+from profiles.models import UserProfile, Company
 from bag.context import bag_contents
 
 import stripe
@@ -74,7 +74,8 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please check your information.')
@@ -97,6 +98,7 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
+                    'company': Company.company_name,
                     'full_name': profile.default_full_name,
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
@@ -140,6 +142,7 @@ def checkout_success(request, order_number):
         # Save the user's info
         if save_info:
             profile_data = {
+                'default_company_name': order.company_name,
                 'default_full_name': order.full_name,
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
