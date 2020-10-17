@@ -13,8 +13,8 @@
 		</div>
             {% if not payslips %}
             
-		<div class="col-8 text-center margin-top mx-auto bg-nav">
-			<h2>You don't have any payslips yet!</h2>
+		<div class="col-8 text-center margin-top mx-auto my-border rounded bg-nav">
+			<h2 class="my-4">You don't have any payslips yet!</h2>
 			<p class="text-muted">Please contact your manager if you think it's wrong.</p>
 		</div>
             {% else %}
@@ -25,13 +25,14 @@
 				<div class="card-header" id="headingOne">
 					<h2 class="mb-0">
 						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Payslip for week 'week_number'
+                            Payslip for week {{ forloop_count }}
                             </button>
 					</h2>
 				</div>
 				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 					<div class="card-body">
-                            Here is your payslip
+                            Here is your payslip: <br>
+                            {{ payslip }}
                         </div>
 				</div>
 			</div>
