@@ -71,25 +71,7 @@
                         
 							</div>
 						</li>
-                        {% if request.user.is_superuser %}
-							<li class="list-inline-item dropdown">
-								<a class="text-darkish nav-link" href="#" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<div class="text-center">
-										<div>
-											<i class="fas fa-snowboarding fa-lg"></i>
-										</div>
-								    	<p class="my-0">My Holiday</p>
-									</div>
-								</a>
-								<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-									<a class="text-darkish dropdown-item" href="{% url 'holiday' %}" aria-haspopup="true" aria-expanded="false">
-										<p class="text-blueish my-0">Holiday</p>
-									</a>
-                                {% block holinav %}
-                                {% endblock %}
-                                </div>
-                        
-                        {% else %}
+                       
                             <li class="list-inline-item ">
 								<a class="text-darkish nav-link" href="{% url 'holiday'%}"  aria-haspopup="true" aria-expanded="false">
 									<div class="text-center">
@@ -100,8 +82,7 @@
 									</div>
 								</a>
 							</li>
-                        {% endif %}
-						</li>
+						
 						<li class="list-inline-item ">
 							<a class="text-darkish nav-link" href="{% url 'payslips'%}"  aria-haspopup="true" aria-expanded="false">
 								<div class="text-center">
