@@ -34,7 +34,8 @@ class CreateInForum(ModelForm):
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        forum = Forum.id
+        # chat = Forum.id
+        # forum = Forum.id
         fields = ['forum', 'discuss', 'nick', ]
 
     def __init__(self, *args, **kwargs):
@@ -58,11 +59,3 @@ class CreateInDiscussion(ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
-
-
-# class EditInDiscussion(ModelForm):
-#     class Meta:
-#         model = Discussion
-        # def __init__(self, *args, **kwargs):
-        #     self.fields['nick'].widget.attrs['autofocus'] = True
-

@@ -17,7 +17,7 @@
             <form action="{% url 'editInDiscussion' discussion.id %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-            <input type="submit" class="btn start-now mx-auto" value="Edit">
+            <input type="submit" class="btn mt-auto mb-4 start-now mx-auto" value="Edit message">
             </form>
 			</div>
 		</div>
