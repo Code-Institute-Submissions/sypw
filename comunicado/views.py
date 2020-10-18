@@ -34,7 +34,7 @@ def addInForum(request):
     return render(request, 'comunicado/addInForum.html', context)
 
 
-def addInDiscussion(request):
+def addInDiscussion(request, ):
     form = CreateInDiscussion(initial={'forum': Forum.id})
     nick = Discussion.nick
     if request.method == 'POST':
@@ -74,6 +74,7 @@ def addInDiscussion(request):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
+    nick = Discussion.nick
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
         if form.is_valid:
@@ -90,6 +91,7 @@ def editInDiscussion(request, discussion_id):
     context = {
         'form': form,
         'discussion': discussion,
+        'nick': nick
     }
 
     return render(request, template, context)
