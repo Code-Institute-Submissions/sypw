@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-12 col-md-8 col-lg-6 text-center d-block my-auto mx-auto">
 
-            <form action="{% url 'addInDiscussion' forum.id %}" method="POST">
+            <form action="{% url 'addInDiscussion' %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
             <input type="submit" class="btn start-now my-3 mx-auto" value="submit">

@@ -33,12 +33,21 @@
 			 <div class="accordion rounded bg-easy my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
+                        <div class="row">
+                        <div class="col-5 col-sm-3 col-md-2">
+                        <p class="text-left text-black">Topic {{forloop.counter}}:</p>
+                        </div>
+                        <div class="col-6 col-sm-9 col-md-10">
 						<h2 class="mb-0 text-center">
-							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
+							<button class="btn text-center btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
+                            
                             {{ forum.topic }}
-
+                            
                             </button>
                             </h2>
+                            <!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
+                            </div>
+                            </div>
                             <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
                             Email- {{forum.email}} </small>
                             </div>
@@ -68,7 +77,7 @@
                                 {%endfor%}
                             {%endfor%}
                         
-                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' forum.id %}">
+                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                             <button class="btn start-now mx-2">Add your message</button>
                            
