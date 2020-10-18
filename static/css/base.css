@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 body,
 html {
 	height: 100%;
@@ -150,7 +151,6 @@ body a {
 #home-page {
 	background: url('/media/payday.jpg') center center no-repeat;
 	background-size: cover;
-	/* height: 130% !important; */
 }
 
 .main-logo-link {
@@ -219,8 +219,6 @@ body a {
 /* --------------------------------------Holiday */
 
 #holiday {
-	/* background-image: url('/media/.jpg');
-	background-size: cover; */
     background: url('/media/holiday.jpg')center center no-repeat;
 	background-size: cover;
     min-height: 800px;
@@ -249,8 +247,7 @@ body a {
 	background: url('/media/forum_2.jpg')center center no-repeat;
 	background-size: cover;
 	z-index: -1;
-    /* background: url('/media/holiday.jpg'); */
-    min-height: 800px;
+    /* min-height: 800px; */
 }
 
 
