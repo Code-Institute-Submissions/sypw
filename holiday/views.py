@@ -13,7 +13,7 @@ def holiday(request):
 
 
 def see_holiday(request):
-    """ a view to see all holidays"""
+    """ a view for the form to book holiday"""
     if request.method == "POST":
         message_name = str(request.POST['your-name'])
         message_phone = request.POST['your-phone']

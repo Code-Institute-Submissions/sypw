@@ -5,7 +5,7 @@ from django.contrib import messages
 from products.models import Product
 
 
-@login_required
+
 def view_bag(request):
     """ a view to return bag page """
 

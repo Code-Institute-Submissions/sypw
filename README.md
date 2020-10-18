@@ -29,3 +29,5 @@ The idea for this form of comunication between users comes from [here](https://d
 
 13/10 I'm trying this one: https://codepen.io/tmrDevelops/pen/yHDge
 That has been found [here](https://uicookies.com/bootstrap-calendar/)
+
+The idea for contact form to apply for holiday comes from [here](https://www.youtube.com/watch?v=rHZwE1AK1h8)
