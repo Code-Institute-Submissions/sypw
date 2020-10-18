@@ -9,10 +9,12 @@
 
 <div class="container-fluid d-block" id="comunicado">
 	<div class="row ">
-		<div class="col-7 mx-auto text-center text-uppercase ">
-			<h4 class="font-logo my-4">Add your message</h4>
+		<div class="col-8 mx-auto text-center text-uppercase ">
+            <div class="col-12 col-md-10 col-lg-7 col-xl-5 mx-auto p-2">
+			<h4 class="font-logo rounded  bg-easy my-4">Add your message</h4>
+            </div>
 		</div>
-		<div class="col-12 col-md-8 col-lg-6 text-center d-block my-auto mx-auto">
+		<div class="col-12 col-md-8 col-lg-7 text-center d-block my-auto mx-auto">
 
             <form action="{% url 'addInDiscussion' %}" method="POST">
                 {% csrf_token %}
