@@ -17,20 +17,20 @@
 		<div class="col-6 col-md-5 col-lg-4 mx-auto  text-center text-uppercase ">
 			<h4 class="font-logo my-4 bg-easy rounded ">Company Forum</h4>
 		</div>
-		<div class="col-10  my-auto mx-auto">
+		<div class="col-12  my-auto mx-auto">
 
-            <h2 class="jumbotron my-border col-lg-8 bg-nav text-center mx-auto my-auto">
+            <h2 class="jumbotron my-border col-10 col-lg-8 bg-nav text-center mx-auto my-auto">
                 Currently active topics: {{count}}
                 <form method="POST" action="{% url 'addInForum' %}">
                     {% csrf_token %}
                 <button class="btn start-now mx-2">Add new topic</button>
                 </form>
             </h2>
-            <div class="col-10 margin-top mx-auto min_height my-5">
+            <div class="col-12 col-sm-10 col-lg-8 margin-top mx-auto min_height my-5">
 
             {% for forum in forums %}
                 {% if request.user.is_superuser %}
-			 <div class="accordion bg-easy my-2" id="accordion-{{forloop.counter}}"> 
+			 <div class="accordion rounded bg-easy my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
 					<div class="card-header" id="headingOne">
 						<h2 class="mb-0 text-center">
@@ -52,13 +52,13 @@
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
                                     <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12 col-md-6 col-lg-5">
                                         {{ objs.discuss }}
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12 col-md-3">
                                         {{ objs.nick }}
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12 col-md-3 col-lg-4">
                                     <a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
                                     <a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
                                     </div>
@@ -67,11 +67,10 @@
                                     {% endif %}
                                 {%endfor%}
                             {%endfor%}
-                            <hr>
                         
-                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' forum.id %}">
                                 {% csrf_token %}
-                            <button class="btn start-now mx-2">Add your opinion</button>
+                            <button class="btn start-now mx-2">Add your message</button>
                            
                             <a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
                             </form>

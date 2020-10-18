@@ -12,13 +12,12 @@
 		<div class="col-7 mx-auto text-center text-uppercase ">
 			<h4 class="font-logo my-4">Add your message</h4>
 		</div>
-		<div class="col-10 col-md-8 col-lg-6 text-center d-block my-auto mx-auto">
+		<div class="col-12 col-md-8 col-lg-6 text-center d-block my-auto mx-auto">
 
-            <form action="{% url 'addInDiscussion' %}" method="POST">
+            <form action="{% url 'addInDiscussion' forum.id %}" method="POST">
                 {% csrf_token %}
-                {{ discussion.forum.name }}
                 {{ form|crispy }}
-            <input type="submit" class="btn start-now mx-auto" value="submit">
+            <input type="submit" class="btn start-now my-3 mx-auto" value="submit">
             </form>
 			</div>
 		</div>
