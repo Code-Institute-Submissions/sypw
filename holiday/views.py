@@ -24,7 +24,7 @@ def see_holiday(request):
         ])
         # end_date = request.POST['end-date']
         message = request.POST['message']
-        content = "  Message:  " + message + ". In dates: " + dates
+        content = "Hi there, you have a new holiday request from " + message_name +". \n\nTheir Message:  " + message + ". \n\nIn dates: " + dates
 
         context = {
             'message_name': message_name,
@@ -35,7 +35,7 @@ def see_holiday(request):
             'content': content,
         }
 
-        subject = message_name + " " + message_phone
+        subject = "New holiday request from " + message_name
         from_email = message_email
 
         # send an email function
@@ -43,7 +43,7 @@ def see_holiday(request):
             subject,
             content,
             from_email,
-            ['stan.kazovski@yahoo.com', settings.DEFAULT_FROM_EMAIL, ],
+            [settings.DEFAULT_FROM_EMAIL, ],
             fail_silently=False,)
 
         return render(request, 'holiday/see_holiday.html', context)
