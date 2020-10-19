@@ -1,5 +1,8 @@
+from django.shortcuts import render, get_object_or_404
+
 from django.forms import ModelForm
 from .models import Forum, Discussion
+from profiles.models import UserProfile
 
 
 class CreateInForum(ModelForm):
@@ -12,31 +15,34 @@ class CreateInForum(ModelForm):
         Add placeholders and classes, remove auto-generated
         labels and set autofocus on first field
         """
+
+        # name = Forum.name
         super().__init__(*args, **kwargs)
         placeholders = {
-            'name': 'Your Name',
+            # 'name': 'Your Name',
             'email': 'Email Address',
             'topic': 'New subject',
             'description': 'Here you can describe your idea',
         }
 
-        self.fields['name'].widget.attrs['autofocus'] = True
+        self.fields['topic'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            if field != 'name':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
 
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        # chat = Forum.id
-        # forum = Forum.id
-        fields = ['forum', 'discuss', 'nick', ]
+        forum = Forum.topic
+        nick = UserProfile.user
+        fields = ['forum', 'discuss', 'nick']
 
     def __init__(self, *args, **kwargs):
         """
@@ -47,15 +53,15 @@ class CreateInDiscussion(ModelForm):
         placeholders = {
             'forum': 'Choose Forum',
             'discuss': 'Your message',
-            'nick': 'Your Name',
         }
 
         self.fields['discuss'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            if field != 'nick':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                # self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False

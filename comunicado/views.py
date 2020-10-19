@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Forum, Discussion
+from profiles.models import UserProfile
+
 from django.contrib import messages
 from .forms import CreateInDiscussion, CreateInForum
 
@@ -25,28 +27,35 @@ def comunicado(request):
 
 def addInForum(request):
     form = CreateInForum()
+    name = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         form = CreateInForum(request.POST)
+        name = get_object_or_404(UserProfile, user=request.user)
         if form.is_valid():
             form.save()
             return redirect(reverse('comunicado'))
-    context = {'form': form}
+    context = {
+        'form': form,
+        'name': name,
+        }
     return render(request, 'comunicado/addInForum.html', context)
 
 
 def addInDiscussion(request):
+    nick = get_object_or_404(UserProfile, user=request.user)
     forum = Forum.topic
-    form = CreateInDiscussion(initial={'forum': forum})
-    nick = Discussion.nick
+    form = CreateInDiscussion(initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST)
+        nick = get_object_or_404(UserProfile, user=request.user)
+
         if form.is_valid():
             form.save()
             return redirect('comunicado')
     context = {
         'forum': forum,
         'form': form,
-        'nick': nick
+        'nick': nick,
     }
     return render(request, 'comunicado/addInDiscussion.html', context)
 
@@ -75,7 +84,7 @@ def addInDiscussion(request):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-    nick = Discussion.nick
+    # nick = Discussion.nick
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
         if form.is_valid:
@@ -92,7 +101,7 @@ def editInDiscussion(request, discussion_id):
     context = {
         'form': form,
         'discussion': discussion,
-        'nick': nick
+        # 'nick': nick
     }
 
     return render(request, template, context)

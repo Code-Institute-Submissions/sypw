@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 # parent model
 class Forum(models.Model):
-    name = models.CharField(max_length=200, null=False, blank=False, default=UserProfile)
+    name = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.CharField(max_length=200, null=True, default=Order)
     topic = models.CharField(max_length=300, null=False)
     description = models.CharField(max_length=1000, blank=True)
@@ -20,7 +20,7 @@ class Forum(models.Model):
 class Discussion(models.Model):
     forum = models.ForeignKey(Forum, blank=False, on_delete=models.CASCADE)
     discuss = models.TextField(max_length=1200)
-    nick = models.CharField(max_length=200, default=User)
+    nick = models.ForeignKey(User, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.forum)

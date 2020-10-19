@@ -24,7 +24,7 @@ def see_holiday(request):
         ])
         # end_date = request.POST['end-date']
         message = request.POST['message']
-        content = "Hi there, you have a new holiday request from " + message_name +". \n\nTheir Message:  " + message + ". \n\nIn dates: " + dates
+        content = "Hi there, you have a new holiday request from " + message_name + ". \n\nTheir Message:  " + message + ". \n\nIn dates: " + dates
 
         context = {
             'message_name': message_name,
