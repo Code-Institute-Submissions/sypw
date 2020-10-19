@@ -32,46 +32,49 @@
                 {% if request.user.is_superuser %}
 			 <div class="accordion rounded bg-easy my-2" id="accordion-{{forloop.counter}}"> 
 				<div class="card">
-					<div class="card-header" id="headingOne">
+					<div class="card-header bg-blueish" id="headingOne">
                         <div class="row">
                         <div class="col-5 col-sm-3 col-md-2 my-auto">
                         <p class="text-left my-auto text-black">Topic {{forloop.counter}}:</p>
                         </div>
                         <div class="col-6 col-sm-9 col-md-10">
-						<h2 class="my-auto text-center">
-							<button class="btn text-center btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
+						<h2 class="my-auto text-center ">
+							<button class="btn text-center font-logo btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
                             {{ forum.topic }}
                             </button>
                             </h2>
                             <!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
                             </div>
                             </div>
-                            <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
+                            <div class=" text-darkish text-left"><small> By: {{forum.name}}. &emsp;
                             Email- {{forum.email}}  &emsp; </small>
                             <small class="text-right float-right"> {{ forum.date }}</small>
                             </div>
 						
 					</div>
 					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
-						<div class="card-body text-left">
+						{% if forum.description %}
+                        <div class="card-body  text-left">
+                        Description: &emsp;
                         {{forum.description}} <hr>
-                        <h6 class="text-center text-black">Messages from other users:</h6> <hr>
+                        {% endif %}
+                        <h6 class="text-center text-darkish my-2">Messages from other users:</h6> <hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
                                     <div class="row">
-                                    <div class="col-12 col-md-6 col-lg-5">
+                                    <div class="col-12 col-md-3 col-lg-4 ">
+                                      <small class="pl-2">  {{ objs.nick }} <br>
+                                         {{ objs.date }}</small>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-5 text-center">
                                         {{ objs.discuss }}
                                     </div>
-                                    <div class="col-12 col-md-3">
-                                        {{ objs.nick }}
-                                        
-                                    </div>
-                                    <div class="col-12 col-md-3 col-lg-4">
+                                    
+                                    <div class="col-12 col-md-3 col-lg-3">
                                     <a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
                                     <a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
                                     </div>
-                                    <small class="text-right float-right"> {{ objs.date }}</small>
                                     </div>
                                     <hr>
                                     {% endif %}

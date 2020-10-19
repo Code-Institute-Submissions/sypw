@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 # parent model
 class Forum(models.Model):
-    name = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
     email = models.EmailField(max_length=200, null=False, default=User)
     topic = models.CharField(max_length=300, null=False)
     description = models.CharField(max_length=1000, blank=True)
