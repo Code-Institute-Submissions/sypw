@@ -40,23 +40,22 @@
                         <div class="col-6 col-sm-9 col-md-10">
 						<h2 class="my-auto text-center">
 							<button class="btn text-center btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
-                            
                             {{ forum.topic }}
-                            
                             </button>
                             </h2>
                             <!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
                             </div>
                             </div>
                             <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
-                            Email- {{forum.email}} </small>
+                            Email- {{forum.email}}  &emsp; </small>
+                            <small class="text-right float-right"> {{ forum.date }}</small>
                             </div>
 						
 					</div>
 					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
-						<div class="card-body text-center">
+						<div class="card-body text-left">
                         {{forum.description}} <hr>
-                        <h5 class="text-left text-black">Messages from other users:</h5> <hr>
+                        <h6 class="text-center text-black">Messages from other users:</h6> <hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
@@ -66,11 +65,13 @@
                                     </div>
                                     <div class="col-12 col-md-3">
                                         {{ objs.nick }}
+                                        
                                     </div>
                                     <div class="col-12 col-md-3 col-lg-4">
                                     <a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
                                     <a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
                                     </div>
+                                    <small class="text-right float-right"> {{ objs.date }}</small>
                                     </div>
                                     <hr>
                                     {% endif %}

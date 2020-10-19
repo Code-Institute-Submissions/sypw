@@ -8,7 +8,7 @@ from profiles.models import UserProfile
 class CreateInForum(ModelForm):
     class Meta:
         model = Forum
-        fields = ('name', 'email', 'topic', 'description')
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         """
@@ -42,7 +42,7 @@ class CreateInDiscussion(ModelForm):
         model = Discussion
         forum = Forum.topic
         nick = UserProfile.user
-        fields = ['forum', 'discuss', 'nick']
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         """

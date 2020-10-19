@@ -56,6 +56,7 @@ def addInDiscussion(request):
         'forum': forum,
         'form': form,
         'nick': nick,
+        # 'date': date,
     }
     return render(request, 'comunicado/addInDiscussion.html', context)
 
