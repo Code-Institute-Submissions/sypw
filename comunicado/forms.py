@@ -1,19 +1,21 @@
-from django.shortcuts import render, get_object_or_404
+# from django.shortcuts import render, get_object_or_404
 
 from django.forms import ModelForm
 from .models import Forum, Discussion
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 
 class CreateInForum(ModelForm):
     class Meta:
         model = Forum
+        name = User.username
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         """
         Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
+        labels and set autofocus on topic field
         """
 
         # name = Forum.name

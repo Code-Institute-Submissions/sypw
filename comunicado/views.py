@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Forum, Discussion
 from profiles.models import UserProfile
+from django.contrib.auth.models import User
 
 from django.contrib import messages
 from .forms import CreateInDiscussion, CreateInForum
@@ -26,7 +27,7 @@ def comunicado(request):
 
 
 def addInForum(request):
-    name = get_object_or_404(UserProfile, user=request.user)
+    name = User.username
     form = CreateInForum()
     if request.method == 'POST':
         form = CreateInForum(request.POST)
