@@ -26,11 +26,11 @@ def comunicado(request):
 
 
 def addInForum(request):
-    form = CreateInForum()
     name = get_object_or_404(UserProfile, user=request.user)
+    form = CreateInForum()
     if request.method == 'POST':
         form = CreateInForum(request.POST)
-        name = get_object_or_404(UserProfile, user=request.user)
+        # name = get_object_or_404(UserProfile, user=request.user)
         if form.is_valid():
             form.save()
             return redirect(reverse('comunicado'))

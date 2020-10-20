@@ -3,150 +3,170 @@
 
 {% block extra_css %}
 
+
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
-<div class="overlay" id="comunicado"></div>
+
+	<div class="overlay" id="comunicado"></div>
 {% endblock %}
 
 {% block content %}
 
-<div class="container-fluid ">
-	<div class="row ">
-		<div class="col-6 col-md-5 col-lg-4 mx-auto  text-center text-uppercase ">
-			<h4 class="font-logo my-4 bg-easy rounded ">Company Forum</h4>
-		</div>
-		<div class="col-12  my-auto mx-auto">
-
-            <h2 class="jumbotron my-border col-10 col-lg-8 bg-nav text-center mx-auto my-auto">
+	<div class="container-fluid ">
+		<div class="row ">
+			<div class="col-6 col-md-5 col-lg-4 mx-auto  text-center text-uppercase ">
+				<h4 class="font-logo my-4 bg-easy rounded ">Company Forum</h4>
+			</div>
+			<div class="col-12  my-auto mx-auto">
+				<div class="jumbotron my-border col-10 col-lg-8 bg-nav text-lg text-center mx-auto my-auto">
                 Currently active topics: {{count}}
-                <form method="POST" action="{% url 'addInForum' %}">
+                
+					<form method="POST" action="{% url 'addInForum' %}">
                     {% csrf_token %}
-                <button class="btn start-now mx-2">Add new topic</button>
-                </form>
-            </h2>
-            <div class="col-12 col-sm-10 col-lg-8 margin-top mx-auto min_height my-5">
+                
+						<button class="btn start-now my-2 mx-2">Add new topic</button>
+					</form>
+				</div>
+				<div class="col-12 col-sm-10 col-lg-8 margin-top mx-auto min_height my-5">
 
             {% for forum in forums %}
                 {% if request.user.is_superuser %}
-			 <div class="accordion rounded bg-easy my-2" id="accordion-{{forloop.counter}}"> 
-				<div class="card">
-					<div class="card-header bg-blueish" id="headingOne">
-                        <div class="row">
-                        <div class="col-5 col-sm-3 col-md-2 my-auto">
-                        <p class="text-left my-auto text-black">Topic {{forloop.counter}}:</p>
-                        </div>
-                        <div class="col-6 col-sm-9 col-md-10">
-						<h2 class="my-auto text-center ">
-							<button class="btn text-center font-logo btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
+			 
+					<div class="accordion rounded bg-easy my-4" id="accordion-{{forloop.counter}}">
+						<div class="card">
+							<div class="card-header bg-blueish" id="heading-{{forloop.counter}}">
+								<div class="row">
+									<div class="col-5 col-sm-3 col-md-2 my-auto">
+										<p class="text-left my-auto text-black">Topic {{forloop.counter}}:</p>
+									</div>
+									<div class="col-6 col-sm-9 col-md-10">
+										<div class="my-auto text-center ">
+											<button class="btn text-center font-logo btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
                             {{ forum.topic }}
                             </button>
-                            </h2>
-                            <!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
-                            </div>
-                            </div>
-                            <div class=" text-darkish text-left"><small> By: {{forum.name}}. &emsp;
+										</div>
+									</div>
+								</div>
+								<div class=" text-darkish text-left">
+									<small> By: {{forum.name}}. &emsp;
                             Email- {{forum.email}}  &emsp; </small>
-                            <small class="text-right float-right"> {{ forum.date }}</small>
-                            </div>
-						
-					</div>
-					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
-						{% if forum.description %}
-                        <div class="card-body  text-left">
-                        Description: &emsp;
-                        {{forum.description}} <hr>
-                        {% endif %}
-                        <h6 class="text-center text-darkish my-2">Messages from other users:</h6> <hr>
-                            {% for discuss in discussions%}
-                                {% for objs in discuss%}  
-                                    {% if objs.forum == forum %}
-                                    <div class="row">
-                                    <div class="col-12 col-md-3 col-lg-4 ">
-                                      <small class="pl-2">  {{ objs.nick }} <br>
-                                         {{ objs.date }}</small>
-                                    </div>
-                                    <div class="col-12 col-md-6 col-lg-5 text-center">
-                                        {{ objs.discuss }}
-                                    </div>
-                                    
-                                    <div class="col-12 col-md-3 col-lg-3">
-                                    <a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
-                                    <a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
-                                    </div>
-                                    </div>
-                                    <hr>
-                                    {% endif %}
-                                {%endfor%}
-                            {%endfor%}
-                        
-                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
-                                {% csrf_token %}
-                            <button class="btn start-now mx-2">Add your message</button>
-                           
-                            <a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
-                            </form>
+									<small class="text-right float-right"> {{ forum.date }}</small>
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-                {% else %}
-                <div class="accordion  bg-nav my-2" id="accordion-{{forloop.counter}}"> 
-				<div class="card">
-					<div class="card-header" id="headingOne">
-						<h2 class="mb-0 text-center">
-							<button class="btn  btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
-                            {{ forum.topic }}
-
-                            </button>
-                            </h2>
-                            <div class="text-muted text-left"><small> By: {{forum.name}}. &emsp;
-                            Email- {{forum.email}} </small>
-                            </div>
-						
-					</div>
-					<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="headingOne" data-parent="#accordion-{{forloop.counter}}">
-						<div class="card-body text-center">
-                        {{forum.description}} <hr>
-                        <h5 class="text-left text-black">Messages from other users:</h5> <hr>
+							<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-easy" aria-labelledby="heading-{{forloop.counter}}" data-parent="#accordion-{{forloop.counter}}">
+						{% if forum.description %}
+								<div class="card-body text-center">
+                        Description: &emsp;
+                                <strong> {{forum.description}} </strong>
+								</div>
+                                <hr>
+                                <h6 class="text-center text-darkish my-auto">Messages from other users:</h6>
+                        {% else %}
+                        
+								<h6 class="text-center text-darkish my-2">Messages from other users:</h6>
+                        {% endif %}
+						    		<hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
-                                    <div class="row">
-                                    <div class="col-8">
+                                    
+								<div class="row">
+									<div class="col-12 col-md-3 col-lg-4 ">
+										<small class="pl-2">  {{ objs.nick }} 
+											<br>
+                                         {{ objs.date }}
+										</small>
+									</div>
+									<div class="col-12 col-md-6 col-lg-5 text-center">
                                         {{ objs.discuss }}
                                     </div>
-                                    <div class="col-4">
-                                        {{ objs.nick }}
-                                    </div>
-                                    </div>
-                                    <hr>
+									<div class="col-12 col-md-3 col-lg-3">
+										<a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
+										<a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
+									</div>
+								</div>
+                            	<hr>
                                     {% endif %}
                                 {%endfor%}
                                 
                             {%endfor%}
-                            <hr>
-                        
-                            <form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                        		<form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
-                            <button class="btn start-now mx-2">Add your message</button>
-                            </form>
+									<button class="btn start-now mx-2">Add your message</button>
+									<a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
+								</form>
 							</div>
 						</div>
 					</div>
+
+                {% else %}
+					<div class="accordion  bg-easy my-2" id="accordion-{{forloop.counter}}">
+						<div class="card">
+							<div class="card-header" id="heading-{{forloop.counter}}">
+								<div class="row">
+									<div class="col-5 col-sm-3 col-md-2 my-auto">
+									    <p class="text-left my-auto text-black">Topic {{forloop.counter}}:</p>
+									</div>
+									<div class="col-6 col-sm-9 col-md-10">
+										<h2 class="my-auto text-center ">
+											<button class="btn text-center font-logo btn-link text-darkish" type="button" data-toggle="collapse" data-target="#forum-{{forloop.counter}}" aria-expanded="false" aria-controls="forum-{{forloop.counter}}">
+                            {{ forum.topic }}
+                                            </button>
+										</h2>
+										<!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
+									</div>
+								</div>
+								<div class=" text-darkish text-left">
+					    			<small> By: {{forum.name}}. &emsp;
+                                        Email- {{forum.email}}  &emsp; </small>
+									<small class="text-right float-right"> {{ forum.date }}</small>
+								</div>
+							</div>
+							<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="heading-{{forloop.counter}}" data-parent="#accordion-{{forloop.counter}}">
+								<div class="card-body text-center">
+                        {{forum.description}} 
+								<hr>
+					    			<h5 class="text-left text-black">Messages from other users:</h5>
+								<hr>
+                            {% for discuss in discussions%}
+                                {% for objs in discuss%}  
+                                    {% if objs.forum == forum %}
+                                    
+									<div class="row">
+										<div class="col-8">
+                                        {{ objs.discuss }}
+                                        </div>
+									<div class="col-4">
+                                        {{ objs.nick }}
+                                </div>
+							</div>
+								<hr>
+                                    {% endif %}
+                                {%endfor%}
+                            {%endfor%}
+								<hr>
+							<form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                                {% csrf_token %}
+                    			<button class="btn start-now mx-2">Add your message</button>
+							</form>
+						</div>
+					</div>
 				</div>
+			        </div>
                 {% endif %}
             {% endfor %}
-                </div>
+                    </div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="btt-button shadow-sm rounded border border-black">
-		<a class="btt-link d-flex h-100">
-			<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
-		</a>
-	</div>
+	<!-- </div> -->
+				<div class="btt-button shadow-sm rounded border border-black">
+					<a class="btt-link d-flex h-100">
+						<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
+					</a>
+				</div>
     {% endblock %}
 
 {% block postloadjs %}
@@ -161,5 +181,5 @@
             toggle: true
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 {% endblock %}
