@@ -90,7 +90,6 @@
                             	<hr>
                                     {% endif %}
                                 {%endfor%}
-                                
                             {%endfor%}
                         		<form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
@@ -102,7 +101,7 @@
 					</div>
 
                 {% else %}
-					<div class="accordion  bg-easy my-2" id="accordion-{{forloop.counter}}">
+					<div class="accordion  bg-easy my-4" id="accordion-{{forloop.counter}}">
 						<div class="card">
 							<div class="card-header" id="heading-{{forloop.counter}}">
 								<div class="row">
@@ -115,7 +114,6 @@
                             {{ forum.topic }}
                                             </button>
 										</h2>
-										<!-- <p class="text-left text-black">Topic {{forloop.counter}}:</p> -->
 									</div>
 								</div>
 								<div class=" text-darkish text-left">
@@ -125,28 +123,38 @@
 								</div>
 							</div>
 							<div id="forum-{{forloop.counter}}" class="collapsed text-left bg-nav" aria-labelledby="heading-{{forloop.counter}}" data-parent="#accordion-{{forloop.counter}}">
-								<div class="card-body text-center">
-                        {{forum.description}} 
-								<hr>
-					    			<h5 class="text-left text-black">Messages from other users:</h5>
+                                <div class="card-body">
+								{% if forum.description %}
+								<div class="text-center">
+                        Description: &emsp;
+                                <strong> {{forum.description}} </strong>
+                                <hr>
+                                <h6 class="text-center text-darkish my-auto">Messages from other users:</h6>
+                                </div>
+                        {% else %}
+                        
+								<h6 class="text-center text-darkish my-2">Messages from other users:</h6>
+                        {% endif %}
 								<hr>
                             {% for discuss in discussions%}
                                 {% for objs in discuss%}  
                                     {% if objs.forum == forum %}
                                     
 									<div class="row">
-										<div class="col-8">
+									<div class="col-12 col-md-4 col-lg-4 ">
+										<small class="pl-2">  {{ objs.nick }} 
+											<br>
+                                         {{ objs.date }}
+										</small>
+									</div>
+									<div class="col-12 col-md-6 text-center">
                                         {{ objs.discuss }}
-                                        </div>
-									<div class="col-4">
-                                        {{ objs.nick }}
-                                </div>
-							</div>
+                                    </div>
+								</div>
 								<hr>
                                     {% endif %}
                                 {%endfor%}
                             {%endfor%}
-								<hr>
 							<form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
                                 {% csrf_token %}
                     			<button class="btn start-now mx-2">Add your message</button>
