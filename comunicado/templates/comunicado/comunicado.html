@@ -91,7 +91,7 @@
                                     {% endif %}
                                 {%endfor%}
                             {%endfor%}
-                        		<form class="text-right" method="POST" action="{% url 'addInDiscussion' %}">
+                        		<form class="text-right" method="POST" action="{% url 'addInDiscussion' forum.id %}">
                                 {% csrf_token %}
 									<button class="btn start-now mx-2">Add your message</button>
 									<a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>

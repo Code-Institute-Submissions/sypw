@@ -29,11 +29,9 @@ def comunicado(request):
 def addInForum(request):
     name = request.user
 
-    # profile = get_object_or_404(UserProfile, user=request.user)
-    print(f"User's name: {name} and type {type(name)}")
-    # email = request.UserProfile.email
+    # print(f"User's name: {name} and type {type(name)}")
     form = CreateInForum(initial={'name': name})
-    # print(f"The form with name: {form}")
+
     if request.method == 'POST':
         form = CreateInForum(request.POST)
         # name = get_object_or_404(UserProfile, user=request.user)
@@ -52,27 +50,33 @@ def addInForum(request):
     return render(request, 'comunicado/addInForum.html', context)
 
 
-def addInDiscussion(request):
-    # nick = get_object_or_404(UserProfile, user=request.user)
+def addInDiscussion(request, forum_id):
+
     nick = request.user
-    forum = Forum.topic
+    forum = get_object_or_404(Forum, pk=forum_id)
+    print(f"aaaaaaaaaaaaaaaaaaaaaaaaa The form with FORUM: {forum}")
 
     form = CreateInDiscussion(initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
-        form = CreateInDiscussion(request.POST)
+        form = CreateInDiscussion(request.POST, initial={'forum': forum, 'nick': nick})
+        print(f"bbbbbbbbbbbbbbbbbbbbbbbbbb Forum {forum}")
         # nick = get_object_or_404(UserProfile, user=request.user)
 
         if form.is_valid():
             form = form.save(commit=False)
+            # print(f"cccccccccccccccccccccccccccccccccccccc Forum {forum}")
             form.nick = nick
             form.save()
             return redirect('comunicado')
+
+    template = redirect(reverse('addInDiscussion'))
     context = {
+        'forum_id': forum.id,
         'forum': forum,
         'form': form,
         'nick': nick,
     }
-    return render(request, 'comunicado/addInDiscussion.html', context)
+    return render(request, context, template, )
 
 
 # def editInForum(request, forum_id):
@@ -99,7 +103,7 @@ def addInDiscussion(request):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-    # nick = Discussion.nick
+    
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
         if form.is_valid:
