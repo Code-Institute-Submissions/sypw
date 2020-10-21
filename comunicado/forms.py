@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 class CreateInForum(ModelForm):
     class Meta:
         model = Forum
-        name = User.username
-        fields = '__all__'
+        fields = ('email', 'topic', 'description')
+        # exclude = ('name', )
 
     def __init__(self, *args, **kwargs):
         """
@@ -18,7 +18,8 @@ class CreateInForum(ModelForm):
         labels and set autofocus on topic field
         """
 
-        # name = Forum.name
+        # name = User.username
+        # print(f"************************ NAME {name} ")
         super().__init__(*args, **kwargs)
         placeholders = {
             # 'name': 'Your Name',
@@ -35,7 +36,9 @@ class CreateInForum(ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # else:
+            #     self.fields[field].widget.attrs['value'] = 'auth.User'
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
 
@@ -43,8 +46,8 @@ class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
         forum = Forum.topic
-        nick = UserProfile.user
-        fields = '__all__'
+        # nick = Discussion.nick
+        fields = ('forum', 'discuss', )
 
     def __init__(self, *args, **kwargs):
         """

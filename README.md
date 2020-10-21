@@ -7,17 +7,35 @@ payslips, that they send to all 80 000 emploees every week.
 I know that there is many similar apps, my last company was useing one of them,
 but it looks like there is a need for more, so why not to make one.
 
-My main assumption is to make it as simple as it's possible, in order to work.
+My main assumption was to make it as simple as it's possible, in order to work.
+I also wanted to leave some potential for future changes and more features
 
 
 # UX
 
-I want this app to be ineractive, intuitive, responsive and user-friendly.
+I wanted this app to be ineractive, intuitive, responsive and user-friendly. Although now I think, that the name (SYPW = Sort Your PaperWork) might be slightly confusing.
+
+To make use of it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it has positive and calming conotations.
+
+My first idea for the look of SYPW can be seen here and here.
+
+I identified a user as a manager of small to middle-sized company and their team. 
 
 
-To beautify my code I used [that program](https://codebeautify.org/)
+# Features
+
+## Main page
+
+Homepage for unregistered user has description of features my app provides  and 
+
+## Payslips
+After starting with Payslip basic database and model, I realised that this part is usually sorted by HR team, not management, so whole this part will need to be changed to only allow User with access to their payslip, and manager/hr_team to upload payslip files, instead of creating them here (although it can be good oportunity for further development if this app will ever be actually used commercially)
+
+
 
 # Credit
+
+To beautify my code I used [that program](https://codebeautify.org/)
 
 While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
 
@@ -31,3 +49,5 @@ The idea for this form of comunication between users comes from [here](https://d
 That has been found [here](https://uicookies.com/bootstrap-calendar/)
 
 The idea for contact form to apply for holiday comes from [here](https://www.youtube.com/watch?v=rHZwE1AK1h8)
+
+I also would like to say Thank You to the author of [this video](https://www.youtube.com/watch?v=2KqhBkMv7aM) as I found it helpful

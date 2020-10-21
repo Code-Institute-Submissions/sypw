@@ -27,30 +27,44 @@ def comunicado(request):
 
 
 def addInForum(request):
-    name = User.username
-    form = CreateInForum()
+    name = request.user
+
+    # profile = get_object_or_404(UserProfile, user=request.user)
+    print(f"User's name: {name} and type {type(name)}")
+    # email = request.UserProfile.email
+    form = CreateInForum(initial={'name': name})
+    # print(f"The form with name: {form}")
     if request.method == 'POST':
         form = CreateInForum(request.POST)
         # name = get_object_or_404(UserProfile, user=request.user)
         if form.is_valid():
-            form.save()
+            forum_form = form.save(commit=False)
+            forum_form.name = name
+            forum_form.save()
             return redirect(reverse('comunicado'))
+
+    # form = CreateInForum(instance=profile)
     context = {
         'form': form,
         'name': name,
         }
+
     return render(request, 'comunicado/addInForum.html', context)
 
 
 def addInDiscussion(request):
-    nick = get_object_or_404(UserProfile, user=request.user)
+    # nick = get_object_or_404(UserProfile, user=request.user)
+    nick = request.user
     forum = Forum.topic
+
     form = CreateInDiscussion(initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST)
-        nick = get_object_or_404(UserProfile, user=request.user)
+        # nick = get_object_or_404(UserProfile, user=request.user)
 
         if form.is_valid():
+            form = form.save(commit=False)
+            form.nick = nick
             form.save()
             return redirect('comunicado')
     context = {

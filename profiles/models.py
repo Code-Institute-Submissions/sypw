@@ -10,7 +10,7 @@ class Company(models.Model):
     # I left 'company_' in front of the 'name' to make it easier to differ from
     # user's "full_name". The other one is left to keep consistency in names
     company_name = models.CharField(max_length=50, null=False)
-    company_team = models.FloatField()
+    company_team = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.company_name
@@ -21,6 +21,7 @@ class UserProfile(models.Model):
     User profile to store basic information about user
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_manager = models.BooleanField(default=True, null=True)
     default_company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
     default_full_name = models.CharField(max_length=50, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
