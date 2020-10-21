@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import UserProfile
+from .models import UserProfile, Company
 from .forms import UserProfileForm, CompanyProfileForm
 
 from checkout.models import Order
@@ -12,6 +12,7 @@ from checkout.models import Order
 def profile(request):
     """ Display the user's profile"""
     profile = get_object_or_404(UserProfile, user=request.user)
+    company = get_object_or_404(Company)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -20,7 +21,7 @@ def profile(request):
             messages.success(request, 'Your profile has been updated')
 
     form = UserProfileForm(instance=profile)
-    company_form = CompanyProfileForm(instance=profile)
+    company_form = CompanyProfileForm(instance=company)
     orders = profile.orders.all()
 
     template = 'profiles/profile.html'
