@@ -41,9 +41,6 @@ class CreateInForum(ModelForm):
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        # forum = Discussion.forum
-        # print(f' aaaaaaaaaaaaaaaa ooooooooooooooooooooooo eeeeeeeeee This is {forum}')
-        # nick = Discussion.nick
         fields = ('discuss', )
 
     def __init__(self, *args, **kwargs):

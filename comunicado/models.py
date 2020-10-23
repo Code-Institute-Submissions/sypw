@@ -1,6 +1,4 @@
 from django.db import models
-# from profiles.models import UserProfile
-# from checkout.models import Order
 from django.contrib.auth.models import User
 
 
