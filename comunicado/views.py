@@ -53,19 +53,13 @@ def addInForum(request):
 def addInDiscussion(request, forum_id):
     nick = request.user
     email2 = request.user.email
-    print(f"oooooooooooooooooooooooooo The form with email: {email2}")
 
     forum = get_object_or_404(Forum, pk=forum_id)
-    print(f"aaaaaaaaaaaaaaaaaaaaaaaaa The form with FORUM: {forum}")
-
-    form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'forum': forum, 'nick': nick})
+    form = CreateInDiscussion(request.POST, request.FILES, initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
-        form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'forum': forum, 'nick': nick})
-        print(f"bbbbbbbbbbbbbbbbbbbbbbbbbb Forum {forum}")
-        # nick = get_object_or_404(UserProfile, user=request.user)
+        form = CreateInDiscussion(request.POST, request.FILES, initial={'forum': forum, 'nick': nick})
 
         if form.is_valid():
-            print(f"cccccccccccccccccccccccccccccccccccccc Forum {forum}")
             form = form.save(commit=False)
             form.nick = nick
             form.email = email2
@@ -111,20 +105,41 @@ def addInDiscussion(request, forum_id):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-
-    if request.method == 'POST':
-        form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
-        if form.is_valid:
-            form.save()
-            messages.success(request, "Great, you fixed that!")
-            return redirect(reverse('comunicado'))
+# discussion = get_object_or_404(Discussion, pk=discussion_id)
+    user = request.user
+    author = discussion.nick
+    if user == author:
+        if request.method == 'POST':
+            form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
+            if form.is_valid:
+                form.save()
+                messages.success(request, "Great, you fixed that!")
+                return redirect(reverse('comunicado'))
+            else:
+                messages.error(request, "Failed to update that. Please ensure the form is valid.")
         else:
-            messages.error(request, "Failed to update that. Please ensure the form is valid.")
+            form = CreateInDiscussion(instance=discussion)
+            messages.info(request, f'you can now edit {Discussion.nick} opinion')
     else:
-        form = CreateInDiscussion(instance=discussion)
-        messages.info(request, f'you can now edit {Discussion.nick} opinion')
+        messages.error(request, "You cannot edit this message, because it's not yours!")
+        print("You were trying to edit the post of other author, you naughty naughty!")
+        placeholder = "You cannot edit this message, because it's not yours!"
+        form = CreateInDiscussion(request.POST, initial={'forum': discussion, 'nick': user, 'discuss': placeholder })
+
+    # if request.method == 'POST':
+    #     form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
+    #     if form.is_valid:
+    #         form.save()
+    #         messages.success(request, "Great, you fixed that!")
+    #         return redirect(reverse('comunicado'))
+    #     else:
+    #         messages.error(request, "Failed to update that. Please ensure the form is valid.")
+    # else:
+    #     form = CreateInDiscussion(instance=discussion)
+    #     messages.info(request, f'you can now edit {Discussion.nick} opinion')
 
     template = 'comunicado/editInDiscussion.html'
+
     context = {
         'form': form,
         'discussion': discussion,
@@ -136,8 +151,16 @@ def editInDiscussion(request, discussion_id):
 
 def deleteInForum(request, forum_id):
     """ Delete whole forum"""
+    user = request.user
     forum = get_object_or_404(Forum, pk=forum_id)
-    forum.delete()
+    author = forum.name
+    print(f'This is the author of that forum topic: {author}')
+    if user == author:
+        forum.delete()
+    else:
+        messages.error(request, "You cannot delete this topic.")
+        print("You were trying to delete the form of other author, you naughty naughty!")
+    # forum.delete()
     messages.success(request, "Forum deleted successfuly!")
     return redirect(reverse('comunicado'))
 
@@ -145,6 +168,13 @@ def deleteInForum(request, forum_id):
 def deleteInDiscussion(request, discussion_id):
     """ Delete whole forum"""
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-    discussion.delete()
+    user = request.user
+    author = discussion.nick
+    if user == author:
+        discussion.delete()
+    else:
+        messages.error(request, "You cannot delete this topic.")
+        print("You were trying to delete the post of other author, you naughty naughty!")
+    # discussion.delete()
     messages.success(request, "Answer deleted successfuly!")
     return redirect(reverse('comunicado'))

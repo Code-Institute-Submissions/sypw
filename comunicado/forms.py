@@ -10,7 +10,6 @@ class CreateInForum(ModelForm):
     class Meta:
         model = Forum
         fields = ('topic', 'description')
-        # exclude = ('name', )
 
     def __init__(self, *args, **kwargs):
         """
@@ -18,8 +17,6 @@ class CreateInForum(ModelForm):
         labels and set autofocus on topic field
         """
 
-        # name = User.username
-        # print(f"************************ NAME {name} ")
         super().__init__(*args, **kwargs)
         placeholders = {
             'email': 'Email Address',
@@ -59,7 +56,7 @@ class CreateInDiscussion(ModelForm):
             'discuss': 'Here you can write your message',
         }
 
-        self.fields['discuss'].widget.attrs['autofocus'] = True
+        # self.fields['discuss'].widget.attrs['autofocus'] = True
         for field in self.fields:
             # if field != 'nick':
             placeholder = placeholders[field]
