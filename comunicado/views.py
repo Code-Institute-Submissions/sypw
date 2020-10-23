@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Forum, Discussion
-from profiles.models import UserProfile
-from django.contrib.auth.models import User
+# from profiles.models import UserProfile
+# from django.contrib.auth.models import User
 
 from django.contrib import messages
 from .forms import CreateInDiscussion, CreateInForum
@@ -54,20 +54,13 @@ def addInDiscussion(request, forum_id):
     nick = request.user
     email2 = request.user.email
     print(f"oooooooooooooooooooooooooo The form with email: {email2}")
-    # forum = Forum.topic
 
     forum = get_object_or_404(Forum, pk=forum_id)
     print(f"aaaaaaaaaaaaaaaaaaaaaaaaa The form with FORUM: {forum}")
 
-    
-    # def form_valid(self, form):
-    #     if self.request.POST.get('parent'):
-    #         forum.parent_id = self.request.POST.get('parent')
-    #         forum.save()
-
     form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
-        form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'nick': nick})
+        form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'forum': forum, 'nick': nick})
         print(f"bbbbbbbbbbbbbbbbbbbbbbbbbb Forum {forum}")
         # nick = get_object_or_404(UserProfile, user=request.user)
 
@@ -79,6 +72,8 @@ def addInDiscussion(request, forum_id):
             form.forum = forum
             form.save()
             return redirect('comunicado')
+        else:
+            print("iiiiiiiiiiooooooooooooooooooo iiiiiiiiiioooooooooooo this is django police. Your form is invalid bro!")
 
     # template = redirect(reverse('addInDiscussion', forum_id))
     template = 'comunicado/addInDiscussion.html'
@@ -116,7 +111,7 @@ def addInDiscussion(request, forum_id):
 def editInDiscussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-    
+
     if request.method == 'POST':
         form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
         if form.is_valid:

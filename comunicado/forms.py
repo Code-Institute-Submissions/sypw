@@ -9,7 +9,7 @@ from .models import Forum, Discussion
 class CreateInForum(ModelForm):
     class Meta:
         model = Forum
-        fields = ('email', 'topic', 'description')
+        fields = ('topic', 'description')
         # exclude = ('name', )
 
     def __init__(self, *args, **kwargs):
@@ -22,7 +22,6 @@ class CreateInForum(ModelForm):
         # print(f"************************ NAME {name} ")
         super().__init__(*args, **kwargs)
         placeholders = {
-            # 'name': 'Your Name',
             'email': 'Email Address',
             'topic': 'New subject',
             'description': 'Here you can describe your idea',
@@ -57,17 +56,13 @@ class CreateInDiscussion(ModelForm):
         """
         super().__init__(*args, **kwargs)
         placeholders = {
-            # 'forum': 'Choose Forum',
-            'discuss': 'Your message',
+            'discuss': 'Here you can write your message',
         }
 
         self.fields['discuss'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'nick':
-                # if self.fields[field].required:
-                #     placeholder = f'{placeholders[field]} *'
-                # else:
-                placeholder = placeholders[field]
-                self.fields[field].widget.attrs['placeholder'] = placeholder
-                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            # if field != 'nick':
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
