@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div class="container-fluid d-block" id="comunicado">
+<div class="container-fluid min_height d-block" id="comunicado">
 	<div class="row ">
 		<div class="col-8 mx-auto text-center text-uppercase ">
             <div class="col-12 col-md-10 col-lg-7 col-xl-5 mx-auto p-2">
@@ -16,7 +16,7 @@
 		</div>
 		<div class="col-12 col-md-8 col-lg-7 text-center d-block my-auto mx-auto">
 
-            <form action="{% url 'addInDiscussion' %}" method="POST">
+            <form action="{% url 'addInDiscussion' forum.id %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
             <input type="submit" class="btn start-now my-3 mx-auto" value="submit">

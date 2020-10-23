@@ -51,32 +51,45 @@ def addInForum(request):
 
 
 def addInDiscussion(request, forum_id):
-
     nick = request.user
+    email2 = request.user.email
+    print(f"oooooooooooooooooooooooooo The form with email: {email2}")
+    # forum = Forum.topic
+
     forum = get_object_or_404(Forum, pk=forum_id)
     print(f"aaaaaaaaaaaaaaaaaaaaaaaaa The form with FORUM: {forum}")
 
-    form = CreateInDiscussion(initial={'forum': forum, 'nick': nick})
+    
+    # def form_valid(self, form):
+    #     if self.request.POST.get('parent'):
+    #         forum.parent_id = self.request.POST.get('parent')
+    #         forum.save()
+
+    form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
-        form = CreateInDiscussion(request.POST, initial={'forum': forum, 'nick': nick})
+        form = CreateInDiscussion(request.POST, request.FILES, instance=forum, initial={'nick': nick})
         print(f"bbbbbbbbbbbbbbbbbbbbbbbbbb Forum {forum}")
         # nick = get_object_or_404(UserProfile, user=request.user)
 
         if form.is_valid():
+            print(f"cccccccccccccccccccccccccccccccccccccc Forum {forum}")
             form = form.save(commit=False)
-            # print(f"cccccccccccccccccccccccccccccccccccccc Forum {forum}")
             form.nick = nick
+            form.email = email2
+            form.forum = forum
             form.save()
             return redirect('comunicado')
 
-    template = redirect(reverse('addInDiscussion'))
+    # template = redirect(reverse('addInDiscussion', forum_id))
+    template = 'comunicado/addInDiscussion.html'
     context = {
         'forum_id': forum.id,
         'forum': forum,
         'form': form,
         'nick': nick,
     }
-    return render(request, context, template, )
+
+    return render(request, template, context,)
 
 
 # def editInForum(request, forum_id):

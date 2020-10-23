@@ -2,8 +2,8 @@
 
 from django.forms import ModelForm
 from .models import Forum, Discussion
-from profiles.models import UserProfile
-from django.contrib.auth.models import User
+# from profiles.models import UserProfile
+# from django.contrib.auth.models import User
 
 
 class CreateInForum(ModelForm):
@@ -45,8 +45,8 @@ class CreateInForum(ModelForm):
 class CreateInDiscussion(ModelForm):
     class Meta:
         model = Discussion
-        # forum = Forum.topic
-        # print(f' aaaaaaaaaaaaaaaaThis is {forum}')
+        # forum = Discussion.forum
+        # print(f' aaaaaaaaaaaaaaaa ooooooooooooooooooooooo eeeeeeeeee This is {forum}')
         # nick = Discussion.nick
         fields = ('discuss', )
 
