@@ -25,13 +25,9 @@
 				<form class="my-3 text-center" action="{% url 'profile'%}" method="POST" id="profile-update-form"> 
             {% csrf_token %}
             {{ form|crispy }}
-            
             {{ company_form|crispy }}
-<!--              
-            {{ company_form.company_name | as_crispy_field }}
-            {{ company_form.company_team | as_crispy_field }} -->
-            
-					<button class="btn my-5 start-now rounded">
+
+			<button class="btn my-5 start-now rounded">
             Update Information
             </button>
 				</form>

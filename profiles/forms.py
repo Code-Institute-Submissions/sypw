@@ -27,7 +27,7 @@ class CompanyProfileForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        exclude = ('user', 'default_company', 'is_manager')
+        exclude = ('user', 'company', 'is_manager')
 
     def __init__(self, *args, **kwargs):
         """Add placeholders and classes"""
