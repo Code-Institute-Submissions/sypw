@@ -12,7 +12,8 @@ from checkout.models import Order
 def profile(request):
     """ Display the user's profile"""
     profile = get_object_or_404(UserProfile, user=request.user)
-    company = get_object_or_404(Company)
+    # company = get_object_or_404(Company)
+    company = profile.company
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
