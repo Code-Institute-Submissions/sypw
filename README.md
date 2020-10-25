@@ -74,10 +74,70 @@ On the bottom, User has once again option to change their choice, or to pay if t
 ## After payment
 While the order is being processed, whole page is covered by animation commonly associated with 'loading page'. Once it's done, User is being redirected to 'Checkout Success' page, where they can 
 see all details of their order, including date and order number. This is also the very last page that User can access without an account. From here every User can get some more great classical music, or see their account (or create one).
+#
 
+## Profile app
+Once User created an account, they can see and update all personal details. 
+This is also a place where they can find all their order history.
+Right now changing Company's name and number of team members is disabled, as all default users for first (current) version of this app
+are supposed to belong to one team in the same company.
+In the future version, only manager will be able to see and edit "company" fields. Another option for the future is manager's ability to add or remove
+their team member's account, that will be placed here as well.
+#
 
+## Holiday 
+In the holiday app, user has ability to apply (paperless) for holiday at any time. Until the manager_user will be introduced, all holiday requests will be sent to company email, that comes from settings.
+Holiday Form has DateTimePicker from Bootstrap, to be able to see an actual calendar and to ensure all dates will be written in the same format.
+Firstly, my idea for holiday form was different, but then I found [this video](https://www.youtube.com/watch?v=rHZwE1AK1h8) and decided that I like it better.
+
+Once the contact form is submitted, User is redirected to 'see_holiday' template. I didn't wanted it to be blank (or to simply redirect User to homepage), so there is a calendar (source in 'Credit' section),
+where User can see their desired dates, count when there will be a weekend etc.
+
+#
 ## Payslips
-After starting with Payslip basic database and model, I realised that this part is usually sorted by HR team, not management, so whole this part will need to be changed to only allow User with access to their payslip, and manager/hr_team to upload payslip files, instead of creating them here (although it can be good oportunity for further development if this app will ever be actually used commercially)
+My first Idea for payslips app was simple- manager will place each of his colleagues salary in the right place and then magic will happen. 
+Then I looked at my own paper payslip and I understood how wrong I was.
+There are whole complicated programms to enable whole HR teams to sort out all those Tax-Insurance-Pension-Other_Contributions-Salary dependencies. 
+I am now drastically aware about my lack of knowledge in this matter.
+As such, whole this app will need to be changed to only allow User with access to their payslip, and hr_team to upload ready payslip files, instead of creating them here (although it could be good oportunity for further development if this app will ever be actually used commercially).
+
+#
+
+## Forum (Comunicado)
+I was going to call that app 'messages' but in Django that name is reserved for Django's messages (I didn't know that before I tried). 
+*The actual name of it came to me by accident as I currently learn Spanish and it sounds Spanish. I didn't know that it's actual Spanish word for notice or release, that actualy matches it's function. Even more surprised me fact, that this word also exist in English and means **a brief report for immediate publication** that is also quite adequate.*
+
+While starting with this app, I thought about direct messages between users, but that would be just a copy of emails, that are nightmare of all 
+office workes around the world.
+The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/).
+It is probably most complex app of this project and creation of it took me a lot of time.
+
+The main problem I had with it was to save user's name automatically to their posts and messages, also to match discussion with Forum and to add right email. 
+For a little while 'name' and 'email' in Forum part and also 'nick' and 'forum' in Discussion was enabling User to add any name of any user registered in database.
+That would leave a lot of room for corruption or spam messages.
+After trying to figure it out by myself for nearly 4 days (I almost did that once, but then another error occured and I didn't realise that it has other reason), I asked Code Institute's Tutors for help.
+It took three tutor's to find what's wrong (what implies that some of them are not most competent for this job), but finally Scott was able to find the bug and explain me what am I doing wrong.
+Once he showed me one example of right approach to that task, I quickly fixed all of the other issues I had there.
+The latest idea was to block users from deleting or editing posts that was created by someone else. I achived that by creating new variable called 'author' and checking if it match current user. I was even able to share that idea with another CI student on our Slack, as he was struggling with the same matter.
+
+Here I also need to explain, that I left quite a lot of commented code
+in comunicado/views.py in order to have quick access to ability of editing and deleting other's posts and messages in the 'old' way.
+Once the profile levels will be created, I'm going to allow users to edit their own posts, and managers to edit or delete all posts (as censorship it might be neccessary for all bunch of reasons).
+
+Also it's worth to be mentioned, that I personally like the layout of messages on the small screen, with name leaning towards the left and buttons leaning towords the right side of the screen, creating stairs-like shape on the screen.
+I found it sort of funny and I belive it matches whole SYPW theme.
+
+# Features left to implement
+
+As mentioned couple times above, main thing this website needs is leveling of the user profiles. 
+
+Also in holiday app I want user to be able to see their holidays on the calendar that will be displayed there.
+
+Payslips functionality will also need a lot of work done.
+
+And finally view of whole app will be different for user, manager_user and hr_team.
+
+
 
 
 
@@ -85,16 +145,13 @@ After starting with Payslip basic database and model, I realised that this part 
 
 To beautify my code I used [that program](https://codebeautify.org/)
 
+First of all I would like to say Thank You to Scott, Tutor from Code Institute, that helped me to understand Many_to_one dependencies and fix my Forum app.
+
 While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
 
 Almost all of the pictures used on this side, come from [here](www.unsplash.com), which is a great source of open source photos. Those that doesn't come from there, belong to me.
 
-The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/)
-
-<!-- Calendar as for 12/10/2020 comes from [this](https://codepen.io/hind-jai/full/GaxmYP) free library of bootstrap projects and has been found [here](https://colorlib.com/wp/bootstrap-calendars/) -->
 
 Idea for Calendar that only appears after you set the right vale comes from [here](https://codepen.io/tmrDevelops/pen/yHDge), but has been found [on this website](https://uicookies.com/bootstrap-calendar/)
-
-My first idea for contact form to apply for holiday were different, but then I found [this video](https://www.youtube.com/watch?v=rHZwE1AK1h8) and decided that I like it better.
 
 I also would like to say Thank You to the author of [this video](https://www.youtube.com/watch?v=2KqhBkMv7aM) as I found it helpful

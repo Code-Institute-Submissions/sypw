@@ -44,7 +44,7 @@ def see_holiday(request):
             from_email,
             [settings.DEFAULT_FROM_EMAIL, ],
             fail_silently=False,)
-# In order for this function to work while there's no "manager_user" account yet, all messages will be sent to a company account (DEFAULT...). Once account levels will be introdued, this bit will be change to send it to the right manager.
+# In order for this function to work while there's no "manager_user" profile yet, all messages will be sent to a company account (DEFAULT...). Once account levels will be introdued, this bit will be changed to send it to the right manager.
         return render(request, 'holiday/see_holiday.html', context)
 
     else:
