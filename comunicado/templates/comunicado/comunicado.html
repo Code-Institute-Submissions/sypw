@@ -23,7 +23,7 @@
 				<div class="jumbotron my-border col-10 col-lg-8 bg-nav text-lg text-center mx-auto my-auto">
                 Currently active topics: {{count}}
                 
-					<form method="POST" action="{% url 'addInForum' %}">
+					<form method="POST" action="{% url 'add_in_forum' %}">
                     {% csrf_token %}
                 
 						<button class="btn start-now my-2 mx-2">Add new topic</button>
@@ -83,18 +83,18 @@
                                         {{ objs.discuss }}
                                     </div>
 									<div class="col-12 col-md-3 col-lg-3 text-right">
-										<a href="{% url 'editInDiscussion' objs.id %}" class="start-now btn rounded">Edit</a>
-										<a href="{% url 'deleteInDiscussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
+										<a href="{% url 'edit_in_discussion' objs.id %}" class="start-now btn rounded">Edit</a>
+										<a href="{% url 'delete_in_discussion' objs.id %}" class="btn btn-danger rounded">Delete</a>
 									</div>
 								</div>
                             	<hr>
                                     {% endif %}
                                 {%endfor%}
                             {%endfor%}
-                        		<form class="text-right my-2" method="POST" action="{% url 'addInDiscussion' forum.id %}">
+                        		<form class="text-right my-2" method="POST" action="{% url 'add_in_discussion' forum.id %}">
                                 {% csrf_token %}
 									<button class="btn start-now mx-2">Add your message</button>
-									<a href="{% url 'deleteInForum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
+									<a href="{% url 'delete_in_forum' forum.id %}" class="btn btn-danger rounded">Delete Topic</a>
 								</form>
 							</div>
 						</div>
@@ -155,7 +155,7 @@
                                     {% endif %}
                                 {%endfor%}
                             {%endfor%}
-							<form class="text-right" method="POST" action="{% url 'addInDiscussion' forum.id %}">
+							<form class="text-right" method="POST" action="{% url 'add_in_discussion' forum.id %}">
                                 {% csrf_token %}
                     			<button class="btn start-now mx-2">Add your message</button>
 							</form>

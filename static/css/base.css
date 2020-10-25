@@ -240,14 +240,12 @@ body a {
 /* ------------------------------------- Comunicado */
 
 #comunicado {
-	/* height: 130%; */
 	width: 100%;
 	top: 0;
 	left: 0;
 	background: url('/media/forum_2.jpg')center center no-repeat;
 	background-size: cover;
 	z-index: -1;
-    /* min-height: 800px; */
 }
 
 
@@ -323,7 +321,6 @@ footer {
 	background: white;
 	color: black;
 	font-weight: bold;
-    /* min-width: 150px; */
 
 }
 

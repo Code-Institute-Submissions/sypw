@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
-# from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 
 
@@ -12,6 +11,7 @@ def holiday(request):
     return render(request, 'holiday/holiday.html')
 
 
+@login_required
 def see_holiday(request):
     """ a view for the form to book holiday"""
     if request.method == "POST":
@@ -22,7 +22,6 @@ def see_holiday(request):
             str(request.POST['start-date']),
             str(request.POST['end-date']),
         ])
-        # end_date = request.POST['end-date']
         message = request.POST['message']
         content = "Hi there, you have a new holiday request from " + message_name + ". \n\nTheir Message:  " + message + ". \n\nIn dates: " + dates
 
@@ -45,7 +44,7 @@ def see_holiday(request):
             from_email,
             [settings.DEFAULT_FROM_EMAIL, ],
             fail_silently=False,)
-
+# In order for this function to work while there's no "manager_user" account yet, all messages will be sent to a company account (DEFAULT...). Once account levels will be introdued, this bit will be change to send it to the right manager.
         return render(request, 'holiday/see_holiday.html', context)
 
     else:

@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Forum, Discussion
-# from profiles.models import UserProfile
-# from django.contrib.auth.models import User
 
 from django.contrib import messages
 from .forms import CreateInDiscussion, CreateInForum
@@ -26,31 +24,30 @@ def comunicado(request):
     return render(request, 'comunicado/comunicado.html', context)
 
 
-def addInForum(request):
+def add_in_forum(request):
     name = request.user
-
-    # print(f"User's name: {name} and type {type(name)}")
+    email2 = request.user.email
     form = CreateInForum(initial={'name': name})
 
     if request.method == 'POST':
         form = CreateInForum(request.POST)
-        # name = get_object_or_404(UserProfile, user=request.user)
         if form.is_valid():
             forum_form = form.save(commit=False)
             forum_form.name = name
+            forum_form.email = email2
+
             forum_form.save()
             return redirect(reverse('comunicado'))
 
-    # form = CreateInForum(instance=profile)
     context = {
         'form': form,
         'name': name,
         }
 
-    return render(request, 'comunicado/addInForum.html', context)
+    return render(request, 'comunicado/add_in_forum.html', context)
 
 
-def addInDiscussion(request, forum_id):
+def add_in_discussion(request, forum_id):
     nick = request.user
     email2 = request.user.email
 
@@ -69,8 +66,7 @@ def addInDiscussion(request, forum_id):
         else:
             print("iiiiiiiiiiooooooooooooooooooo iiiiiiiiiioooooooooooo this is django police. Your form is invalid bro!")
 
-    # template = redirect(reverse('addInDiscussion', forum_id))
-    template = 'comunicado/addInDiscussion.html'
+    template = 'comunicado/add_in_discussion.html'
     context = {
         'forum_id': forum.id,
         'forum': forum,
@@ -81,7 +77,7 @@ def addInDiscussion(request, forum_id):
     return render(request, template, context,)
 
 
-# def editInForum(request, forum_id):
+# def edit_in_forum(request, forum_id):
 #     "Edit the Forum"
 #     forum = get_object_or_404(Forum, pk=forum_id)
 #     form = CreateInForum(instance=forum)
@@ -89,7 +85,7 @@ def addInDiscussion(request, forum_id):
 #     # topic = forum.topic
 #     # description = forum.description
 
-#     template = 'comunicado/editInForum.html'
+#     template = 'comunicado/edit_in_forum.html'
 #     context = {
 #         'form': form,
 #         # {
@@ -102,11 +98,13 @@ def addInDiscussion(request, forum_id):
 #     return render(request, template, context)
 
 
-def editInDiscussion(request, discussion_id):
+def edit_in_discussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
-# discussion = get_object_or_404(Discussion, pk=discussion_id)
     user = request.user
+
+    # Code underneath only allows users to edit their own message
+    # In order to edit someone else's message, please see note below
     author = discussion.nick
     if user == author:
         if request.method == 'POST':
@@ -119,13 +117,18 @@ def editInDiscussion(request, discussion_id):
                 messages.error(request, "Failed to update that. Please ensure the form is valid.")
         else:
             form = CreateInDiscussion(instance=discussion)
-            messages.info(request, f'you can now edit {Discussion.nick} opinion')
+            messages.info(request, f'you can now edit {author} opinion')
     else:
         messages.error(request, "You cannot edit this message, because it's not yours!")
         print("You were trying to edit the post of other author, you naughty naughty!")
         placeholder = "You cannot edit this message, because it's not yours!"
         form = CreateInDiscussion(request.POST, initial={'forum': discussion, 'nick': user, 'discuss': placeholder })
 
+        """
+        PLEASE READ: The commented code underneath is left in a purpose,
+        as it will allow superuser to edit any message, despite the author,
+        if we will comment whole that bit above and uncomment this one here.
+        """
     # if request.method == 'POST':
     #     form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
     #     if form.is_valid:
@@ -136,20 +139,19 @@ def editInDiscussion(request, discussion_id):
     #         messages.error(request, "Failed to update that. Please ensure the form is valid.")
     # else:
     #     form = CreateInDiscussion(instance=discussion)
-    #     messages.info(request, f'you can now edit {Discussion.nick} opinion')
+    #     messages.info(request, f'you can now edit {user} opinion')
 
-    template = 'comunicado/editInDiscussion.html'
+    template = 'comunicado/edit_in_discussion.html'
 
     context = {
         'form': form,
         'discussion': discussion,
-        # 'nick': nick
     }
 
     return render(request, template, context)
 
 
-def deleteInForum(request, forum_id):
+def delete_in_forum(request, forum_id):
     """ Delete whole forum"""
     user = request.user
     forum = get_object_or_404(Forum, pk=forum_id)
@@ -160,21 +162,25 @@ def deleteInForum(request, forum_id):
     else:
         messages.error(request, "You cannot delete this topic.")
         print("You were trying to delete the form of other author, you naughty naughty!")
+        # Right now user can only delete the topic opened by themselves. 
+        # If it will be neccesssary to delete other users topic, please uncomment function underneath
     # forum.delete()
     messages.success(request, "Forum deleted successfuly!")
     return redirect(reverse('comunicado'))
 
 
-def deleteInDiscussion(request, discussion_id):
-    """ Delete whole forum"""
+def delete_in_discussion(request, discussion_id):
+    """ Delete your message"""
     discussion = get_object_or_404(Discussion, pk=discussion_id)
     user = request.user
     author = discussion.nick
     if user == author:
         discussion.delete()
     else:
-        messages.error(request, "You cannot delete this topic.")
-        print("You were trying to delete the post of other author, you naughty naughty!")
+        messages.error(request, "You cannot delete this message.")
+        print("You were trying to delete the post of other author, please don't do that!")
+        # Right now users can only delete the messages wrote by themselves. 
+        # If it will be neccesssary to delete other users message, please uncomment function underneath
     # discussion.delete()
-    messages.success(request, "Answer deleted successfuly!")
+    messages.success(request, "Message deleted successfuly!")
     return redirect(reverse('comunicado'))

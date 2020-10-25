@@ -139,10 +139,11 @@ else:
         }
     }
 
-# Uncomment this in order to migrate to heroku
+# Uncomment this part instead of the one on top, in order to migrate to heroku
 # DATABASES = {
 #     'default': dj_database_url.parse('here put your database from Heroku')
 # }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid min_height " id="comunicado">
+	<div class="row ">
+		<div class="col-8 mx-auto text-center text-uppercase ">
+            <div class="col-12 col-md-10 col-lg-7 col-xl-5 mx-auto p-2">
+			    <h4 class="font-logo bg-nav my-4">Edit your message</h4>
+            </div>
+		</div>
+		<div class="col-10 col-md-8 col-lg-6 min_height text-center my-auto mx-auto">
+
+            <form action="{% url 'edit_in_discussion' discussion.id %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+            <input type="submit" class="btn mt-auto mb-4 start-now mx-auto" value="Edit message">
+            </form>
+			</div>
+		</div>
+	</div>
+	
+    {% endblock %}

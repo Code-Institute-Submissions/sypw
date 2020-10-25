@@ -7,18 +7,19 @@
 
 {% block content %}
 
-    <div class="container-fluid min_height " id="comunicado">
+    <div class="container-fluid " id="comunicado">
         <div class="row ">
-            <div class="col-12 col-md-8 mx-auto text-center text-uppercase ">
-                <div class="col-12 col-md-10 col-lg-7 col-xl-5 mx-auto p-2">
-                    <h4 class="font-logo bg-nav my-4">Start new Topic</h4>
-                </div>
+            <div class="col-2 col-md-7 mx-auto text-center text-uppercase ">
+                <h4 class="font-logo my-4">Edit Topic</h4>
             </div>
-            <div class="min_height col-10 col-md-8 col-lg-7 text-center my-5 mx-auto">
-                <form action="{% url 'addInForum' %}" method="POST">
+            <div class="col-10 col-md-8 col-lg-7 text-center my-5 mx-auto">
+                <form action="{% url 'edit_in_forum' forum.id %}" method="POST">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <input type="submit" class="btn start-now" value="submit">
+                    <div class="text-right">
+                        <a href="{% url 'comunicado'%}" class="start-now btn rounded">Cancel</a>
+                        <button class="btn start-now" type="submit">Update Forum</button>
+                    </div>
                 </form>
 
 			</div>
@@ -38,8 +39,5 @@
 			window.scrollTo(0,0)
 		});
 	</script>
-	<script>
-        $('.collapse').collapse();
-    </script>
 {% endblock %}
 

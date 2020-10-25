@@ -1,9 +1,5 @@
-# from django.shortcuts import render, get_object_or_404
-
 from django.forms import ModelForm
 from .models import Forum, Discussion
-# from profiles.models import UserProfile
-# from django.contrib.auth.models import User
 
 
 class CreateInForum(ModelForm):
@@ -32,8 +28,6 @@ class CreateInForum(ModelForm):
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            # else:
-            #     self.fields[field].widget.attrs['value'] = 'auth.User'
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
 
@@ -53,9 +47,7 @@ class CreateInDiscussion(ModelForm):
             'discuss': 'Here you can write your message',
         }
 
-        # self.fields['discuss'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            # if field != 'nick':
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'

@@ -7,35 +7,40 @@
 
 {% block content %}
 
-<div class="container-fluid min_height " id="comunicado">
+<div class="container-fluid min_height d-block" id="comunicado">
 	<div class="row ">
 		<div class="col-8 mx-auto text-center text-uppercase ">
             <div class="col-12 col-md-10 col-lg-7 col-xl-5 mx-auto p-2">
-			    <h4 class="font-logo bg-nav my-4">Edit your message</h4>
+			<h4 class="font-logo rounded  bg-nav my-4">Add your message to Forum: <br> "{{ forum.topic }}"</h4>
             </div>
 		</div>
-		<div class="col-10 col-md-8 col-lg-6 text-center my-auto mx-auto">
+		<div class="col-12 col-md-8 col-lg-7 text-center d-block my-auto mx-auto">
 
-            <form action="{% url 'editInDiscussion' discussion.id %}" method="POST">
+            <form action="{% url 'add_in_discussion' forum.id %}" method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
-            <input type="submit" class="btn mt-auto mb-4 start-now mx-auto" value="Edit message">
+            <input type="submit" class="btn start-now my-3 mx-auto" value="submit">
             </form>
 			</div>
 		</div>
 	</div>
-	<!-- <div class="btt-button shadow-sm rounded border border-black">
+	<div class="btt-button shadow-sm rounded border border-black">
 		<a class="btt-link d-flex h-100">
 			<i class="fas fa-chevron-up fa-lg text-black mx-auto my-auto"></i>
 		</a>
-	</div> -->
+	</div>
     {% endblock %}
 
 {% block postloadjs %}
     
-	<!-- <script type="text/javascript">
+	<script type="text/javascript">
     	$('.btt-link').click(function(e) {
 			window.scrollTo(0,0)
 		});
-	</script> -->
+	</script>
+
+	<script>
+        $('.collapse').collapse();
+    </script>
 {% endblock %}
+
