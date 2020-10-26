@@ -117,7 +117,7 @@
 									</div>
 								</div>
 								<div class=" text-darkish text-left">
-					    			<small> By: {{forum.name}}. &emsp;
+					    			<small> <strong> By: {{forum.name}}.</strong> &emsp;
                                         Email- {{forum.email}}  &emsp; </small>
 									<small class="text-right float-right"> {{ forum.date }}</small>
 								</div>
@@ -129,11 +129,11 @@
                         Description: &emsp;
                                 <strong> {{forum.description}} </strong>
                                 <hr>
-                                <h6 class="text-center text-darkish my-auto">Messages from other users:</h6>
+                                <h6 class="text-center font-logo text-darkish my-auto">Messages from other users:</h6>
                                 </div>
                         {% else %}
                         
-								<h6 class="text-center text-darkish my-2">Messages from other users:</h6>
+								<h6 class="text-center font-logo text-darkish my-2">Messages from other users:</h6>
                         {% endif %}
 								<hr>
                             {% for discuss in discussions%}
@@ -142,7 +142,7 @@
                                     
 									<div class="row">
 									<div class="col-12 col-md-4 col-lg-4 ">
-										<small class="pl-2"> {{ objs.nick }} 
+										<small class="pl-2"> <strong> {{ objs.nick }} </strong>
 											<br>
                                          {{ objs.date }}
 										</small>
