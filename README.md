@@ -18,11 +18,11 @@ I wanted this app to be ineractive, intuitive, responsive and user-friendly. Alt
 
 To make use of it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it is my favourite color and it has generally positive reputation.
 
-My first idea for the look of SYPW can be seen [here]() and [here]().
+My first idea for the look of SYPW can be seen [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) and [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). It did not really change a lot, except for homepage look and payslips functionality.
 
 ## User
 I identified a User as a manager of small to middle-size company and their team. (With the payment system changed from test to real and further database development, it can be more of course.) 
-<!-- For now let's call him Haydn, just like in my partner's case, which I described above. -->
+
 
 To begin with, I assumed, that this app wll only be used by one company, so we don't need to worry about sorting users by company and divide access to some parts of the website just yet.
 
@@ -135,8 +135,24 @@ I found it sort of funny and I belive it matches whole SYPW theme.
 
 * Payslips, as described above, will only provide ability to paste ready payslip file for hr_team members. Except that, every user will only have an access to their own paylips.
 
+* Possibility to differ app content depending on Company- so I could earn real money on this projet at some point.
 
+# Technologies
 
+In this project, I used following technologies:
+* HTML5 to structure the page;
+* CSS3 for adding the style;
+* Bootstrap 4 for intuitive navigation and easy styling;
+* JavaScript to add functionality and logic;
+* Django as main core for whole projec;
+* jQuery for finding elements in the DOM tree;
+* GitPod as an enviroment for my workspace;
+* GitHub for version control and to store all files;
+* FontAwesome to get some fancy icons;
+* Google Fonts for the fonts I'm using accross the pages;
+* Gmail to send real messages in Production;
+* Developer Tools (build-in feature of Google Chrome), that allowed me to apply all the changes I intened to make and to see their effects (or lack of effect in many cases) immediately;
+* [jshint](https://jshint.com/) for final, automatic tests of my JavaScript (although it does not recognise the jQuery);
 
 
 # Credit

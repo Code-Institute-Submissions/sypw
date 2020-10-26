@@ -4,7 +4,7 @@ $('.toast').toast('show');
 
 
 $('.btt-link').click(function(e) {
-		window.scrollTo(0,0)
+		window.scrollTo(0,0);
     });
     
 
@@ -14,9 +14,5 @@ $('#accordion{{forloop.counter}}').collapse({
 
 
 function notMine(){
-    alert("This is not my Youtube Channel, but it's my favourite composer.")};
-
-
-
-
-
+    alert("This is not my Youtube Channel, but it's my favourite composer.");
+}
