@@ -1,4 +1,4 @@
-# Sort Your Paperwork (SYPW)
+# Sort Your Paper Work (SYPW)
 ## Milestone Project 4 by Stan Kaczorkiewicz
 
 The main idea behind this project is the conversation I once had with my
@@ -18,7 +18,7 @@ I wanted this app to be ineractive, intuitive, responsive and user-friendly. Alt
 
 To make it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it is my favourite color and it has generally positive associations.
 
-My first idea for the look of SYPW was as follows: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). 
+My first idea for the look of SYPW was as follows: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg)
 
 It did not really change a lot, except for homepage look and payslips functionality.
 
@@ -106,7 +106,7 @@ As such, this whole app will need to be changed to only allow User with access t
 
 ## Forum (Comunicado)
 I was going to call that app 'messages' but in Django that name is reserved for Django's messages (I didn't know that before I tried). 
-*The actual name of it came to me by accident as I'm currently learnning Spanish and it sounds Spanish. I didn't know that it's an actual Spanish word for notice or release, that actualy matches it's function. Even more surprising to me was the fact, that this word also exist in English and means **a brief report for immediate publication** that is also quite adequate.*
+*The actual name of it came to me by accident as I currently learn Spanish and it sounds Spanish. I didn't know that it's an actual Spanish word for notice or release, that actualy matches it's function. Even more surprising to me was the fact, that this word also exist in English and means **a brief report for immediate publication** that is also quite adequate in my opinion.*
 
 While starting with this app, I thought about direct messages between users, but that would be just a copy of emails, that are a nightmare of all 
 office workes around the world.
@@ -138,7 +138,7 @@ I found it sort of funny and I believe it matches the whole SYPW theme.
 
 * Payslips, as described above, will only provide ability to paste ready payslip file for hr_team members. Except that, every user will only have an access to their own paylips.
 
-* Possibility to adjust app content depending on Company- so I could earn real money on this projet at some point.
+* Possibility to adjust app content depending on customer company size - so I could earn real money on this projet at some point.
 
 # Technologies
 
@@ -189,8 +189,10 @@ Then I pushed it to Heroku once everything (or at least most critical parts) wer
 I really liked it more that way.
 Also couple of times I encountered an issue in heroku app, even if it worked in Production.
 To fix that I had to set DEBUG to True in Heroku Config Vars, so I could see where the problem was.
-Now current version of my app is the same in both, GitHub and Heroku, and DEbug is set to True only in dev version.
+Now current version of my app is the same in both, GitHub and Heroku, and DEBUG is set to True only in dev version.
 
+Just before submitting I found few minor style or grammar issues in README file. I quickly fixed that in Github, so the last commit will be only here, not on Heroku.
+But as it is just readme file, it won't have any impact on any function of my app.
 
 
 # Credit
