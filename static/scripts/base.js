@@ -6,11 +6,6 @@ $('.toast').toast('show');
 $('.btt-link').click(function(e) {
 		window.scrollTo(0,0);
     });
-    
-
-$('#accordion{{forloop.counter}}').collapse({
-            toggle: true
-        });
 
 
 function notMine(){
