@@ -129,13 +129,11 @@ I found it sort of funny and I belive it matches whole SYPW theme.
 
 # Features left to implement
 
-As mentioned couple times above, main thing this website needs is leveling of the user profiles. 
+* As I mentioned couple times above, main feature this website needs to be competitive on the market is leveling system for the user profiles. As for now, admins/managers abilities are available only to superusers, using standard django levels. The goal is to implement at least three different levels of User- manager_user, ht_team and user (team member)/
 
-Also in holiday app I want user to be able to see their holidays on the calendar that will be displayed there.
+* Holiday app works fine for now, but my idea for developing it in the future is to change the calendar for one, where user will be able to see not only all his/her holiday but also holiday of other members of their team.
 
-Payslips functionality will also need a lot of work done.
-
-And finally view of whole app will be different for user, manager_user and hr_team.
+* Payslips, as described above, will only provide ability to paste ready payslip file for hr_team members. Except that, every user will only have an access to their own paylips.
 
 
 
@@ -154,4 +152,4 @@ Almost all of the pictures used on this side, come from [here](www.unsplash.com)
 
 Idea for Calendar that only appears after you set the right vale comes from [here](https://codepen.io/tmrDevelops/pen/yHDge), but has been found [on this website](https://uicookies.com/bootstrap-calendar/)
 
-I also would like to say Thank You to the author of [this video](https://www.youtube.com/watch?v=2KqhBkMv7aM) as I found it helpful
+I also would like to say Thank You to the author of [this video](https://www.youtube.com/watch?v=2KqhBkMv7aM) as I found it helpful during the process of creation of this app.
