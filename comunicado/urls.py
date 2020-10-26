@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-# from comunicado.views import addInDiscussion, addInForum
 
 
 urlpatterns = [

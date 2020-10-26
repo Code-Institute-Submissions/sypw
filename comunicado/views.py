@@ -62,6 +62,7 @@ def add_in_discussion(request, forum_id):
             form.email = email2
             form.forum = forum
             form.save()
+            messages.info(request, f'Your opinion has been added')
             return redirect('comunicado')
         else:
             print("iiiiiiiiiiooooooooooooooooooo iiiiiiiiiioooooooooooo this is django police. Your form is invalid bro!")
@@ -78,21 +79,33 @@ def add_in_discussion(request, forum_id):
 
 
 # def edit_in_forum(request, forum_id):
-#     "Edit the Forum"
+#     """Edit the Forum"""
 #     forum = get_object_or_404(Forum, pk=forum_id)
-#     form = CreateInForum(instance=forum)
+#     form = CreateInForum(request.POST, request.FILES, instance=forum)
+
 #     messages.info(request, f'You are editing {forum.topic}')
-#     # topic = forum.topic
-#     # description = forum.description
+#     topic = forum.topic
+#     description = forum.description
+
+#     if request.method == 'POST':
+#         form = CreateInForum(request.POST, request.FILES, instance=forum)
+#         if form.is_valid:
+#             form.save()
+#             messages.success(request, "You successfully updated that topic!")
+#             return redirect(reverse('comunicado'))
+#         else:
+#             messages.error(request, "Failed to update that. Please ensure the form is valid.")
+#     else:
+#         form = CreateInDiscussion(instance=forum)
+#         messages.info(request, f'you can now edit this topic')
 
 #     template = 'comunicado/edit_in_forum.html'
+
 #     context = {
 #         'form': form,
-#         # {
-#         #     'topic': topic,
-#         #     'description': description,
-#         # },
-#         'forum': Forum,
+#         'topic': topic,
+#         'description': description,
+#         'forum': forum,
 #     }
 
 #     return render(request, template, context)
