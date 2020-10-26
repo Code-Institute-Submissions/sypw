@@ -18,7 +18,7 @@ I wanted this app to be ineractive, intuitive, responsive and user-friendly. Alt
 
 To make use of it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it is my favourite color and it has generally positive reputation.
 
-My first idea for the look of SYPW can be seen [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) and [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). It did not really change a lot, except for homepage look and payslips functionality.
+My first idea for the look of SYPW was: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) and [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). It did not really change a lot, except for homepage look and payslips functionality.
 
 ## User
 I identified a User as a manager of small to middle-size company and their team. (With the payment system changed from test to real and further database development, it can be more of course.) 
@@ -153,18 +153,46 @@ In this project, I used following technologies:
 * Gmail to send real messages in Production;
 * Developer Tools (build-in feature of Google Chrome), that allowed me to apply all the changes I intened to make and to see their effects (or lack of effect in many cases) immediately;
 * [jshint](https://jshint.com/) for final, automatic tests of my JavaScript (although it does not recognise the jQuery);
+* To beautify my code I used [that program](https://codebeautify.org/)
+* [Stripe](https://stripe.com/gb) to enable payment system
+
+
+# Testing 
+
+During the process of creations of SYPW, I was constantly testing all new functionalities using both, GitPod and Google Chrome Dev Tools.
+Some of those tests effects I alrady described in Forum section.
+Sometimes painful process of constant manual tests, was rewarded with all intended functionality to work in harmony, and (hopefully) giving nice and smooth User Experience.
+
+I also done some automatic tests form my static files and al HTML. It's worth to mention, that because of use Jinja language, most of HTML validators recognize it as an error and don't want to cooperate any more.
+
+Another interesting issue that I encountered while testing, was that all Forum Topics stopped working, once I introduced automatic user adding function.
+It happened because previous version allowed User to Write any name as an author, so they did not match tho ones in database.
+To fix that I had to turn back all the changes, delete all Topics and then start again.
+Luckily I did not push changes to Heroku yet, so I had time to clear the Forum in Production, before error occured.
+
+# Deployment
+I used Heroku to store my app in production and AWS to store all media and static files. As it was my third project using S3 in AWS was less painful than previously, but still required me to relay on Code Institute example. 
+
+In order to make migrations to Heroku easier, I decided to leave commented database part in settings file, 
+as now it only require 3 clicks and paste of my database URL, instead of changing whole function, as I did before.
+
+In this project I did not push all of my changes to Heroku every day, like I did in my previous projects.
+Quite a few times when on the end of the day I encountered some bug or issue, I refrained from sending it to Heroku, so my live app could still work, even if dev version crushed. 
+Then I pushed it to Heroku once everything (or at least most critical parts) were fixed.
+I really liked it more that way.
+Also couple times I encountered an issue in heroku app, even if it worked in Production.
+To fix that I had to set DEBUG to True in Heroku Config Vars, so I could see where the problem is.
+
 
 
 # Credit
+First of all I would like to say Thank You to **Scott**, Tutor from Code Institute, that helped me to understand Many_to_one dependencies and fix my Forum app.
 
-To beautify my code I used [that program](https://codebeautify.org/)
+I'm also grateful to my mentor, **Reuben Ferrante** for his patience and valuable feedback, that I recived quite a few times during development of SYPW.
 
-First of all I would like to say Thank You to Scott, Tutor from Code Institute, that helped me to understand Many_to_one dependencies and fix my Forum app.
+While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished in August.
 
-While making this project I was inspired by the ButiqueAdo app, which is Django project of the Code Institute, that I accomplished few weeks ago.
-
-Almost all of the pictures used on this side, come from [here](www.unsplash.com), which is a great source of open source photos. Those that doesn't come from there, belong to me.
-
+Almost all of the pictures used on this side, come from [here](www.unsplash.com), which is a great source of free photos. Those that don't come from there, has been taken by myself.
 
 Idea for Calendar that only appears after you set the right vale comes from [here](https://codepen.io/tmrDevelops/pen/yHDge), but has been found [on this website](https://uicookies.com/bootstrap-calendar/)
 
