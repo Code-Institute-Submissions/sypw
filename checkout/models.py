@@ -2,7 +2,6 @@ import uuid
 
 from django.db.models import Sum
 from django.db import models
-from django.conf import settings
 
 from django_countries.fields import CountryField
 
@@ -38,15 +37,18 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update total each time a line item is added. This functionality may be useful when I will expand my website
+        Update total each time a line item is added.
+        This functionality may be useful when I will expand my website
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))
+        ['lineitem_total__sum'] or 0
 
         self.grand_total = self.order_total
         self.save()
 
     def save(self, *args, **kwargs):
-        """ This one is to override original save method, in order to set the order number if it has not been set already"""
+        """ This one is to override original save method,
+        in order to set the order number if it has not been set already"""
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)

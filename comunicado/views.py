@@ -52,9 +52,15 @@ def add_in_discussion(request, forum_id):
     email2 = request.user.email
 
     forum = get_object_or_404(Forum, pk=forum_id)
-    form = CreateInDiscussion(request.POST, request.FILES, initial={'forum': forum, 'nick': nick})
+    form = CreateInDiscussion(
+        request.POST,
+        request.FILES,
+        initial={'forum': forum, 'nick': nick})
     if request.method == 'POST':
-        form = CreateInDiscussion(request.POST, request.FILES, initial={'forum': forum, 'nick': nick})
+        form = CreateInDiscussion(
+            request.POST,
+            request.FILES,
+            initial={'forum': forum, 'nick': nick})
 
         if form.is_valid():
             form = form.save(commit=False)
@@ -62,10 +68,10 @@ def add_in_discussion(request, forum_id):
             form.email = email2
             form.forum = forum
             form.save()
-            messages.info(request, f'Your opinion has been added')
+            messages.info(request, 'Your opinion has been added')
             return redirect('comunicado')
         else:
-            print("iiiiiiiiiiooooooooooooooooooo iiiiiiiiiioooooooooooo this is django police. Your form is invalid bro!")
+            print("Iiiiiiiiiiooooooooooooooooooo iiiiiiiiiioooooooooooo this is Django police! Your form is invalid bro!")
 
     template = 'comunicado/add_in_discussion.html'
     context = {
@@ -88,21 +94,33 @@ def edit_in_discussion(request, discussion_id):
     author = discussion.nick
     if user == author:
         if request.method == 'POST':
-            form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
+            form = CreateInDiscussion(
+                    request.POST,
+                    request.FILES,
+                    instance=discussion)
             if form.is_valid:
                 form.save()
                 messages.success(request, "Great, you fixed that!")
                 return redirect(reverse('comunicado'))
             else:
-                messages.error(request, "Failed to update that. Please ensure the form is valid.")
+                messages.error(
+                    request,
+                    "Failed to update that. Please ensure the form is valid.")
         else:
             form = CreateInDiscussion(instance=discussion)
             messages.info(request, f'you can now edit {author} opinion')
     else:
-        messages.error(request, "You cannot edit this message, because it's not yours!")
+        messages.error(
+            request,
+            "You cannot edit this message, because it's not yours!")
         print("You were trying to edit the post of other author, you naughty naughty!")
         placeholder = "You cannot edit this message, because it's not yours!"
-        form = CreateInDiscussion(request.POST, initial={'forum': discussion, 'nick': user, 'discuss': placeholder })
+        form = CreateInDiscussion(
+            request.POST,
+            initial={
+                'forum': discussion,
+                'nick': user,
+                'discuss': placeholder})
 
         """
         PLEASE READ: The commented code underneath is left in a purpose,
@@ -110,13 +128,18 @@ def edit_in_discussion(request, discussion_id):
         if we will comment whole that bit above and uncomment this one here.
         """
     # if request.method == 'POST':
-    #     form = CreateInDiscussion(request.POST, request.FILES, instance=discussion)
+    #     form = CreateInDiscussion(
+    #           request.POST,
+    #           request.FILES,
+    #           instance=discussion)
     #     if form.is_valid:
     #         form.save()
     #         messages.success(request, "Great, you fixed that!")
     #         return redirect(reverse('comunicado'))
     #     else:
-    #         messages.error(request, "Failed to update that. Please ensure the form is valid.")
+    #         messages.error(
+    #           request,
+    #           "Failed to update that. Please ensure the form is valid.")
     # else:
     #     form = CreateInDiscussion(instance=discussion)
     #     messages.info(request, f'you can now edit {user} opinion')
@@ -142,8 +165,9 @@ def delete_in_forum(request, forum_id):
     else:
         messages.error(request, "You cannot delete this topic.")
         print("You were trying to delete the form of other author, you naughty naughty!")
-        # Right now user can only delete the topic opened by themselves. 
-        # If it will be neccesssary to delete other users topic, please uncomment function underneath
+        # Right now user can only delete the topic opened by themselves.
+        # If it will be neccesssary to delete other users topic,
+        # please uncomment function underneath
     # forum.delete()
     messages.success(request, "Forum deleted successfuly!")
     return redirect(reverse('comunicado'))
@@ -159,8 +183,9 @@ def delete_in_discussion(request, discussion_id):
     else:
         messages.error(request, "You cannot delete this message.")
         print("You were trying to delete the post of other author, please don't do that!")
-        # Right now users can only delete the messages written by themselves. 
-        # If it will be neccesssary to delete other users message, please uncomment function underneath
+        # Right now users can only delete the messages written by themselves.
+        # If it will be neccesssary to delete other users message,
+        # please uncomment function underneath
     # discussion.delete()
     messages.success(request, "Message deleted successfuly!")
     return redirect(reverse('comunicado'))
