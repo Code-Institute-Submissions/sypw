@@ -78,39 +78,6 @@ def add_in_discussion(request, forum_id):
     return render(request, template, context,)
 
 
-# def edit_in_forum(request, forum_id):
-#     """Edit the Forum"""
-#     forum = get_object_or_404(Forum, pk=forum_id)
-#     form = CreateInForum(request.POST, request.FILES, instance=forum)
-
-#     messages.info(request, f'You are editing {forum.topic}')
-#     topic = forum.topic
-#     description = forum.description
-
-#     if request.method == 'POST':
-#         form = CreateInForum(request.POST, request.FILES, instance=forum)
-#         if form.is_valid:
-#             form.save()
-#             messages.success(request, "You successfully updated that topic!")
-#             return redirect(reverse('comunicado'))
-#         else:
-#             messages.error(request, "Failed to update that. Please ensure the form is valid.")
-#     else:
-#         form = CreateInDiscussion(instance=forum)
-#         messages.info(request, f'you can now edit this topic')
-
-#     template = 'comunicado/edit_in_forum.html'
-
-#     context = {
-#         'form': form,
-#         'topic': topic,
-#         'description': description,
-#         'forum': forum,
-#     }
-
-#     return render(request, template, context)
-
-
 def edit_in_discussion(request, discussion_id):
     """Editing a discusion """
     discussion = get_object_or_404(Discussion, pk=discussion_id)
@@ -192,7 +159,7 @@ def delete_in_discussion(request, discussion_id):
     else:
         messages.error(request, "You cannot delete this message.")
         print("You were trying to delete the post of other author, please don't do that!")
-        # Right now users can only delete the messages wrote by themselves. 
+        # Right now users can only delete the messages written by themselves. 
         # If it will be neccesssary to delete other users message, please uncomment function underneath
     # discussion.delete()
     messages.success(request, "Message deleted successfuly!")
