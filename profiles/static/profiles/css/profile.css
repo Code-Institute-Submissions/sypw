@@ -4,7 +4,7 @@
 }
 
 #my-profile {
-    background-image: url('/media/we_like_you.jpg');
+    background: url('/media/profile.jpg') center no-repeat;
     background-size: cover;
 }
 
