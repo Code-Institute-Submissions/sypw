@@ -18,11 +18,12 @@ I wanted this app to be ineractive, intuitive, responsive and user-friendly. Alt
 
 To make it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it is my favourite color and it has generally positive associations.
 
-My first idea for the look of SYPW was: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) and [here](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). It did not really change a lot, except for homepage look and payslips functionality.
+My first idea for the look of SYPW was as follows: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) [alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). 
+
+It did not really change a lot, except for homepage look and payslips functionality.
 
 ## User
-I identified a User as a manager of small to middle-size company and their team. (With the payment system changed from test to real and further database development, it can be more, of course.) 
-
+I identified a User as a manager of small to middle-size company and their team. (With the payment system changed from test to real and further database development, it can be more, of course.)
 
 To begin with, I assumed, that this app will only be used by one company, so we don't need to worry about sorting users by company and divide access to some parts of the website just yet.
 
@@ -110,8 +111,8 @@ I was going to call that app 'messages' but in Django that name is reserved for 
 While starting with this app, I thought about direct messages between users, but that would be just a copy of emails, that are a nightmare of all 
 office workes around the world.
 The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/).
-It is probably most complex app of this project and creation of it took me a lot of time.
 
+It is probably most complex app of this project and creation of it took me a lot of time.
 The main problem I had with it was to save user's name automatically to their posts and messages, also to match discussion with Forum and to add right email. 
 For a little while 'name' and 'email' in Forum part and also 'nick' and 'forum' in Discussion was enabling User to add any name of any user registered in database.
 That would leave a lot of room for corruption or spam messages.
@@ -146,7 +147,7 @@ In this project, I used following technologies:
 * JavaScript to add functionality and logic;
 * Django as main core for whole projec;
 * jQuery for finding elements in the DOM tree;
-* GitPod as an enviroment for my workspace;
+* GitPod as an environment for my workspace;
 * GitHub for version control and to store all files;
 * FontAwesome to get some fancy icons;
 * Google Fonts for the fonts I'm using accross the pages;
@@ -171,7 +172,11 @@ To fix that I had to turn back all the changes, delete all Topics and then start
 Luckily I did not push changes to Heroku yet, so I had time to clear the Forum in Production, before error occured.
 
 # Deployment
-I used Heroku to store my app in production and AWS to store all media and static files. As it was my third project using S3 in AWS was less painful than previously, but still required me to rely on Code Institute example. 
+I used Heroku to store my app in production and AWS to store all media and static files. As it was my third project using S3 in AWS was less painful than previously, but still required me to rely on Code Institute example.
+
+To deploy my app to Heroku I had to create a Procfile (without any extension in the name) and tell Heroku what is it ( I mean my app, not Procfile).
+Then I needed to create requirements.txt file where all the requirements from pip3 ended after I use freeze omand in CLI.
+Finally I had to set up environment variables down in Heroku's settings (called there config vars) and migrate my database to postgres, so Heroku can have an access to it.
 
 In order to make migrations to Heroku easier, I decided to leave commented database part in settings file, 
 as now it only requires 3 clicks and paste of my database URL, instead of changing whole function, as I did before.
@@ -182,6 +187,7 @@ Then I pushed it to Heroku once everything (or at least most critical parts) wer
 I really liked it more that way.
 Also couple of times I encountered an issue in heroku app, even if it worked in Production.
 To fix that I had to set DEBUG to True in Heroku Config Vars, so I could see where the problem was.
+Now current version of my app is the same in both, GitHub and Heroku, and DEbug is set to True only in dev version.
 
 
 
