@@ -18,7 +18,7 @@ I wanted this app to be ineractive, intuitive, responsive and user-friendly. Alt
 
 To make it intuitive, I used Bootstrap tools, and I chose light-blue and blue colors, as it is my favourite color and it has generally positive associations.
 
-My first idea for the look of SYPW was as follows: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) [alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). 
+My first idea for the look of SYPW was as follows: ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_1.jpg) ![alt text](https://github.com/MrColorado35/sypw/blob/master/media/plan_2.jpg). 
 
 It did not really change a lot, except for homepage look and payslips functionality.
 
@@ -111,6 +111,8 @@ I was going to call that app 'messages' but in Django that name is reserved for 
 While starting with this app, I thought about direct messages between users, but that would be just a copy of emails, that are a nightmare of all 
 office workes around the world.
 The idea for this form of comunication between users comes from [here](https://data-flair.training/blogs/discussion-forum-python-django/).
+Difference in Forum's colors on view for super and non-superuser is left on purpose- it helped me to realise on which account I am logged in right now.
+While both views looked exactly the same, it was a bit confusing.
 
 It is probably most complex app of this project and creation of it took me a lot of time.
 The main problem I had with it was to save user's name automatically to their posts and messages, also to match discussion with Forum and to add right email. 
